@@ -1,0 +1,680 @@
+/* Capital Calculator (cc-*) — private investor simulator
+   Fresh modern look, light cream base, sharp typography. */
+
+.cc-view {
+  background: #F8F6F1;
+  color: #1A1208;
+  min-height: 100vh;
+}
+
+/* HEADER */
+.cc-header {
+  padding-top: 56px !important;
+  padding-bottom: 24px !important;
+  background: #F8F6F1;
+}
+.cc-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 14px;
+  background: #FFFFFF;
+  border: 1px solid rgba(26, 18, 8, 0.12);
+  border-radius: 999px;
+  font-family: "Raleway", sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #1A1208;
+}
+.cc-lock {
+  width: 8px; height: 8px;
+  border-radius: 999px;
+  background: #4B8E1E;
+  box-shadow: 0 0 0 3px rgba(75, 142, 30, 0.18);
+  font-size: 0;
+}
+.cc-h1 {
+  margin: 18px 0 12px;
+  font-family: "Raleway", sans-serif;
+  font-size: 56px;
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  color: #1A1208;
+  max-width: 18ch;
+}
+.cc-h1-accent { color: #4B8E1E; }
+.cc-sub {
+  max-width: 70ch;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #3D2817;
+}
+.cc-sub strong { color: #1A1208; font-weight: 800; }
+
+/* TICKET INPUT */
+.cc-ticket-section {
+  padding-top: 8px !important;
+  padding-bottom: 24px !important;
+}
+.cc-ticket-card {
+  display: grid;
+  grid-template-columns: minmax(260px, 1fr) 2fr;
+  gap: 48px;
+  align-items: center;
+  background: #FFFFFF;
+  border: 1px solid rgba(26, 18, 8, 0.10);
+  border-radius: 12px;
+  padding: 36px 40px;
+  box-shadow: 0 12px 32px rgba(26, 18, 8, 0.06);
+}
+.cc-ticket-l { border-right: 1px solid rgba(26, 18, 8, 0.08); padding-right: 40px; }
+.cc-ticket-k {
+  font-family: "Raleway", sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  color: #4A4035;
+  text-transform: uppercase;
+}
+.cc-ticket-v {
+  margin-top: 10px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 800;
+  font-size: 72px;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: #4B8E1E;
+  font-variant-numeric: tabular-nums;
+}
+.cc-ticket-sub {
+  margin-top: 8px;
+  font-size: 12px;
+  color: #4A4035;
+  letter-spacing: 0.04em;
+}
+.cc-stepper-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.cc-stepper {
+  appearance: none;
+  width: 44px; height: 44px;
+  border-radius: 999px;
+  border: 1px solid rgba(26, 18, 8, 0.18);
+  background: #FFFFFF;
+  color: #1A1208;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  transition: all 160ms ease;
+}
+.cc-stepper:hover {
+  background: #4B8E1E;
+  color: #FFFFFF;
+  border-color: #4B8E1E;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(75, 142, 30, 0.30);
+}
+.cc-slider {
+  flex: 1;
+  appearance: none;
+  -webkit-appearance: none;
+  height: 8px;
+  border-radius: 999px;
+  background: linear-gradient(to right,
+    #4B8E1E 0%, #4B8E1E var(--pct, 50%),
+    rgba(26, 18, 8, 0.10) var(--pct, 50%), rgba(26, 18, 8, 0.10) 100%);
+  outline: none;
+  cursor: pointer;
+}
+.cc-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 24px; height: 24px;
+  border-radius: 999px;
+  background: #FFFFFF;
+  border: 3px solid #4B8E1E;
+  box-shadow: 0 4px 10px rgba(75, 142, 30, 0.30);
+  cursor: pointer;
+}
+.cc-slider::-moz-range-thumb {
+  width: 24px; height: 24px;
+  border-radius: 999px;
+  background: #FFFFFF;
+  border: 3px solid #4B8E1E;
+  box-shadow: 0 4px 10px rgba(75, 142, 30, 0.30);
+  cursor: pointer;
+}
+.cc-scale {
+  margin-top: 14px;
+  display: flex;
+  justify-content: space-between;
+  font-family: "Raleway", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: #4A4035;
+  font-weight: 700;
+}
+
+/* SCENARIOS */
+.cc-scen-section {
+  padding-top: 32px !important;
+  padding-bottom: 56px !important;
+}
+.cc-scen-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.cc-scen {
+  position: relative;
+  background: #FFFFFF;
+  border: 1px solid rgba(26, 18, 8, 0.10);
+  border-radius: 12px;
+  padding: 28px 28px 26px;
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+.cc-scen:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 32px rgba(26, 18, 8, 0.08);
+}
+.cc-scen.is-featured {
+  background: linear-gradient(180deg, rgba(75, 142, 30, 0.06) 0%, #FFFFFF 50%);
+  border: 1px solid rgba(75, 142, 30, 0.40);
+  box-shadow: 0 18px 40px rgba(75, 142, 30, 0.14), 0 2px 6px rgba(26, 18, 8, 0.04);
+}
+.cc-scen.is-featured:hover { box-shadow: 0 24px 48px rgba(75, 142, 30, 0.22); }
+
+.cc-scen-flag {
+  position: absolute;
+  top: -10px;
+  left: 24px;
+  padding: 5px 12px;
+  background: #4B8E1E;
+  color: #FFFFFF;
+  font-family: "Raleway", sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  box-shadow: 0 6px 14px rgba(75, 142, 30, 0.30);
+}
+
+.cc-scen-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 22px;
+}
+.cc-scen-kicker {
+  font-family: "Raleway", sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #4A4035;
+}
+.cc-scen.is-featured .cc-scen-kicker { color: #4B8E1E; }
+.cc-scen-days {
+  font-family: "Raleway", sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  color: #1A1208;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+.cc-scen-days span {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #4A4035;
+  margin-left: 2px;
+}
+
+.cc-scen-hero {
+  text-align: center;
+  padding: 18px 0 14px;
+  border-top: 1px solid rgba(26, 18, 8, 0.08);
+  border-bottom: 1px solid rgba(26, 18, 8, 0.08);
+}
+.cc-scen-pct {
+  display: inline-flex;
+  align-items: baseline;
+  font-family: "Raleway", sans-serif;
+  font-size: 72px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: #1A1208;
+  font-variant-numeric: tabular-nums;
+}
+.cc-scen-pct span {
+  font-size: 28px;
+  font-weight: 700;
+  margin-left: 2px;
+  color: #4A4035;
+}
+.cc-scen.is-featured .cc-scen-pct,
+.cc-scen.is-featured .cc-scen-pct span { color: #4B8E1E; }
+
+.cc-scen-pct-lbl {
+  margin-top: 6px;
+  font-family: "Raleway", sans-serif;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #4A4035;
+}
+.cc-scen-amt {
+  margin-top: 8px;
+  font-family: "Raleway", sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  color: #1A1208;
+  font-variant-numeric: tabular-nums;
+}
+.cc-scen.is-featured .cc-scen-amt { color: #4B8E1E; }
+
+.cc-scen-explain {
+  margin: 16px 0 18px;
+  font-size: 13px;
+  line-height: 1.55;
+  color: #3D2817;
+  min-height: 40px;
+}
+
+.cc-scen-stats {
+  display: grid;
+  gap: 12px;
+  padding: 14px 0 0;
+  border-top: 1px dashed rgba(26, 18, 8, 0.10);
+}
+.cc-scen-stats > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.cc-stat-k {
+  font-family: "Raleway", sans-serif;
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #4A4035;
+}
+.cc-stat-v {
+  font-family: "Raleway", sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  color: #1A1208;
+  font-variant-numeric: tabular-nums;
+}
+
+.cc-scen-math {
+  margin-top: 16px;
+  padding: 10px 14px;
+  background: rgba(26, 18, 8, 0.04);
+  border-radius: 6px;
+  text-align: center;
+  font-family: "Raleway", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #4A4035;
+  font-variant-numeric: tabular-nums;
+}
+.cc-scen.is-featured .cc-scen-math {
+  background: rgba(75, 142, 30, 0.10);
+  color: #4B8E1E;
+}
+
+/* MECHANICS */
+.cc-mech-section {
+  padding-top: 48px !important;
+  padding-bottom: 24px !important;
+}
+.cc-mech-card {
+  background: #1A1208;
+  border-radius: 12px;
+  padding: 44px 48px;
+  color: #F8F6F1;
+}
+.cc-mech-title {
+  margin: 0 0 28px;
+  font-family: "Raleway", sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  color: #FFFFFF;
+}
+.cc-mech-steps {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+.cc-mech-steps li {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.cc-mech-n {
+  flex-shrink: 0;
+  width: 36px; height: 36px;
+  border-radius: 6px;
+  background: rgba(75, 142, 30, 0.18);
+  color: #4B8E1E;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Raleway", sans-serif;
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+}
+.cc-mech-h {
+  font-family: "Raleway", sans-serif;
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: -0.005em;
+  color: #FFFFFF;
+  line-height: 1.35;
+}
+.cc-mech-p {
+  margin-top: 6px;
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: rgba(248, 246, 241, 0.66);
+}
+
+/* CTA */
+.cc-cta-section {
+  padding-top: 32px !important;
+  padding-bottom: 80px !important;
+}
+.cc-cta-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(26, 18, 8, 0.10);
+  border-radius: 12px;
+  padding: 36px 40px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 32px;
+  align-items: center;
+  box-shadow: 0 12px 28px rgba(26, 18, 8, 0.06);
+}
+.cc-cta-eyebrow {
+  font-family: "Raleway", sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #4B8E1E;
+}
+.cc-cta-h {
+  margin-top: 6px;
+  font-family: "Raleway", sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #1A1208;
+}
+.cc-cta-p {
+  margin-top: 8px;
+  max-width: 58ch;
+  font-size: 14px;
+  line-height: 1.55;
+  color: #3D2817;
+}
+.cc-cta-r {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.cc-btn {
+  appearance: none;
+  padding: 14px 24px;
+  border-radius: 6px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 180ms ease;
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
+  border: 1px solid transparent;
+}
+.cc-btn.primary {
+  background: #4B8E1E;
+  color: #FFFFFF;
+  border-color: #4B8E1E;
+  box-shadow: 0 8px 18px rgba(75, 142, 30, 0.30);
+}
+.cc-btn.primary:hover {
+  background: #3D7517;
+  border-color: #3D7517;
+  transform: translateY(-1px);
+}
+.cc-btn.ghost {
+  background: transparent;
+  color: #1A1208;
+  border-color: rgba(26, 18, 8, 0.20);
+}
+.cc-btn.ghost:hover {
+  background: rgba(26, 18, 8, 0.04);
+  border-color: rgba(26, 18, 8, 0.40);
+}
+
+.cc-disclaimer {
+  margin-top: 28px;
+  font-size: 11.5px;
+  line-height: 1.6;
+  color: #6B5A48;
+  max-width: 88ch;
+}
+.cc-disclaimer strong { color: #1A1208; font-weight: 800; }
+
+/* Responsive */
+@media (max-width: 980px) {
+  .cc-ticket-card { grid-template-columns: 1fr; gap: 24px; }
+  .cc-ticket-l { border-right: 0; border-bottom: 1px solid rgba(26, 18, 8, 0.08); padding-right: 0; padding-bottom: 24px; }
+  .cc-scen-grid { grid-template-columns: 1fr; }
+  .cc-mech-steps { grid-template-columns: 1fr; gap: 20px; }
+  .cc-cta-card { grid-template-columns: 1fr; }
+  .cc-h1 { font-size: 40px; }
+}
+
+
+/* Tighter vertical rhythm · pull everything up */
+.cc-header { padding-top: 28px !important; padding-bottom: 12px !important; }
+.cc-h1 { font-size: 44px !important; margin: 10px 0 8px !important; line-height: 1.0 !important; }
+.cc-sub { font-size: 14px !important; line-height: 1.45 !important; margin: 0 !important; }
+.cc-ticket-section { padding-top: 0 !important; padding-bottom: 14px !important; }
+.cc-ticket-card { padding: 22px 28px !important; gap: 32px !important; }
+.cc-ticket-l { padding-right: 32px !important; }
+.cc-ticket-v { font-size: 54px !important; margin-top: 6px !important; }
+.cc-ticket-sub { margin-top: 4px !important; }
+.cc-scen-section { padding-top: 12px !important; padding-bottom: 28px !important; }
+.cc-scen { padding: 22px 22px 20px !important; }
+.cc-scen-head { margin-bottom: 14px !important; }
+.cc-scen-hero { padding: 12px 0 10px !important; }
+.cc-scen-pct { font-size: 56px !important; }
+.cc-scen-pct span { font-size: 22px !important; }
+.cc-scen-explain { margin: 10px 0 12px !important; min-height: 0 !important; }
+.cc-scen-stats { gap: 8px !important; padding-top: 10px !important; }
+.cc-scen-math { margin-top: 10px !important; padding: 8px 12px !important; }
+.cc-mech-section { padding-top: 14px !important; padding-bottom: 14px !important; }
+.cc-mech-card { padding: 28px 34px !important; }
+.cc-mech-title { margin-bottom: 18px !important; font-size: 22px !important; }
+.cc-mech-steps { gap: 22px !important; }
+.cc-cta-section { padding-top: 14px !important; padding-bottom: 48px !important; }
+.cc-cta-card { padding: 22px 28px !important; }
+.cc-cta-h { font-size: 26px !important; }
+.cc-cta-p { margin-top: 4px !important; font-size: 13px !important; }
+.cc-disclaimer { margin-top: 16px !important; }
+
+
+/* Pull entire calculator above the fold · header inline with ticket */
+.cc-view .section { padding-top: 0 !important; padding-bottom: 0 !important; }
+.cc-header { padding-top: 18px !important; padding-bottom: 8px !important; }
+.cc-h1 { font-size: 32px !important; max-width: 26ch !important; }
+.cc-h1 br { display: none; }
+.cc-h1-accent::before { content: " "; }
+.cc-eyebrow { padding: 5px 12px !important; font-size: 10px !important; }
+.cc-sub { font-size: 13px !important; max-width: 75ch !important; }
+.cc-ticket-section { padding-bottom: 8px !important; }
+.cc-ticket-card { padding: 16px 24px !important; gap: 24px !important; }
+.cc-ticket-l { padding-right: 24px !important; }
+.cc-ticket-v { font-size: 42px !important; }
+.cc-ticket-sub { font-size: 11px !important; }
+.cc-ticket-k { font-size: 10px !important; }
+.cc-scale { margin-top: 8px !important; font-size: 10px !important; }
+.cc-stepper { width: 36px !important; height: 36px !important; font-size: 18px !important; }
+.cc-scen-section { padding-bottom: 16px !important; }
+.cc-scen-grid { gap: 14px !important; }
+.cc-scen { padding: 18px 20px 16px !important; }
+.cc-scen-flag { top: -9px !important; padding: 4px 10px !important; font-size: 9px !important; }
+.cc-scen-head { margin-bottom: 10px !important; }
+.cc-scen-days { font-size: 18px !important; }
+.cc-scen-days span { font-size: 10px !important; }
+.cc-scen-hero { padding: 10px 0 8px !important; }
+.cc-scen-pct { font-size: 48px !important; }
+.cc-scen-pct span { font-size: 18px !important; }
+.cc-scen-pct-lbl { font-size: 9.5px !important; margin-top: 4px !important; }
+.cc-scen-amt { font-size: 15px !important; margin-top: 4px !important; }
+.cc-scen-explain { font-size: 12px !important; margin: 8px 0 10px !important; }
+.cc-scen-stats { gap: 6px !important; padding-top: 8px !important; }
+.cc-stat-k { font-size: 9.5px !important; }
+.cc-stat-v { font-size: 13px !important; }
+.cc-scen-math { margin-top: 8px !important; padding: 6px 10px !important; font-size: 11px !important; }
+.cc-mech-section { padding-top: 8px !important; padding-bottom: 8px !important; }
+.cc-mech-card { padding: 20px 28px !important; }
+.cc-mech-title { font-size: 18px !important; margin-bottom: 12px !important; }
+.cc-mech-steps { gap: 18px !important; }
+.cc-mech-n { width: 30px !important; height: 30px !important; font-size: 11px !important; }
+.cc-mech-h { font-size: 13px !important; }
+.cc-mech-p { font-size: 11.5px !important; margin-top: 4px !important; }
+.cc-cta-section { padding-top: 8px !important; padding-bottom: 24px !important; }
+.cc-cta-card { padding: 18px 24px !important; gap: 20px !important; }
+.cc-cta-h { font-size: 22px !important; }
+.cc-cta-p { font-size: 12.5px !important; }
+.cc-cta-eyebrow { font-size: 10px !important; }
+.cc-btn { padding: 10px 18px !important; font-size: 11px !important; }
+.cc-disclaimer { font-size: 11px !important; margin-top: 12px !important; }
+
+
+/* Bold the stat keys */
+.cc-stat-k { font-weight: 900 !important; color: #1A1208 !important; letter-spacing: 0.12em !important; }
+
+/* Mechanics step numbers · bigger & green */
+.cc-mech-n {
+  width: 44px !important;
+  height: 44px !important;
+  font-size: 16px !important;
+  font-weight: 800 !important;
+  background: rgba(75, 142, 30, 0.20) !important;
+  color: #6ABF2A !important;
+}
+
+/* CTA · bigger & bolder */
+.cc-cta-h { font-size: 30px !important; font-weight: 900 !important; }
+.cc-cta-eyebrow { font-size: 11px !important; color: #4B8E1E !important; }
+.cc-cta-p { font-size: 13px !important; }
+.cc-btn.primary { padding: 14px 22px !important; font-size: 12.5px !important; }
+
+/* Disclaimer · icon + text band */
+.cc-disclaimer {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 14px !important;
+  padding: 12px 14px;
+  background: rgba(217, 119, 87, 0.06);
+  border-left: 3px solid #D97757;
+  border-radius: 4px;
+}
+.cc-disclaimer-icon {
+  flex-shrink: 0;
+  color: #D97757;
+  display: inline-flex;
+  align-items: center;
+  margin-top: 1px;
+}
+.cc-disclaimer p {
+  margin: 0;
+  font-size: 11.5px;
+  line-height: 1.55;
+  color: #4A4035;
+}
+.cc-disclaimer p strong { color: #1A1208; font-weight: 800; }
+
+
+/* More gap between scenario cards */
+.cc-scen-grid { gap: 24px !important; }
+
+
+/* Vertical breathing room between calc sections */
+.cc-ticket-section { padding-bottom: 22px !important; }
+.cc-scen-section   { padding-top: 0 !important; padding-bottom: 28px !important; }
+.cc-mech-section   { padding-top: 0 !important; padding-bottom: 22px !important; }
+.cc-cta-section    { padding-top: 0 !important; padding-bottom: 36px !important; }
+
+
+/* Spacing between calc sections · stronger specificity */
+.cc-view .cc-ticket-section { padding-bottom: 28px !important; }
+.cc-view .cc-scen-section   { padding-bottom: 36px !important; }
+.cc-view .cc-mech-section   { padding-bottom: 28px !important; }
+.cc-view .cc-cta-section    { padding-bottom: 40px !important; }
+
+/* Belt + braces · margin on the inner cards */
+.cc-scen-grid { margin-bottom: 12px; }
+.cc-mech-card { margin-bottom: 12px; }
+
+
+/* Ensure scenario flag is visible above card edge */
+.cc-scen { overflow: visible !important; }
+.cc-scen.is-featured { overflow: visible !important; }
+.cc-scen-flag { top: -12px !important; padding: 5px 14px !important; font-size: 10px !important; z-index: 2; }
+.cc-scen-grid { padding-top: 8px; }
+
+
+/* More space between intro and the capital ticket */
+.cc-view .cc-header { padding-bottom: 28px !important; }
+
+/* Convert the $ amount line into a full-width badge */
+.cc-scen-amt {
+  display: block;
+  margin-top: 10px !important;
+  padding: 8px 12px !important;
+  background: rgba(26, 18, 8, 0.06);
+  color: #1A1208 !important;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 14px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.02em;
+}
+.cc-scen.is-featured .cc-scen-amt {
+  background: rgba(75, 142, 30, 0.14) !important;
+  color: #4B8E1E !important;
+}
+
+
+/* Tighten vertical gaps between calc cards (still visible space) */
+.cc-view .cc-ticket-section { padding-bottom: 14px !important; }
+.cc-view .cc-scen-section   { padding-bottom: 16px !important; }
+.cc-view .cc-mech-section   { padding-bottom: 14px !important; }
+.cc-view .cc-cta-section    { padding-bottom: 28px !important; }
+.cc-scen-grid { margin-bottom: 0; }
+.cc-mech-card { margin-bottom: 0; }
