@@ -94,6 +94,10 @@ function App() {
 
   const onDark = screen === "overview"; // hero is dark on overview; topbar overlays it
   const [modal, setModal] = React.useState(null); // "capital" | "origin" | "signin" | null
+  const [navOpen, setNavOpen] = React.useState(false);
+
+  // Close mobile nav whenever we navigate.
+  React.useEffect(() => { setNavOpen(false); }, [screen]);
 
   // Cross-link from sign-in modal -> apply (capital application).
   const closeModal = (next) => {
@@ -106,11 +110,16 @@ function App() {
   return (
     <div className="shell">
       {screen === "overview" && <SplashIntro key={splashKey} />}
-      <header className={`topbar ${onDark ? "on-dark" : ""}`}>
+      <header className={`topbar ${onDark ? "on-dark" : ""} ${navOpen ? "is-mobile-open" : ""}`}>
         <div className="topbar-inner">
           <div className="brand" onClick={() => go("overview")}>
             <Logo tone={onDark ? "dark" : "brown"} height={48} />
           </div>
+          <button type="button" className="topbar-hamburger" aria-label="Menu"
+                  aria-expanded={navOpen}
+                  onClick={() => setNavOpen(v => !v)}>
+            <span /><span /><span />
+          </button>
           <nav className="nav">
             <button aria-current={screen === "overview"} onClick={() => go("overview")}>Origin Platform</button>
             <button aria-current={screen === "supply" || screen === "control" || screen === "origin"} onClick={() => go("supply")}>Supply Network</button>
@@ -269,9 +278,32 @@ function Footer({ go, openForm }) {
             <h5>Contact</h5>
             <ul>
               <li><a href="mailto:hello@cocoaempire.com">hello@cocoaempire.com</a></li>
-              <li><a href="tel:+256414000000">+256 414 000 000</a></li>
-              <li>Plot 14, Yusuf Lule Road<br />Kampala, Uganda</li>
+              <li><a href="mailto:ivan@cocoaempire.com">ivan@cocoaempire.com</a></li>
+              <li><a href="https://wa.me/3197010281250" target="_blank" rel="noopener noreferrer">+31 9701 0281 250</a></li>
             </ul>
+            <div className="footer-social">
+              <a className="footer-social-btn" href="https://www.linkedin.com/company/cocoaempire" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zM8.34 18H5.67V9.67h2.67V18zm-1.34-9.5a1.55 1.55 0 1 1 0-3.1 1.55 1.55 0 0 1 0 3.1zM18.33 18h-2.66v-4.06c0-.97-.02-2.21-1.35-2.21-1.35 0-1.56 1.05-1.56 2.14V18h-2.66V9.67h2.55v1.14h.04c.36-.67 1.22-1.38 2.52-1.38 2.69 0 3.19 1.77 3.19 4.08V18z"/></svg>
+              </a>
+              <a className="footer-social-btn" href="https://www.instagram.com/cocoa.empire.uganda" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <rect x="3" y="3" width="18" height="18" rx="4.5" />
+                  <circle cx="12" cy="12" r="3.8" />
+                  <circle cx="17.4" cy="6.6" r="0.9" fill="currentColor" stroke="none" />
+                </svg>
+              </a>
+              <a className="footer-social-btn" href="mailto:hello@cocoaempire.com" aria-label="Email">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <rect x="3" y="5" width="18" height="14" rx="2.5" />
+                  <path d="M3 7.5l9 6 9-6" />
+                </svg>
+              </a>
+              <a className="footer-social-btn footer-social-wa" href="https://wa.me/3197010281250" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
+                  <path d="M16 .5C7.5.5.5 7.5.5 16c0 2.8.8 5.5 2.2 7.9L.5 31.5l7.8-2.1c2.3 1.2 4.9 1.9 7.7 1.9 8.5 0 15.5-7 15.5-15.5S24.5.5 16 .5zm0 28.3c-2.5 0-4.9-.7-7-1.9l-.5-.3-4.6 1.2 1.2-4.5-.3-.5C3.5 20.9 2.7 18.5 2.7 16 2.7 8.7 8.7 2.7 16 2.7s13.3 6 13.3 13.3-6 13.1-13.3 13.1zm7.5-9.9c-.4-.2-2.4-1.2-2.8-1.3-.4-.1-.6-.2-.9.2-.3.4-1 1.3-1.3 1.5-.2.3-.4.3-.8.1-.4-.2-1.6-.6-3.1-1.9-1.1-1-1.9-2.3-2.1-2.7-.2-.4 0-.6.2-.7.2-.2.4-.4.5-.6.2-.2.2-.4.4-.6.1-.3 0-.5 0-.7 0-.2-.9-2.1-1.2-2.9-.3-.7-.6-.6-.9-.6h-.7c-.2 0-.6.1-.9.5-.3.4-1.1 1.1-1.1 2.7s1.2 3.1 1.3 3.3c.2.2 2.4 3.7 5.8 5.2.8.3 1.4.5 1.9.7.8.3 1.5.2 2.1.1.6-.1 2-.8 2.3-1.6.3-.8.3-1.5.2-1.6-.1-.2-.3-.3-.7-.5z"/>
+                </svg>
+              </a>
+            </div>
           </div>
         </div>
 

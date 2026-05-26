@@ -229,7 +229,7 @@ function ImpactScreen() {
               <strong>Are you an association or cooperative</strong> with a project in Bundibugyo and want to participate?
             </p>
             <a className="fund-cta"
-               href="mailto:hello@cocoaempire.com?subject=Bundibugyo%20community%20project%20submission">
+               href="mailto:ivan@cocoaempire.com?subject=Bundibugyo%20community%20project%20submission">
               <span>Contact us</span>
               <span className="fund-cta-arrow" aria-hidden="true">
                 <svg viewBox="0 0 14 10" fill="none"><path d="M0 5 H 12 M 8 1 L 12 5 L 8 9" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>

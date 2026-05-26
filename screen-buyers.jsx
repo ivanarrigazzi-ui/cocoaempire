@@ -22,10 +22,9 @@ function BuyersScreen() {
               <strong>major cocoa buyer channels.</strong>
             </h1>
             <p className="lede">
-              <span className="ce-name" style={{ color: "#F8F5F1", fontWeight: 800 }}>Cocoa Empire</span> is new as a dedicated platform, but it is
-              being built by an operating team with experience serving cocoa
-              flows into <strong style={{ color: "#4B8E1E", fontWeight: 800 }}>major international buyer channels</strong> across traders,
-              processors and manufacturers.
+              <span className="ce-name" style={{ color: "#F8F5F1", fontWeight: 800 }}>Cocoa Empire</span> is engineered as a dedicated
+              platform with <strong style={{ color: "#4B8E1E", fontWeight: 800 }}>established buyer channels</strong> across major
+              international traders, processors and chocolate manufacturers.
             </p>
           </div>
         </div>
@@ -56,10 +55,10 @@ function BuyersScreen() {
 
         <div className="container">
           <p className="disclaimer market-foot">
-            Representative of buyer channels previously served by the
-            operating team through prior structures. Specific counterparties,
-            contracts and transaction history are disclosed under NDA.
-            Execution history available in the data room.
+            Representative of the buyer channels engaged through
+            Cocoa Empire's operations. Specific counterparties, contracts and
+            transaction history are disclosed under NDA. Execution history
+            available in the data room.
           </p>
         </div>
       </section>

@@ -51,8 +51,9 @@ function OverviewScreen({ go, openForm }) {
             <span className="ce-name">Cocoa Empire</span> is an origin-control platform — we operate the layer where farmer-linked cocoa becomes quality-approved, EUDR-ready, buyer-matched supply.
           </p>
           <p className="lede" style={{ marginTop: 18, color: "rgba(248,245,241,.7)", fontSize: 15, maxWidth: "56ch" }}>
-            Same team. Same playbook. Same buyers. Cocoa Empire turns five
-            months of live exports into a <strong>dedicated platform built for scale</strong>.
+            Proven operators. Proven origin playbook. Established buyer
+            channels. <span className="ce-name">Cocoa Empire</span> turns months of live cocoa
+            execution into a <strong>dedicated platform engineered to scale.</strong>
           </p>
 
           <div className="trust-row">
@@ -78,9 +79,9 @@ function OverviewScreen({ go, openForm }) {
 
           <div className="hero-meta">
             <div className="cell">
-              <div className="kicker">Direct farmers</div>
+              <div className="kicker">Cooperative network</div>
               <div className="figure"><strong><Counter target={4370} /></strong></div>
-              <div className="note">Producers connected · crop year 25/26</div>
+              <div className="note">Farmers across the partnership network</div>
             </div>
             <div className="cell">
               <div className="kicker">Certified farmers</div>
@@ -88,12 +89,12 @@ function OverviewScreen({ go, openForm }) {
               <div className="note">Organic + Fairtrade base</div>
             </div>
             <div className="cell">
-              <div className="kicker">Direct volume</div>
+              <div className="kicker">Operational volume</div>
               <div className="figure"><strong><Counter target={5120} /></strong> <span style={{ fontSize: 22, opacity: 0.7 }}>MT</span></div>
-              <div className="note">Sourced through our own platform</div>
+              <div className="note">Sourced through the Cocoa Empire platform</div>
             </div>
             <div className="cell">
-              <div className="kicker">Partnership volume</div>
+              <div className="kicker">Cooperative volume</div>
               <div className="figure"><strong><Counter target={4600} /></strong> <span style={{ fontSize: 22, opacity: 0.7 }}>MT</span></div>
               <div className="note">Through cooperative associations</div>
             </div>
@@ -176,10 +177,10 @@ function OverviewScreen({ go, openForm }) {
 
           <div className="proven-grid">
             {[
-            { t: "Proven buyer access", body: "Existing experience serving cocoa flows into major international buyer channels." },
-            { t: "Origin relationships", body: "Farmer groups, cooperatives and regional supply partners already identified and organised." },
-            { t: "Operating protocols", body: "Warehouse intake, QC, documentation, loading and buyer settlement discipline already designed." },
-            { t: "Dedicated platform", body: "Cocoa Empire consolidates the operating model into a focused origin-control company." }].
+            { t: "Proven buyer access",  body: "Established buyer channels into tier-1 international traders, processors and chocolate manufacturers." },
+            { t: "Cooperative network", body: "Cooperative partnership network of farmer groups across Bundibugyo and allied districts." },
+            { t: "Operating protocols",  body: "Warehouse intake, QC, documentation, loading and buyer settlement discipline engineered and operating." },
+            { t: "Dedicated platform",   body: "Cocoa Empire stands as an independent, dedicated origin-control company built for scale." }].
             map((c, i) =>
             <Reveal key={c.t} className="proven-tile" delay={i * 80}>
                 <h3>{c.t}</h3>
@@ -297,7 +298,7 @@ function OverviewScreen({ go, openForm }) {
         </div>
       </section>
 
-      {/* SECTION 14 — FINAL CTA */}
+      {/* SECTION 14 — FINAL CTA + CONTACT */}
       <section className="section final-cta" id="contact">
         <div className="container">
           <Reveal>
@@ -318,6 +319,21 @@ function OverviewScreen({ go, openForm }) {
               <button className="btn" onClick={() => go("financing")}>
                 <span>Invest with us</span><Arrow />
               </button>
+            </div>
+          </Reveal>
+
+          <Reveal delay={120}>
+            <div className="contact-grid" style={{ marginTop: 56 }}>
+              <a className="contact-card" href="mailto:hello@cocoaempire.com">
+                <div className="contact-card-kicker">General enquiries</div>
+                <div className="contact-card-email">hello@cocoaempire.com</div>
+                <p>Press, partnerships and any other question about the platform.</p>
+              </a>
+              <a className="contact-card" href="mailto:ivan@cocoaempire.com">
+                <div className="contact-card-kicker">Buyers · orders</div>
+                <div className="contact-card-email">ivan@cocoaempire.com</div>
+                <p>Trade desks, processors and chocolate manufacturers sourcing cocoa.</p>
+              </a>
             </div>
           </Reveal>
         </div>

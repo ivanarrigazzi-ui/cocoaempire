@@ -54,14 +54,15 @@ function OriginScreen() {
       {/* HEADER */}
       <section className="section tight track-header">
         <div className="container">
-          <div className="track-eyebrow">Track record — operated by Cocoa Empire founding team</div>
+          <div className="track-eyebrow">Operating track record · origin execution</div>
           <h1 className="track-h1">
-            Five months. <span className="track-h1-num">Proven traction.</span>
+            Months of live execution. <span className="track-h1-num">Proven traction.</span>
           </h1>
           <p className="track-sub">
             Full intake-to-delivery execution from Uganda to tier-1 European
-            &amp; Asian buyers. <strong>Same team. Same playbook. Now scaling
-            as Cocoa Empire.</strong>
+            &amp; Asian buyers. <strong>Proven operators. Proven origin
+            playbook. Established buyer channels — now executing through
+            Cocoa Empire.</strong>
           </p>
 
           <div className="track-hero-kpis">
@@ -265,9 +266,9 @@ function OriginScreen() {
           </div>
 
           <p className="track-footnote">
-            Operations executed by the Cocoa Empire founding team under prior
-            trading entity, January–May 2026. Full documentation, Bills of
-            Lading, tracking records and buyer references available under NDA.
+            Live cocoa export execution by the operators behind Cocoa Empire.
+            Full documentation, Bills of Lading, tracking records and buyer
+            references available under NDA.
           </p>
         </div>
       </section>

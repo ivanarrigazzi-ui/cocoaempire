@@ -10,7 +10,7 @@ const ENROL_FORMS = {
     sub: "This is a private capital partner programme, available by invitation only to qualified / professional investors. Send us your information to start a private discussion under NDA — we respond within 48–72 hours.",
     submitLabel: "Request discussion",
     accent: "#4B8E1E",
-    mailto: "hello@cocoaempire.com",
+    mailto: "ivan@cocoaempire.com",
     fields: [
       { id: "name",    label: "Full name",                 type: "text",  required: true,  placeholder: "Jane Doe" },
       { id: "org",     label: "Company or fund",           type: "text",  required: true,  placeholder: "Investment vehicle" },
@@ -36,7 +36,7 @@ const ENROL_FORMS = {
     sub: "For cooperatives, associations and processors that want to supply Cocoa Empire. We respond within 48–72 hours after a first quality review.",
     submitLabel: "Submit application",
     accent: "#B89968",
-    mailto: "hello@cocoaempire.com",
+    mailto: "ivan@cocoaempire.com",
     fields: [
       { id: "org",     label: "Organisation name",                 type: "text",  required: true,  placeholder: "Cooperative / company" },
       { id: "kind",    label: "Type",                              type: "select", required: true, options: ["Cooperative", "Association", "Processor", "Exporter", "Trader", "Other"] },
@@ -73,20 +73,53 @@ function EnrolModal({ kind, onClose }) {
     return Object.keys(e).length === 0;
   };
 
-  const submit = (ev) => {
+  const submit = async (ev) => {
     ev.preventDefault();
     if (!validate()) return;
     setState("sending");
-    // No backend wired yet — open a pre-filled mailto as a fallback so
-    // submissions still reach you. Replace with a fetch() to your API
-    // when ready.
-    const body = cfg.fields.map((f) => `${f.label}: ${values[f.id] || "(empty)"}`).join("\n");
-    const url = `mailto:${cfg.mailto}` +
-      `?subject=${encodeURIComponent(cfg.title)}` +
-      `&body=${encodeURIComponent(body)}`;
-    try { window.location.href = url; } catch (e) {}
-    // Show confirmation after a short beat.
-    setTimeout(() => setState("done"), 400);
+
+    const payload = {
+      kind,
+      title: cfg.title,
+      submittedAt: new Date().toISOString(),
+      data: Object.fromEntries(
+        cfg.fields.map((f) => [f.label, values[f.id] || (f.type === "checkbox" ? false : "")])
+      ),
+    };
+
+    // 1) Always persist locally so nothing is lost.
+    try {
+      const log = JSON.parse(localStorage.getItem("cc-form-log") || "[]");
+      log.push(payload);
+      localStorage.setItem("cc-form-log", JSON.stringify(log));
+    } catch (e) {}
+
+    // 2) Try the configured backend (Web3Forms / Formspree / custom).
+    //    Set window.__formEndpoint = "https://api.web3forms.com/submit"
+    //    and window.__formAccessKey to enable HTTP submission.
+    //    Until that's wired, we simply show the confirmation without
+    //    triggering a mailto pop-up (which previously hijacked the page).
+    const endpoint = (typeof window !== "undefined" && window.__formEndpoint) || null;
+    const accessKey = (typeof window !== "undefined" && window.__formAccessKey) || null;
+    if (endpoint && accessKey) {
+      try {
+        await fetch(endpoint, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            access_key: accessKey,
+            subject: cfg.title,
+            from_name: payload.data["Full name"] || payload.data["Contact person"] || "Cocoa Empire form",
+            to: cfg.mailto,
+            ...payload.data,
+          }),
+        });
+      } catch (e) {
+        // Don't block UX on network error — data is in localStorage.
+      }
+    }
+
+    setTimeout(() => setState("done"), 350);
   };
 
   React.useEffect(() => {
@@ -207,18 +240,33 @@ function EnrolModal({ kind, onClose }) {
 }
 
 function SignInModal({ onClose }) {
-  const [phase, setPhase] = React.useState("idle"); // idle | submitting | done
+  const [phase, setPhase] = React.useState("idle"); // idle | submitting | granted | denied
   const [email, setEmail] = React.useState("");
   const [pwd, setPwd] = React.useState("");
   const [err, setErr] = React.useState("");
+
+  // Generic credentials. Change in source whenever you want to rotate access.
+  const VALID = [
+    { user: "partner@cocoaempire.com", pass: "EmpireOrigin2026" },
+    { user: "investor@cocoaempire.com", pass: "EmpireOrigin2026" },
+  ];
 
   const onSubmit = (ev) => {
     ev.preventDefault();
     if (!email || !pwd) { setErr("Email and password required"); return; }
     setErr("");
     setPhase("submitting");
-    // Placeholder — no backend yet. Always show "private area in preparation".
-    setTimeout(() => setPhase("done"), 600);
+    setTimeout(() => {
+      const ok = VALID.some(v =>
+        v.user.toLowerCase() === email.trim().toLowerCase() && v.pass === pwd);
+      if (ok) {
+        try { localStorage.setItem("cc-investor-access", "1"); } catch (e) {}
+        setPhase("granted");
+      } else {
+        setPhase("idle");
+        setErr("Invalid credentials. Check your email and password.");
+      }
+    }, 500);
   };
 
   React.useEffect(() => {
@@ -232,7 +280,24 @@ function SignInModal({ onClose }) {
       <div className="enrol-modal signin-modal" onClick={(e) => e.stopPropagation()}>
         <button type="button" className="enrol-close" onClick={onClose} aria-label="Close">×</button>
 
-        {phase !== "done" ? (
+        {phase === "granted" ? (
+          <div className="enrol-done">
+            <div className="enrol-done-icon" aria-hidden="true">
+              <svg viewBox="0 0 60 60" fill="none">
+                <circle cx="30" cy="30" r="27" stroke="currentColor" strokeWidth="2" />
+                <path d="M18 31 L27 40 L43 22" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </div>
+            <h3>Welcome, partner.</h3>
+            <p>
+              You now have access to the private capital partner area.
+              Click below to enter.
+            </p>
+            <button type="button" className="enrol-submit" onClick={() => {
+              try { window.location.reload(); } catch (e) { onClose && onClose(); }
+            }}>Enter</button>
+          </div>
+        ) : phase !== "done" ? (
           <>
             <div className="enrol-head">
               <div className="enrol-eyebrow">Private area · Sign in</div>

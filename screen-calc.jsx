@@ -203,7 +203,7 @@ function CalcScreen({ go }) {
               </p>
             </div>
             <div className="cc-cta-r">
-              <a className="cc-btn primary" href="mailto:hello@cocoaempire.com?subject=Data%20room%20access">
+              <a className="cc-btn primary" href="mailto:ivan@cocoaempire.com?subject=Data%20room%20access">
                 Request data room
               </a>
               <a className="cc-btn ghost" onClick={() => go("origin")}>

@@ -46,7 +46,7 @@ const LEGAL_PAGES = {
       },
       {
         h: "4. Your rights",
-        p: "Subject to applicable data-protection law, you can request access, rectification, erasure or restriction of your personal data, and object to certain processing. Requests should be sent to hello@cocoaempire.com.",
+        p: "Subject to applicable data-protection law, you can request access, rectification, erasure or restriction of your personal data, and object to certain processing. Requests should be sent to ivan@cocoaempire.com.",
       },
       {
         h: "5. Cookies",
@@ -143,7 +143,7 @@ function LegalPage({ slug, go }) {
           </ol>
           <div className="legal-foot">
             For any question related to this page, write to{" "}
-            <a href="mailto:hello@cocoaempire.com">hello@cocoaempire.com</a>.
+            <a href="mailto:ivan@cocoaempire.com">ivan@cocoaempire.com</a>.
           </div>
         </div>
       </section>
