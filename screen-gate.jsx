@@ -9,7 +9,17 @@
 
 const INV_KEY = "cc-investor-access";
 
+// True when the user is browsing the partners subdomain. Cloudflare
+// Access already gated entry, so we trust the host and skip the in-app
+// gate entirely.
+function isPartnersHost() {
+  try {
+    return /(^|\.)partners\./i.test(window.location.hostname);
+  } catch (e) { return false; }
+}
+
 function hasInvestorAccess() {
+  if (isPartnersHost()) return true;
   try {
     const url = new URL(window.location.href);
     if (url.searchParams.get("inv") === "1") {

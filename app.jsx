@@ -96,6 +96,31 @@ function App() {
   const [modal, setModal] = React.useState(null); // "capital" | "origin" | "signin" | null
   const [navOpen, setNavOpen] = React.useState(false);
 
+  // Detect whether we're on the partners subdomain (private access already granted via
+  // Cloudflare Access). When true, we skip the JS gate, default to the invest screen
+  // and surface the private nav. On the public domain (cocoaempire.com) we instead
+  // bounce private CTAs to https://partners.cocoaempire.com so the user re-authenticates.
+  const PARTNERS_HOST = "partners.cocoaempire.com";
+  const onPartners = (typeof window !== "undefined")
+    && /(^|\.)partners\./i.test(window.location.hostname);
+  const partnersUrl = (path = "") => `https://${PARTNERS_HOST}/${path}`;
+  const gotoInvest = () => {
+    if (onPartners) { go("financing"); return; }
+    try { window.location.assign(partnersUrl()); } catch (e) {}
+  };
+  const gotoSignIn = () => {
+    if (onPartners) { setModal("signin"); return; }
+    try { window.location.assign(partnersUrl()); } catch (e) {}
+  };
+
+  // Default landing for the partners subdomain.
+  React.useEffect(() => {
+    if (onPartners && screen === "overview") {
+      go("financing");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   // Close mobile nav whenever we navigate.
   React.useEffect(() => { setNavOpen(false); }, [screen]);
 
@@ -125,10 +150,10 @@ function App() {
             <button aria-current={screen === "supply" || screen === "control" || screen === "origin"} onClick={() => go("supply")}>Supply Network</button>
             <button aria-current={screen === "buyers"} onClick={() => go("buyers")}>Buyer Channels</button>
             <button aria-current={screen === "impact"} onClick={() => go("impact")}>10% Impact</button>
-            <button aria-current={screen === "financing"} className="nav-cta" onClick={() => go("financing")}>Invest with Us</button>
+            <button aria-current={screen === "financing"} className="nav-cta" onClick={gotoInvest}>Invest with Us</button>
           </nav>
           <div className="topbar-actions">
-            <button type="button" className="topbar-signin" onClick={() => setModal("signin")} aria-label="Sign in to private area">
+            <button type="button" className="topbar-signin" onClick={gotoSignIn} aria-label="Sign in to private area">
               <svg className="lock" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                 <rect x="3" y="6" width="8" height="6" rx="1.5" />
                 <path d="M5 6V4a2 2 0 014 0v2" />
@@ -175,7 +200,7 @@ function App() {
 
       {modal === "capital" && <EnrolModal kind="capital" onClose={closeModal} />}
       {modal === "origin"  && <EnrolModal kind="origin"  onClose={closeModal} />}
-      {modal === "signin"  && <SignInModal onClose={closeModal} />}
+      {modal === "signin"  && <SignInModal onClose={closeModal} onSignedIn={() => { setModal(null); go("financing"); }} />}
 
       <TweaksPanel title="Tweaks">
         <TweakSection label="Palette" />

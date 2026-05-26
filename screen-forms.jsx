@@ -239,7 +239,7 @@ function EnrolModal({ kind, onClose }) {
   );
 }
 
-function SignInModal({ onClose }) {
+function SignInModal({ onClose, onSignedIn }) {
   const [phase, setPhase] = React.useState("idle"); // idle | submitting | granted | denied
   const [email, setEmail] = React.useState("");
   const [pwd, setPwd] = React.useState("");
@@ -294,8 +294,9 @@ function SignInModal({ onClose }) {
               Click below to enter.
             </p>
             <button type="button" className="enrol-submit" onClick={() => {
-              try { window.location.reload(); } catch (e) { onClose && onClose(); }
-            }}>Enter</button>
+              if (onSignedIn) onSignedIn();
+              else { try { window.location.reload(); } catch (e) { onClose && onClose(); } }
+            }}>Enter the private area</button>
           </div>
         ) : phase !== "done" ? (
           <>
