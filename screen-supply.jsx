@@ -99,6 +99,7 @@ function SupplyScreen({ go }) {
             {GALLERY_STEPS.slice(0, 12).map((g) => (
               <Reveal key={g.n} className="gallery-card">
                 <image-slot id={`gallery-${g.n}`} shape="rect"
+                            src={`assets/gallery/gallery-${g.n}.jpg`}
                             placeholder={`Drop photo · ${g.t}`}
                             style={{ display: "block", width: "100%", aspectRatio: "4/3" }}>
                 </image-slot>
