@@ -407,3 +407,53 @@
   line-height: 1.55;
   color: #2C1908;
 }
+
+
+/* Sign-in warning modal · custom styled, no native confirm() */
+.signin-warn-modal { max-width: 500px; }
+.signin-warn-icon {
+  width: 56px;
+  height: 56px;
+  margin: 6px auto 14px;
+  color: #4B8E1E;
+}
+.signin-warn-icon svg { width: 100%; height: 100%; display: block; }
+.signin-warn-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.signin-warn-actions .signin-warn-btn {
+  flex: 1 1 200px;
+  appearance: none;
+  padding: 13px 18px;
+  border-radius: 6px;
+  font-family: "Raleway", sans-serif;
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  transition: all 180ms ease;
+}
+.signin-warn-actions .signin-warn-btn.primary {
+  background: #4B8E1E;
+  color: #FFFFFF;
+  border-color: #4B8E1E;
+  box-shadow: 0 10px 22px rgba(75, 142, 30, 0.25);
+}
+.signin-warn-actions .signin-warn-btn.primary:hover {
+  background: #3D7517;
+  border-color: #3D7517;
+  transform: translateY(-1px);
+}
+.signin-warn-actions .signin-warn-btn.ghost {
+  background: transparent;
+  color: #1A1208;
+  border-color: rgba(26, 18, 8, 0.25);
+}
+.signin-warn-actions .signin-warn-btn.ghost:hover {
+  background: rgba(26, 18, 8, 0.06);
+  border-color: var(--cocoa);
+}
