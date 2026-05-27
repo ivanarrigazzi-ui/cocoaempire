@@ -113,11 +113,12 @@ function App() {
   };
   const gotoSignIn = () => {
     if (onPartners) {
-      // Already past Cloudflare Access — "Sign in" becomes "Sign out".
       try { window.location.assign("/cdn-cgi/access/logout"); } catch (e) {}
       return;
     }
-    try { window.location.assign(partnersUrl()); } catch (e) {}
+    // Public site: surface a styled warning before forwarding to Cloudflare
+    // Access so prospects don't try to log in before being approved.
+    setModal("signin-warn");
   };
 
   // Default landing for the partners subdomain.
@@ -165,7 +166,7 @@ function App() {
                 <rect x="3" y="6" width="8" height="6" rx="1.5" />
                 <path d="M5 6V4a2 2 0 014 0v2" />
               </svg>
-              <span>{onPartners ? "Sign out" : "Investor login"}</span>
+              <span>{onPartners ? "Sign out" : "Approved login"}</span>
             </button>
             <button className="cta solid" onClick={() => setModal("origin")}>Partner with us</button>
           </div>
@@ -207,6 +208,48 @@ function App() {
 
       {modal === "capital" && <EnrolModal kind="capital" onClose={closeModal} />}
       {modal === "origin"  && <EnrolModal kind="origin"  onClose={closeModal} />}
+      {modal === "signin-warn" && (
+        <div className="enrol-backdrop" onClick={() => setModal(null)} role="dialog" aria-modal="true">
+          <div className="enrol-modal signin-warn-modal" onClick={(e) => e.stopPropagation()} style={{ "--accent": "#4B8E1E" }}>
+            <button type="button" className="enrol-close" onClick={() => setModal(null)} aria-label="Close">×</button>
+            <div className="signin-warn-icon" aria-hidden="true">
+              <svg viewBox="0 0 60 60" fill="none">
+                <rect x="15" y="27" width="30" height="22" rx="3" stroke="currentColor" strokeWidth="2.4" />
+                <path d="M22 27v-7a8 8 0 0 1 16 0v7" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" />
+                <circle cx="30" cy="38" r="2.2" fill="currentColor" />
+              </svg>
+            </div>
+            <div className="enrol-head" style={{ textAlign: "center" }}>
+              <div className="enrol-eyebrow">Private partner area</div>
+              <h2 className="enrol-title">Approved access only</h2>
+              <p className="enrol-sub">
+                The private area is reserved for partners <strong>previously approved</strong>
+                by Cocoa Empire. Approval is communicated by email after submitting an
+                application.
+              </p>
+            </div>
+            <p className="enrol-fineprint" style={{ borderTop: 0, padding: 0, margin: "0 0 20px", textAlign: "center", maxWidth: "none" }}>
+              Don’t have approval yet? Apply for a strategic discussion —
+              we respond within 48–72 hours.
+            </p>
+            <div className="signin-warn-actions">
+              <button type="button" className="signin-warn-btn ghost" onClick={() => {
+                setModal(null);
+                setTimeout(() => setModal("capital"), 200);
+              }}>
+                Apply for access
+              </button>
+              <button type="button" className="signin-warn-btn primary" onClick={() => {
+                setModal(null);
+                try { window.open(partnersUrl(), "_blank", "noopener,noreferrer"); }
+                catch (e) { window.location.assign(partnersUrl()); }
+              }}>
+                Continue to secure login
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       <TweaksPanel title="Tweaks">
         <TweakSection label="Palette" />
