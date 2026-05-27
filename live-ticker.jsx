@@ -15,7 +15,7 @@ const TICKER_SPEC = [
 // answers with usable JSON wins. The dedicated Cocoa Empire Worker is
 // listed first — it's the most reliable source.
 const COCOA_SOURCES = [
-  (sym) => `https://cocoa-prices.ivanarrigazzi.workers.dev/?s=${encodeURIComponent(sym)}`,
+  (sym) => `https://api.cocoaempire.com/?s=${encodeURIComponent(sym)}`,
   (sym) => `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(sym)}?interval=1d&range=2d`,
   (sym) => `https://corsproxy.io/?` + encodeURIComponent(
     `https://query1.finance.yahoo.com/v8/finance/chart/${sym}?interval=1d&range=2d`),
