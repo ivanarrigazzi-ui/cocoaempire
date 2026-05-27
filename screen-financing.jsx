@@ -2,7 +2,22 @@
 // Clean institutional design: typographic hero, structured cycle, principles,
 // sample lot flow, single CTA. No photo headers, restrained palette.
 
-function FinancingScreen({ go }) {
+function FinancingScreen({ go, openForm }) {
+  // Inside the private area: visitor is already approved. The
+  // "Request data room" CTA just sends a quick email request rather
+  // than opening the full application form.
+  const requestDataRoom = () => {
+    try {
+      window.location.href =
+        "mailto:ivan@cocoaempire.com" +
+        "?subject=" + encodeURIComponent("Data room access request") +
+        "&body=" + encodeURIComponent(
+          "Hi Cocoa Empire team,\n\n" +
+          "Please share access to the data room and supporting documentation.\n\n" +
+          "Thank you,\n"
+        );
+    } catch (e) {}
+  };
   return (
     <div className="view" data-screen-label="03 Invest with us">
 
@@ -26,7 +41,7 @@ function FinancingScreen({ go }) {
                 <button type="button" className="btn invest-btn-ghost" onClick={() => go("control")}>
                   <span>View control protocol</span><Arrow />
                 </button>
-                <button type="button" className="btn primary invest-btn-primary">
+                <button type="button" className="btn primary invest-btn-primary" onClick={requestDataRoom}>
                   <span>Request data room</span><Arrow />
                 </button>
                 <button type="button" className="btn invest-btn-ghost" onClick={() => go("origin")}>
@@ -200,7 +215,7 @@ function FinancingScreen({ go }) {
                 <button type="button" className="btn invest-btn-ghost" onClick={() => go("control")}>
                   <span>View control protocol</span><Arrow />
                 </button>
-                <button type="button" className="btn primary invest-btn-primary">
+                <button type="button" className="btn primary invest-btn-primary" onClick={requestDataRoom}>
                   <span>Request data room</span><Arrow />
                 </button>
                 <button type="button" className="btn invest-btn-ghost" onClick={() => go("origin")}>
