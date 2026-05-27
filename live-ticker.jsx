@@ -7,14 +7,15 @@
 
 const TICKER_SPEC = [
   { sym: "UGX=X",  label: "USD / UGX",          unit: "",     baseline: 3760,  jitter: 4,  decimals: 0 },
-  { sym: "CC=F",   label: "ICE NY Cocoa",       unit: "$/t",  baseline: 7950,  jitter: 35 },
-  { sym: "LCC=F",  label: "ICE London Cocoa",   unit: "£/t",  baseline: 5180,  jitter: 28 },
+  { sym: "CC=F",   label: "ICE NY Cocoa",       unit: "$/t",  baseline: 4150,  jitter: 25 },
+  { sym: "LCC=F",  label: "ICE London Cocoa",   unit: "£/t",  baseline: 2950,  jitter: 18 },
 ];
 
 // CORS proxies for Yahoo Finance v8 chart endpoint. The first that
-// answers with usable JSON wins. Several proxies in case one is rate-
-// limited / down.
+// answers with usable JSON wins. The dedicated Cocoa Empire Worker is
+// listed first — it's the most reliable source.
 const COCOA_SOURCES = [
+  (sym) => `https://cocoa-prices.ivanarrigazzi.workers.dev/?s=${encodeURIComponent(sym)}`,
   (sym) => `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(sym)}?interval=1d&range=2d`,
   (sym) => `https://corsproxy.io/?` + encodeURIComponent(
     `https://query1.finance.yahoo.com/v8/finance/chart/${sym}?interval=1d&range=2d`),
