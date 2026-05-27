@@ -210,16 +210,16 @@ function App() {
       {modal === "origin"  && <EnrolModal kind="origin"  onClose={closeModal} />}
       {modal === "signin-warn" && (
         <div className="enrol-backdrop" onClick={() => setModal(null)} role="dialog" aria-modal="true">
-          <div className="enrol-modal signin-warn-modal" onClick={(e) => e.stopPropagation()} style={{ "--accent": "#4B8E1E" }}>
+          <div className="enrol-modal signin-warn-modal" onClick={(e) => e.stopPropagation()} style={{ "--accent": "#4B8E1E", maxWidth: 480, padding: "32px 36px" }}>
             <button type="button" className="enrol-close" onClick={() => setModal(null)} aria-label="Close">×</button>
-            <div className="signin-warn-icon" aria-hidden="true">
-              <svg viewBox="0 0 60 60" fill="none">
+            <div className="signin-warn-icon" aria-hidden="true" style={{ width: 56, height: 56, margin: "6px auto 14px", color: "#4B8E1E" }}>
+              <svg viewBox="0 0 60 60" fill="none" width="56" height="56" style={{ display: "block", width: 56, height: 56 }}>
                 <rect x="15" y="27" width="30" height="22" rx="3" stroke="currentColor" strokeWidth="2.4" />
                 <path d="M22 27v-7a8 8 0 0 1 16 0v7" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" />
                 <circle cx="30" cy="38" r="2.2" fill="currentColor" />
               </svg>
             </div>
-            <div className="enrol-head" style={{ textAlign: "center" }}>
+            <div className="enrol-head" style={{ textAlign: "center", maxWidth: 440, margin: "0 auto" }}>
               <div className="enrol-eyebrow">Private partner area</div>
               <h2 className="enrol-title">Approved access only</h2>
               <p className="enrol-sub">
