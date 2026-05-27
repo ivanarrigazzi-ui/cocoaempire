@@ -381,3 +381,29 @@
   color: #1A1208;
   font-weight: 800;
 }
+
+
+/* ─── Private-access explainer in capital form thank-you ─────── */
+.enrol-access-note {
+  margin-top: 22px;
+  padding: 16px 18px;
+  background: rgba(75, 142, 30, 0.06);
+  border: 1px solid rgba(75, 142, 30, 0.20);
+  border-radius: 4px;
+  text-align: left;
+}
+.enrol-access-note-h {
+  font-family: "Raleway", sans-serif;
+  font-size: 10.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: #4B8E1E;
+  margin-bottom: 8px;
+}
+.enrol-access-note p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.55;
+  color: #2C1908;
+}

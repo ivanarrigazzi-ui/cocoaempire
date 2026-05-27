@@ -231,6 +231,17 @@ function EnrolModal({ kind, onClose }) {
               <strong> 48–72 hours</strong>. Check your inbox — including the
               spam folder.
             </p>
+            {kind === "capital" && (
+              <div className="enrol-access-note">
+                <div className="enrol-access-note-h">How private access works</div>
+                <p>
+                  Once approved, you will access the private partner area
+                  at <strong>partners.cocoaempire.com</strong> with your
+                  email — you'll receive a one-time 6-digit code by email
+                  to enter (valid for 24 hours). No passwords to remember.
+                </p>
+              </div>
+            )}
             <button type="button" className="enrol-submit" onClick={onClose}>Close</button>
           </div>
         )}

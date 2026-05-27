@@ -106,10 +106,17 @@ function App() {
   const partnersUrl = (path = "") => `https://${PARTNERS_HOST}/${path}`;
   const gotoInvest = () => {
     if (onPartners) { go("financing"); return; }
-    try { window.location.assign(partnersUrl()); } catch (e) {}
+    // Public site: open the capital partner application form so
+    // prospects can submit their details. Once approved, they'll use
+    // "Investor login" to reach the private area.
+    setModal("capital");
   };
   const gotoSignIn = () => {
-    if (onPartners) { setModal("signin"); return; }
+    if (onPartners) {
+      // Already past Cloudflare Access — "Sign in" becomes "Sign out".
+      try { window.location.assign("/cdn-cgi/access/logout"); } catch (e) {}
+      return;
+    }
     try { window.location.assign(partnersUrl()); } catch (e) {}
   };
 
@@ -153,12 +160,12 @@ function App() {
             <button aria-current={screen === "financing"} className="nav-cta" onClick={gotoInvest}>Invest with Us</button>
           </nav>
           <div className="topbar-actions">
-            <button type="button" className="topbar-signin" onClick={gotoSignIn} aria-label="Sign in to private area">
+            <button type="button" className="topbar-signin" onClick={gotoSignIn} aria-label={onPartners ? "Sign out of private area" : "Investor login"}>
               <svg className="lock" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                 <rect x="3" y="6" width="8" height="6" rx="1.5" />
                 <path d="M5 6V4a2 2 0 014 0v2" />
               </svg>
-              <span>Sign in</span>
+              <span>{onPartners ? "Sign out" : "Investor login"}</span>
             </button>
             <button className="cta solid" onClick={() => setModal("origin")}>Partner with us</button>
           </div>
@@ -200,7 +207,6 @@ function App() {
 
       {modal === "capital" && <EnrolModal kind="capital" onClose={closeModal} />}
       {modal === "origin"  && <EnrolModal kind="origin"  onClose={closeModal} />}
-      {modal === "signin"  && <SignInModal onClose={closeModal} onSignedIn={() => { setModal(null); go("financing"); }} />}
 
       <TweaksPanel title="Tweaks">
         <TweakSection label="Palette" />
