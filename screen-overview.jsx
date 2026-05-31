@@ -72,9 +72,6 @@ function OverviewScreen({ go, openForm }) {
             <button className="btn primary" onClick={() => go("control")}>
               <span>View origin protocol</span><Arrow />
             </button>
-            <button className="btn" onClick={() => go("financing")}>
-              <span>Invest with us</span><Arrow />
-            </button>
           </div>
 
           <div className="hero-meta">
@@ -106,7 +103,7 @@ function OverviewScreen({ go, openForm }) {
             <div className="cell">
               <div className="kicker">Community commitment</div>
               <div className="figure"><strong>10</strong><span style={{ fontSize: 32, opacity: 0.85 }}>%</span></div>
-              <div className="note">Pre-tax profit to farmer programmes</div>
+              <div className="note">Of annual profit to farmer programmes</div>
             </div>
           </div>
         </div>
@@ -315,9 +312,6 @@ function OverviewScreen({ go, openForm }) {
             <div className="button-row" style={{ marginTop: 40 }}>
               <button className="btn solid-dark" onClick={() => openForm && openForm("capital")}>
                 <span>Request strategic discussion</span><Arrow />
-              </button>
-              <button className="btn" onClick={() => go("financing")}>
-                <span>Invest with us</span><Arrow />
               </button>
             </div>
           </Reveal>
