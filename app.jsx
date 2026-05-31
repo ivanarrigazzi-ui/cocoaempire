@@ -158,7 +158,9 @@ function App() {
             <button aria-current={screen === "supply" || screen === "control" || screen === "origin"} onClick={() => go("supply")}>Supply Network</button>
             <button aria-current={screen === "buyers"} onClick={() => go("buyers")}>Buyer Channels</button>
             <button aria-current={screen === "impact"} onClick={() => go("impact")}>10% Impact</button>
+            {onPartners && (
             <button aria-current={screen === "financing"} className="nav-cta" onClick={gotoInvest}>Invest with Us</button>
+            )}
           </nav>
           <div className="topbar-actions">
             <button type="button" className="topbar-signin" onClick={gotoSignIn} aria-label={onPartners ? "Sign out of private area" : "Investor login"}>
@@ -187,7 +189,7 @@ function App() {
         {screen === "financing" && (
           <InvestorGate screenLabel="03 Invest with us · private"
             onSignIn={() => setModal("signin")} onApply={() => setModal("capital")} go={go}>
-            <FinancingScreen go={go} />
+            <FinancingScreen go={go} openForm={(k) => setModal(k)} />
           </InvestorGate>
         )}
         {screen === "track"     && <TrackScreen />}
@@ -344,7 +346,6 @@ function Footer({ go, openForm }) {
             <ul>
               <li><a onClick={() => openForm && openForm("origin")}>Partner with us</a></li>
               <li><a onClick={() => openForm && openForm("capital")}>Request data room</a></li>
-              <li><a onClick={() => openForm && openForm("capital")}>Invest with us</a></li>
             </ul>
           </div>
 
