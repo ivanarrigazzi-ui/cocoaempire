@@ -4,6 +4,20 @@
 // connect a backend, replace the `submit()` handler.
 
 const ENROL_FORMS = {
+  dataroom: {
+    title: "Request data room access",
+    eyebrow: "Data room",
+    sub: "Send us a quick request and we'll forward the data room and supporting documentation to your inbox within 48 hours.",
+    submitLabel: "Send request",
+    accent: "#4B8E1E",
+    mailto: "ivan@cocoaempire.com",
+    fields: [
+      { id: "name",  label: "Full name",       type: "text",  required: true,  placeholder: "Jane Doe" },
+      { id: "email", label: "Email",           type: "email", required: true,  placeholder: "you@firm.com" },
+      { id: "org",   label: "Company / fund",  type: "text",  required: false, placeholder: "Optional" },
+      { id: "msg",   label: "Anything else? (optional)", type: "textarea", required: false, rows: 3 },
+    ],
+  },
   capital: {
     title: "Request a strategic discussion",
     eyebrow: "Capital Partner",

@@ -161,6 +161,9 @@ function App() {
             {onPartners && (
             <button aria-current={screen === "financing"} className="nav-cta" onClick={gotoInvest}>Invest with Us</button>
             )}
+            {onPartners && (
+            <button aria-current={screen === "faq"} onClick={() => go("faq")}>FAQ</button>
+            )}
           </nav>
           <div className="topbar-actions">
             <button type="button" className="topbar-signin" onClick={gotoSignIn} aria-label={onPartners ? "Sign out of private area" : "Investor login"}>
@@ -197,6 +200,12 @@ function App() {
           <InvestorGate screenLabel="04 Capital Simulator · private"
             onSignIn={() => setModal("signin")} onApply={() => setModal("capital")} go={go}>
             <CalcScreen go={go} />
+          </InvestorGate>
+        )}
+        {screen === "faq"       && (
+          <InvestorGate screenLabel="05 Investor FAQ · private"
+            onSignIn={() => setModal("signin")} onApply={() => setModal("capital")} go={go}>
+            <FaqScreen go={go} openForm={(k) => setModal(k)} />
           </InvestorGate>
         )}
         {screen === "control"   && <ControlLayers   go={go} goBack={goBack} />}

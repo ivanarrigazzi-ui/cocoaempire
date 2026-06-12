@@ -14511,3 +14511,195 @@ section.section:has(.invest-principles) {
 
 /* Tighter spacing now they're naked */
 .footer-social { gap: 6px !important; margin-top: 20px !important; margin-left: -6px !important; }
+
+
+/* Invest stat card · let values wrap instead of overflowing */
+.invest-stat-row { flex-wrap: wrap !important; }
+.invest-stat-row .v,
+.invest-stat-row .v.small {
+  white-space: normal !important;
+  word-break: break-word !important;
+  text-align: right !important;
+}
+.invest-stat-row.is-cycle .v {
+  font-size: 26px !important;
+  line-height: 1.1 !important;
+}
+.invest-stat-card { padding: 14px 20px !important; }
+.invest-stat-row .k {
+  flex-shrink: 0;
+  font-size: 10.5px !important;
+  letter-spacing: 0.16em !important;
+}
+
+
+/* Invest stat card · ensure values fit even on narrow widths */
+.invest-stat-row {
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 4px !important;
+  padding: 12px 0 !important;
+}
+.invest-stat-row .v,
+.invest-stat-row .v.small {
+  text-align: left !important;
+  white-space: normal !important;
+  word-break: normal !important;
+  font-size: 18px !important;
+}
+.invest-stat-row.is-cycle .v {
+  font-size: 24px !important;
+  line-height: 1.1 !important;
+}
+.invest-stat-row .v.small {
+  font-size: 15px !important;
+}
+.invest-stat-row .k {
+  font-size: 10px !important;
+  letter-spacing: 0.16em !important;
+}
+
+/* Sign out button on partners domain · wrap clean */
+.topbar-signin span {
+  text-align: center !important;
+  white-space: nowrap !important;
+  line-height: 1.2 !important;
+}
+
+
+/* ─── Investor FAQ (private) ─────────────────────────────────────── */
+.faq-screen { background: var(--cream); }
+.faq-section { padding-top: 64px !important; padding-bottom: 72px !important; }
+.faq-wrap { max-width: 880px; }
+
+.faq-head { margin-bottom: 40px; }
+.faq-head .eyebrow { color: #4B8E1E !important; }
+.faq-head .eyebrow::before { background: #4B8E1E !important; }
+.faq-title {
+  font-family: "Raleway", sans-serif;
+  font-size: clamp(34px, 4.4vw, 52px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+  color: var(--cocoa);
+  margin: 16px 0 14px;
+}
+.faq-title-green { color: #4B8E1E; }
+.faq-lead {
+  font-size: 16.5px;
+  line-height: 1.6;
+  color: var(--muted);
+  font-weight: 500;
+  max-width: 64ch;
+}
+.faq-lead strong { color: var(--cocoa); font-weight: 800; }
+
+.faq-list { display: flex; flex-direction: column; gap: 10px; }
+.faq-item {
+  background: #FFFFFF;
+  border: 1px solid rgba(61, 28, 8, 0.10);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.faq-item.open {
+  border-color: rgba(75, 142, 30, 0.40);
+  box-shadow: 0 12px 28px rgba(61, 28, 8, 0.06);
+}
+.faq-q {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+  padding: 20px 22px;
+  background: transparent;
+  border: 0;
+  text-align: left;
+  font-family: "Raleway", sans-serif;
+  transition: color 0.2s ease;
+}
+.faq-q-n {
+  font-family: "Outfit", "Raleway", sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  color: #B8945A;
+  font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
+}
+.faq-item.open .faq-q-n { color: #4B8E1E; }
+.faq-q-text {
+  flex: 1;
+  font-size: 16.5px;
+  font-weight: 700;
+  color: var(--cocoa);
+  letter-spacing: -0.01em;
+}
+.faq-q:hover .faq-q-text { color: #4B8E1E; }
+.faq-q-icon {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 7px;
+  background: rgba(75, 142, 30, 0.10);
+  color: #4B8E1E;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s ease, background 0.2s ease, color 0.2s ease;
+}
+.faq-q-icon svg { width: 15px; height: 15px; }
+.faq-item.open .faq-q-icon {
+  background: #4B8E1E;
+  color: #FFFFFF;
+  transform: rotate(135deg);
+}
+.faq-a { overflow: hidden; transition: max-height 0.32s ease; }
+.faq-a-inner {
+  padding: 0 22px 22px 60px;
+  font-size: 15px;
+  line-height: 1.62;
+  color: #4A4035;
+  font-weight: 500;
+}
+.faq-a-inner b { color: var(--cocoa); font-weight: 800; }
+
+.faq-note {
+  margin-top: 36px;
+  display: flex;
+  gap: 16px;
+  background: rgba(199, 84, 65, 0.06);
+  border: 1px solid rgba(199, 84, 65, 0.22);
+  border-left: 4px solid #C75441;
+  border-radius: 8px;
+  padding: 20px 22px;
+}
+.faq-note-icon { flex-shrink: 0; width: 30px; height: 30px; color: #C75441; }
+.faq-note-icon svg { width: 30px; height: 30px; }
+.faq-note div { font-size: 12.5px; line-height: 1.6; color: var(--muted); font-weight: 500; }
+.faq-note strong {
+  display: block;
+  margin-bottom: 6px;
+  color: #C75441;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.faq-contact {
+  margin-top: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding-top: 24px;
+  border-top: 1px solid rgba(61, 28, 8, 0.10);
+}
+.faq-contact span { font-size: 15px; font-weight: 600; color: var(--cocoa); }
+
+@media (max-width: 640px) {
+  .faq-a-inner { padding-left: 22px; }
+  .faq-contact { flex-direction: column; align-items: flex-start; }
+}

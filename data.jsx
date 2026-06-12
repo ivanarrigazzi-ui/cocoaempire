@@ -173,7 +173,7 @@ const CONTROL_METRICS = [
   { num: 4600,   lbl: "Indirect volume · partnership associations · MT",       animated: true, iconKey: "network" },
   { num: "800",  unit: "MT/mo",  lbl: "Main warehouse handling capacity",     iconKey: "warehouse" },
   { num: "200",  unit: "MT/wk",  lbl: "Rotating operational capacity",        iconKey: "rotate" },
-  { num: "10",   unit: "%",      lbl: "Pre-tax profit to farmer community programmes", iconKey: "community" },
+  { num: "10",   unit: "%",      lbl: "Of annual profit to farmer community programmes", iconKey: "community" },
 ];
 
 // "Infrastructure at Origin" cards — Bundibugyo base.
