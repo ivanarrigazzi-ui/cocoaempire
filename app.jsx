@@ -126,6 +126,11 @@ function App() {
     if (onPartners && screen === "overview") {
       go("financing");
     }
+    // Deep-link: ?screen=origin (etc.) jumps straight to a screen on load.
+    try {
+      const wanted = new URL(window.location.href).searchParams.get("screen");
+      if (wanted) go(wanted);
+    } catch (e) {}
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
