@@ -30,7 +30,8 @@ function BuyersScreen() {
         </div>
       </section>
 
-      {/* Wordmark marquee */}
+      {/* Wordmark marquee — hidden per request (brand logos concealed) */}
+      {false && (
       <section className="section tight market-section">
         <div className="brand-marquee">
           <div className="brand-track">
@@ -62,6 +63,7 @@ function BuyersScreen() {
           </p>
         </div>
       </section>
+      )}
 
       {/* For global buyers — value props */}
       <section className="section">
