@@ -52,10 +52,10 @@ header.solid nav.main a:hover{color:var(--deep)}
 header.solid .pa-btn{border-color:var(--deep);color:var(--deep)}
 .pa-btn:hover{background:var(--deep);border-color:var(--deep);color:#fff}
 .pa-btn svg{transition:transform .3s}
-.pa-wrap.open .pa-btn svg{transform:rotate(180deg)}
+header.pa-open .pa-btn svg{transform:rotate(180deg)}
 /* dropdown panel */
 .pa-panel{position:fixed;left:0;right:0;top:82px;z-index:80;background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);box-shadow:0 30px 60px -30px rgba(14,88,69,.3);opacity:0;visibility:hidden;transform:translateY(-14px);transition:opacity .3s,transform .3s,visibility .3s}
-.pa-wrap.open .pa-panel{opacity:1;visibility:visible;transform:translateY(0)}
+header.pa-open .pa-panel{opacity:1;visibility:visible;transform:translateY(0)}
 .pa-inner{max-width:var(--wrap);margin:0 auto;padding:34px 40px 40px;display:grid;grid-template-columns:1.1fr 2.6fr;gap:44px}
 .pa-lead .eyebrow{margin-bottom:16px}
 .pa-lead h4{font-size:23px;font-weight:800;letter-spacing:-.02em;line-height:1.1}
@@ -450,7 +450,7 @@ footer{background:var(--deep);color:rgba(255,255,255,.7);padding:48px 0 24px}
     <h2>Looking for reliable<br />African cocoa supply?</h2>
     <p>Speak directly with our international team.</p>
     <div class="cta">
-      <a class="btn btn-primary" href="/cdn-cgi/l/email-protection#dbb3beb7b7b49bb8b4b8b4babeb6abb2a9bef5b8b4b6">Contact Cocoa Empire</a>
+      <a class="btn btn-primary" href="/cdn-cgi/l/email-protection#adc5c8c1c1c2edcec2cec2ccc8c0ddc4dfc883cec2c0">Contact Cocoa Empire</a>
     </div>
   </div>
 </section>
@@ -470,7 +470,7 @@ footer{background:var(--deep);color:rgba(255,255,255,.7);padding:48px 0 24px}
       </div>
       <div class="f-col"><h5>Company</h5><a href="#do">About</a><a href="#do">Operations</a><a href="#platform">Origin</a></div>
       <div class="f-col"><h5>Platform</h5><a href="https://platform.cocoaempire.com" target="_blank" rel="noopener">Client Portal</a><a href="https://platform.cocoaempire.com" target="_blank" rel="noopener">Supplier Access</a><a href="https://platform.cocoaempire.com" target="_blank" rel="noopener">Team Platform</a><a href="https://platform.cocoaempire.com" target="_blank" rel="noopener">Deal Desk</a></div>
-      <div class="f-col"><h5>Contact</h5><a href="/cdn-cgi/l/email-protection#5139343d3d3e11323e323e30343c213823347f323e3c"><span class="__cf_email__" data-cfemail="95fdf0f9f9fad5f6faf6faf4f0f8e5fce7f0bbf6faf8">[email&#160;protected]</span></a><a href="https://www.linkedin.com/company/cocoaempire/" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.instagram.com/cocoa.empire.uganda/" target="_blank" rel="noopener">Instagram</a><a href="https://instagram.com/cocoa.empire.uganda" target="_blank" rel="noopener">Instagram</a></div>
+      <div class="f-col"><h5>Contact</h5><a href="/cdn-cgi/l/email-protection#563e333a3a39163539353937333b263f24337835393b"><span class="__cf_email__" data-cfemail="80e8e5ececefc0e3efe3efe1e5edf0e9f2e5aee3efed">[email&#160;protected]</span></a><a href="https://www.linkedin.com/company/cocoaempire/" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.instagram.com/cocoa.empire.uganda/" target="_blank" rel="noopener">Instagram</a><a href="https://instagram.com/cocoa.empire.uganda" target="_blank" rel="noopener">Instagram</a></div>
     </div>
     <div class="f-anim" aria-hidden="true"><span class="fa-type" id="faType"></span><span class="fa-caret"></span></div>
     <div class="f-bot">
@@ -495,9 +495,9 @@ function onScroll(){ hdr.classList.toggle('solid', window.scrollY>40); }
 window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
 
 // private access dropdown
-var paWrap=document.getElementById('paWrap'), paBtn=document.getElementById('paBtn');
-paBtn.addEventListener('click',function(e){ e.stopPropagation(); var o=paWrap.classList.toggle('open'); paBtn.setAttribute('aria-expanded',o); });
-document.addEventListener('click',function(e){ if(!paWrap.contains(e.target)&&!document.getElementById('paPanel').contains(e.target)) { paWrap.classList.remove('open'); paBtn.setAttribute('aria-expanded','false'); }});
+var paWrap=document.getElementById('paWrap'), paBtn=document.getElementById('paBtn'), paHdr=paBtn.closest('header');
+paBtn.addEventListener('click',function(e){ e.stopPropagation(); var o=paHdr.classList.toggle('pa-open'); paBtn.setAttribute('aria-expanded',o); });
+document.addEventListener('click',function(e){ if(!paWrap.contains(e.target)&&!document.getElementById('paPanel').contains(e.target)) { paHdr.classList.remove('pa-open'); paBtn.setAttribute('aria-expanded','false'); }});
 
 // reveal on scroll
 var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}})},{threshold:.14});
