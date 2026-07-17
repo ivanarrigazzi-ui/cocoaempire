@@ -60,15 +60,24 @@ header.pa-open .pa-panel{opacity:1;visibility:visible;transform:translateY(0)}
 .pa-lead .eyebrow{margin-bottom:16px}
 .pa-lead h4{font-size:23px;font-weight:800;letter-spacing:-.02em;line-height:1.1}
 .pa-lead p{font-size:14px;color:var(--ink-2);margin-top:12px;max-width:230px}
-.pa-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.pa-item{display:flex;gap:16px;padding:18px;border:1px solid var(--line);border-radius:var(--r-md);transition:border-color .2s,background .2s,transform .2s;align-items:flex-start}
-.pa-item:hover{border-color:var(--deep);background:var(--emerald-soft);transform:translateY(-2px)}
-.pa-ic{width:42px;height:42px;flex:none;border-radius:11px;background:var(--emerald-soft);color:var(--deep);display:flex;align-items:center;justify-content:center}
+/* Un solo TARJETÓN verde compañía: cada acceso es una fila separada por una línea
+   blanca fina. Al pasar el ratón, la fila pasa al verde clarito de los iconos y el
+   icono INVIERTE a verde oscuro (los verdes se intercambian). */
+.pa-grid{display:flex;flex-direction:column;background:var(--deep);border-radius:var(--r-md);
+  overflow:hidden;box-shadow:0 24px 54px -20px rgba(14,88,69,.55)}
+.pa-item{display:flex;gap:16px;padding:20px 22px;align-items:center;border:0;border-radius:0;
+  transition:background .22s ease}
+.pa-item + .pa-item{border-top:1px solid rgba(255,255,255,.18)}
+.pa-item:hover{background:var(--emerald-soft)}
+.pa-ic{width:42px;height:42px;flex:none;border-radius:11px;background:var(--emerald-soft);color:var(--deep);
+  display:flex;align-items:center;justify-content:center;transition:background .22s ease,color .22s ease}
 .pa-item:hover .pa-ic{background:var(--deep);color:#fff}
-.pa-tx b{display:block;font-size:15.5px;font-weight:700;display:flex;align-items:center;gap:7px}
-.pa-tx b .arw{opacity:0;transform:translateX(-4px);transition:.2s;color:var(--deep)}
-.pa-item:hover .pa-tx b .arw{opacity:1;transform:translateX(0)}
-.pa-tx span{font-size:12.8px;color:var(--ink-2);margin-top:3px;display:block}
+.pa-tx b{display:flex;align-items:center;gap:7px;font-size:15.5px;font-weight:700;color:#fff;transition:color .22s ease}
+.pa-tx b .arw{opacity:0;transform:translateX(-4px);transition:.2s;color:#fff}
+.pa-item:hover .pa-tx b{color:var(--deep)}
+.pa-item:hover .pa-tx b .arw{opacity:1;transform:translateX(0);color:var(--deep)}
+.pa-tx span{display:block;margin-top:3px;font-size:12.8px;color:rgba(255,255,255,.66);transition:color .22s ease}
+.pa-item:hover .pa-tx span{color:var(--ink-2)}
 
 /* ── HERO ── */
 .hero{position:relative;min-height:100vh;display:flex;align-items:center;color:#fff;overflow:hidden}
