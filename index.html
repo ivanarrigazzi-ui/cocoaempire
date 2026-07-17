@@ -503,10 +503,20 @@ var hdr=document.getElementById('hdr');
 function onScroll(){ hdr.classList.toggle('solid', window.scrollY>40); }
 window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
 
-// private access dropdown
-var paWrap=document.getElementById('paWrap'), paBtn=document.getElementById('paBtn'), paHdr=paBtn.closest('header');
-paBtn.addEventListener('click',function(e){ e.stopPropagation(); var o=paHdr.classList.toggle('pa-open'); paBtn.setAttribute('aria-expanded',o); });
-document.addEventListener('click',function(e){ if(!paWrap.contains(e.target)&&!document.getElementById('paPanel').contains(e.target)) { paHdr.classList.remove('pa-open'); paBtn.setAttribute('aria-expanded','false'); }});
+// private access dropdown — se abre al pulsar y se cierra SOLO en cuanto dejas de
+// interactuar: al alejar el ratón, al hacer scroll, con Escape o al pulsar fuera.
+var paWrap=document.getElementById('paWrap'), paBtn=document.getElementById('paBtn'), paPanel=document.getElementById('paPanel'), paHdr=paBtn.closest('header');
+var paTimer=null;
+function paSet(o){ paHdr.classList.toggle('pa-open',o); paBtn.setAttribute('aria-expanded',o?'true':'false'); }
+function paCancel(){ if(paTimer){ clearTimeout(paTimer); paTimer=null; } }
+function paClose(){ paCancel(); paSet(false); }
+// pequeño margen (280 ms) para poder pasar del botón al panel sin que se cierre
+function paDeferClose(){ paCancel(); paTimer=setTimeout(paClose,280); }
+paBtn.addEventListener('click',function(e){ e.stopPropagation(); paCancel(); paSet(!paHdr.classList.contains('pa-open')); });
+[paWrap,paPanel].forEach(function(el){ el.addEventListener('mouseenter',paCancel); el.addEventListener('mouseleave',paDeferClose); });
+window.addEventListener('scroll',function(){ if(paHdr.classList.contains('pa-open')) paClose(); },{passive:true});
+document.addEventListener('keydown',function(e){ if(e.key==='Escape') paClose(); });
+document.addEventListener('click',function(e){ if(!paWrap.contains(e.target)&&!paPanel.contains(e.target)) paClose(); });
 
 // reveal on scroll
 var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}})},{threshold:.14});
