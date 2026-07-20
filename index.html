@@ -208,6 +208,34 @@ section.blk{padding:84px 0}
 .dl{color:#176B52;font-weight:650;font-size:12px;padding:2px 0;display:inline-flex;align-items:center;cursor:pointer}
 .dl::after{content:"";width:1px;height:12px;background:#DDE3E1;margin:0 11px;flex:none}
 .dl:last-child::after{display:none}
+/* ── DEMO VIVA del Client Room: scroll interno + panel lateral + nudge ── */
+.frame{position:relative}
+.mock{max-height:440px;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#C9D4CF transparent}
+.mock::-webkit-scrollbar{width:6px}
+.mock::-webkit-scrollbar-thumb{background:#C9D4CF;border-radius:99px}
+.mh-talk{border:1px solid rgba(255,255,255,.4);background:rgba(255,255,255,.12);color:#fff;font:700 11px/1 Inter,system-ui,sans-serif;padding:7px 13px;border-radius:999px;cursor:pointer;transition:background .15s}
+.mh-talk:hover{background:rgba(255,255,255,.24)}
+.mock-wa{position:absolute;right:16px;bottom:14px;width:48px;height:48px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 24px rgba(16,24,40,.25);pointer-events:none}
+.mock-dim{position:absolute;inset:44px 0 0 0;background:rgba(10,30,24,.35);opacity:0;pointer-events:none;transition:opacity .25s}
+.mock-dim.on{opacity:1;pointer-events:auto}
+.mock-panel{position:absolute;top:44px;right:0;bottom:0;width:min(320px,86%);background:#fff;border-left:1px solid var(--line);box-shadow:-18px 0 40px rgba(10,30,24,.18);transform:translateX(105%);transition:transform .3s cubic-bezier(.2,.85,.3,1);display:flex;flex-direction:column;z-index:5}
+.mock-panel.on{transform:none}
+.mp-head{background:var(--deep);color:#fff;padding:14px 16px;display:flex;align-items:flex-start;justify-content:space-between}
+.mp-head b{font-size:15px;display:block}
+.mp-head small{display:block;font-size:11px;color:rgba(255,255,255,.75);margin-top:3px}
+.mp-x{border:0;background:rgba(255,255,255,.15);color:#fff;width:26px;height:26px;border-radius:8px;font-size:15px;line-height:1;cursor:pointer}
+.mp-list{overflow-y:auto;padding:6px 12px}
+.mp-row{display:flex;align-items:center;gap:10px;padding:10px 4px;border-bottom:1px solid #EEF1F0}
+.mp-row:last-child{border-bottom:0}
+.mp-av{width:34px;height:34px;border-radius:10px;background:var(--deep);color:#fff;font:800 12px/34px Inter,system-ui,sans-serif;text-align:center;flex:none}
+.mp-who{flex:1;min-width:0}
+.mp-who b{display:block;font-size:12.5px}
+.mp-who small{display:block;font-size:10px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-3);margin-top:2px}
+.mp-btn{font-size:10.5px;font-weight:700;color:#4C5A54;background:#F1F4F2;border-radius:8px;padding:6px 10px;flex:none}
+.mp-btn.wa{color:#176B52;background:#E7F1EC}
+.mock-nudge{position:absolute;top:56px;right:14px;z-index:6;border:0;background:var(--deep);color:#fff;font:700 11.5px/1 Inter,system-ui,sans-serif;padding:9px 14px;border-radius:999px;cursor:pointer;box-shadow:0 10px 26px rgba(14,88,69,.35);animation:nudgep 1.6s ease-in-out infinite}
+.mock-nudge.off{display:none}
+@keyframes nudgep{50%{box-shadow:0 10px 26px rgba(14,88,69,.35),0 0 0 9px rgba(31,129,98,.18)}}
 /* En estrecho el tracker se apila (igual que la sala real) para que no se corte */
 @media (max-width:620px){
   .mh-stats{display:flex;width:100%}
@@ -432,7 +460,7 @@ footer{background:var(--deep);color:rgba(255,255,255,.7);padding:48px 0 24px}
           <div class="top"><i></i><i></i><i></i><span class="url"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>platform.cocoaempire.com</span></div>
           <div class="mock">
             <div class="mock-hero">
-              <div class="mh-top"><img class="mh-logo" src="assets/logo-horizontal-green.png" alt="Cocoa Empire" /><span class="mh-greet">Good morning</span></div>
+              <div class="mh-top"><img class="mh-logo" src="assets/logo-horizontal-green.png" alt="Cocoa Empire" /><span style="display:inline-flex;align-items:center;gap:10px"><span class="mh-greet">Good morning</span><button type="button" class="mh-talk" id="mockTalk">Talk to us</button></span></div>
               <span class="mh-party">Nordic Cacao Co.</span>
               <div class="mh-s">Buyer of Cocoa Empire Uganda Limited · everything about your cocoa, in one place</div>
               <div class="mh-stats">
@@ -447,6 +475,24 @@ footer{background:var(--deep);color:rgba(255,255,255,.7);padding:48px 0 24px}
               <div class="scard"><div class="mrow"><div><span class="lot">CE-NCC-CB-2026-0004</span><div class="dest">FOB Mombasa · 18 MT · agreed 14 May 2026</div></div><span class="tag">Payment received</span><span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg></span></div><div class="more"><div class="more-in"><div class="strip"><div class="seg done">Agreement</div><div class="seg done">Contract</div><div class="seg done">Quality report</div><div class="seg done">Loading</div><div class="seg done">Transport</div><div class="seg done">FOB Mombasa</div><div class="seg done">CAD</div><div class="seg cur">Payment received<i>now</i></div></div><div class="dhint">Payment received. Receipt on file.</div><div class="dl-blk"><div class="dl-h">Download</div><div class="dl-grid"><span class="dl">Agreement</span><span class="dl">Commercial invoice</span><span class="dl">Quality report</span><span class="dl">Bill of lading</span></div></div></div></div></div>
             </div>
           </div>
+          <!-- burbuja WhatsApp (decorativa, como en la sala real) -->
+          <div class="mock-wa" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4 0-.5.1-.7l.4-.5c.1-.2.2-.3.3-.5s0-.4 0-.5c-.1-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3a3 3 0 0 0-.9 2.2c0 1.3 1 2.6 1.1 2.8.1.2 1.9 3 4.7 4.2 2.8 1.2 2.8.8 3.3.8.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.4-.3z"/></svg></div>
+          <!-- panel "Talk to us" que se desliza DENTRO del marco -->
+          <div class="mock-dim" id="mockDim"></div>
+          <aside class="mock-panel" id="mockPanel" aria-hidden="true">
+            <div class="mp-head"><div><b>Talk to us</b><small>Straight to the person who can help</small></div><button type="button" class="mp-x" id="mockPanelX" aria-label="Close">&times;</button></div>
+            <div class="mp-list">
+              <div class="mp-row"><span class="mp-av">IA</span><div class="mp-who"><b>Iván Arrigazzi</b><small>Director</small></div><span class="mp-btn">Email</span><span class="mp-btn wa">WhatsApp</span></div>
+              <div class="mp-row"><span class="mp-av">EF</span><div class="mp-who"><b>Ernest Frank</b><small>Director</small></div><span class="mp-btn">Email</span><span class="mp-btn wa">WhatsApp</span></div>
+              <div class="mp-row"><span class="mp-av">LB</span><div class="mp-who"><b>Lazarous Bwambale</b><small>Country Manager Uganda</small></div><span class="mp-btn">Email</span><span class="mp-btn wa">WhatsApp</span></div>
+              <div class="mp-row"><span class="mp-av">SQ</span><div class="mp-who"><b>Syifa Qori</b><small>Sales &amp; Directors Assistant</small></div><span class="mp-btn">Email</span><span class="mp-btn wa">WhatsApp</span></div>
+              <div class="mp-row"><span class="mp-av">AK</span><div class="mp-who"><b>Allan Kabaka</b><small>Quality Manager</small></div><span class="mp-btn">Email</span><span class="mp-btn wa">WhatsApp</span></div>
+              <div class="mp-row"><span class="mp-av">TK</span><div class="mp-who"><b>Thomas Kakaire</b><small>Logistics Manager</small></div><span class="mp-btn">Email</span><span class="mp-btn wa">WhatsApp</span></div>
+              <div class="mp-row"><span class="mp-av">JR</span><div class="mp-who"><b>Jacques Rwatooro</b><small>Sourcing Manager</small></div><span class="mp-btn">Email</span><span class="mp-btn wa">WhatsApp</span></div>
+            </div>
+          </aside>
+          <!-- aviso de que la demo es interactiva (se apaga al primer clic) -->
+          <button type="button" class="mock-nudge" id="mockNudge">Live demo — click around</button>
         </div>
       </div>
     </div>
@@ -544,6 +590,19 @@ document.querySelectorAll('.met .n[data-count]').forEach(function(el){cio.observ
 
 // shipment card expand
 document.querySelectorAll('.scard .mrow').forEach(function(r){r.addEventListener('click',function(){r.parentElement.classList.toggle('open');});});
+/* DEMO VIVA del Client Room: panel "Talk to us" deslizante + aviso "click around" */
+(function(){
+  var p=document.getElementById('mockPanel'),d=document.getElementById('mockDim'),t=document.getElementById('mockTalk'),x=document.getElementById('mockPanelX'),n=document.getElementById('mockNudge');
+  function hideN(){ if(n) n.classList.add('off'); }
+  function open(){ if(p){p.classList.add('on');p.setAttribute('aria-hidden','false');} if(d) d.classList.add('on'); hideN(); }
+  function close(){ if(p){p.classList.remove('on');p.setAttribute('aria-hidden','true');} if(d) d.classList.remove('on'); }
+  if(t) t.addEventListener('click',open);
+  if(x) x.addEventListener('click',close);
+  if(d) d.addEventListener('click',close);
+  if(n) n.addEventListener('click',open); /* el aviso abre el panel: efecto "wow" directo */
+  var f=document.querySelector('#platform .frame');
+  if(f) f.addEventListener('click',function(){ hideN(); },{capture:true}); /* al primer clic, el aviso se apaga */
+})();
 
 // hero crossfade slideshow
 (function(){var s=document.querySelectorAll('#heroBg .hero-slide');if(s.length<2)return;var i=0;
