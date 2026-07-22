@@ -120,6 +120,7 @@
   })();
   function collect(){
     var p={kind:"quality",_submitted_at:new Date().toISOString()};
+    var _ce=new URLSearchParams(location.search).get("ce"); if(_ce) p._ce=_ce;
     form.querySelectorAll('input[type=text],input[type=email],input[type=tel],input[type=url],input[type=hidden],textarea').forEach(function(el){ if(el.name && el.value && el.value.trim()) p[el.name]=el.value.trim(); });
     form.querySelectorAll('input[type=radio]:checked').forEach(function(el){ p[el.name]=el.value; });
     var g={};
