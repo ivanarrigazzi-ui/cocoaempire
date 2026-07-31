@@ -122,6 +122,19 @@
       }).join("");
     }).catch(function(){ box.innerHTML=empty; });
   })();
+  // ── SIGUIENTE PASO: de calidad a LOGÍSTICA sin salir del flujo (Iván, 31-jul-2026:
+  // "que le den click y se les abra de inmediato el otro"). El mismo botón viaja en el
+  // correo de confirmación; aquí lo tiene delante nada más enviar.
+  function showNext(){
+    var box=document.getElementById("thanks"); if(!box) return;
+    var tok=new URLSearchParams(location.search).get("ce")||"";
+    var url="/logistics-onboarding"+(tok?"?ce="+encodeURIComponent(tok):"");
+    box.insertAdjacentHTML("beforeend",
+      '<div style="margin-top:26px">'
+      +'<div style="font-size:13px;color:#5A625E;margin-bottom:12px">One step left — the logistics questionnaire (shipping, documents and delivery).</div>'
+      +'<a href="'+url+'" style="display:inline-block;background:#B4232A;color:#fff;text-decoration:none;font-family:\'Nunito\',sans-serif;font-size:15px;font-weight:800;letter-spacing:.03em;padding:13px 32px">Continue to logistics onboarding</a>'
+      +'</div>');
+  }
   function collect(){
     var p={kind:"quality",_submitted_at:new Date().toISOString()};
     var _ce=new URLSearchParams(location.search).get("ce"); if(_ce) p._ce=_ce;
@@ -148,7 +161,7 @@
     fetch(ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(collect())})
       .then(function(r){ return r.json().catch(function(){return null;}); })
       .then(function(j){
-        if(j&&j.ok){ try{ if(window.parent&&window.parent!==window) window.parent.postMessage({ce:"onb-submitted"},"https://platform.cocoaempire.com"); }catch(_e){} form.style.display="none"; document.getElementById("thanks").classList.add("on"); window.scrollTo({top:0,behavior:"smooth"}); }
+        if(j&&j.ok){ try{ if(window.parent&&window.parent!==window) window.parent.postMessage({ce:"onb-submitted"},"https://platform.cocoaempire.com"); }catch(_e){} if(window.__ceDraftClear) window.__ceDraftClear(); form.style.display="none"; document.getElementById("thanks").classList.add("on"); showNext(); window.scrollTo({top:0,behavior:"smooth"}); }
         else throw new Error((j&&j.error)||"send-failed");
       })
       .catch(function(){ send.disabled=false; send.textContent="Submit questionnaire"; msg.style.color="#B4232A"; msg.textContent="Sorry, that didn't go through. Please try again, or email quality@cocoaempire.com."; });
@@ -174,6 +187,62 @@
       if(holder && !holder.querySelector(".fixedtag")) holder.insertAdjacentHTML("beforeend", ' <span class="fixedtag">Set by Cocoa Empire</span>');
     }
   }
+  // ── BORRADOR AUTOMÁTICO (Iván, 31-jul-2026: "si el cliente lo deja a medias no se le
+  // puede borrar todo"). El formulario es público y sin sesión: el borrador vive en ESTE
+  // navegador. Se guarda con cada tecla, se recupera al volver y se tira al enviar.
+  // Con enlace de sala (?ce=) la clave lleva el token: dos clientes en el mismo ordenador
+  // no se pisan. La ACEPTACIÓN de la especificación (sección C) nunca se restaura — eso
+  // el cliente lo confirma él, cada vez.
+  var DRAFT_SKIP=["spec_acceptance","spec_accepted_at","spec_accepted_by"];
+  (function(){
+    if(configure) return;                       // el modo interno de Cocoa Empire no guarda nada
+    var tok=qs.get("ce")||"";
+    var KEY="ce_draft_quality"+(tok?"_"+tok.slice(-12):"");
+    var MAXAGE=45*24*3600*1000;                 // 45 días
+    function els(){ return form.querySelectorAll("input[name], select[name], textarea[name]"); }
+    function keep(n){ return DRAFT_SKIP.indexOf(n)<0; }
+    function save(){
+      var d={};
+      els().forEach(function(el){
+        if(!keep(el.name)) return;
+        if(el.type==="checkbox"||el.type==="radio"){ if(el.checked) (d[el.name]=d[el.name]||[]).push(el.value); }
+        else if(el.value) d[el.name]=el.value;
+      });
+      try{ localStorage.setItem(KEY,JSON.stringify({at:Date.now(),d:d})); }catch(e){}
+    }
+    function clear(){ try{ localStorage.removeItem(KEY); }catch(e){} }
+    function restore(){
+      var raw=null; try{ raw=localStorage.getItem(KEY); }catch(e){ return 0; }
+      if(!raw) return 0;
+      var o=null; try{ o=JSON.parse(raw); }catch(e){}
+      if(!o||!o.d||!o.at||Date.now()-o.at>MAXAGE){ clear(); return 0; }
+      var n=0;
+      els().forEach(function(el){
+        if(!keep(el.name)) return;
+        var v=o.d[el.name]; if(v==null) return;
+        if(el.type==="checkbox"||el.type==="radio"){ if(v.indexOf&&v.indexOf(el.value)>=0){ el.checked=true; n++; } }
+        else { el.value=v; n++; }
+      });
+      // las secciones condicionales (H, spec…) se recalculan con lo restaurado
+      if(n) syncDynamic();
+      return n?o.at:0;
+    }
+    var at=restore();
+    if(at){
+      var bar=document.createElement("div");
+      bar.style.cssText="margin:0 0 22px; padding:11px 14px; background:#F3F0E7; border-left:3px solid #0E4938; font-size:13px; color:#4A544F; display:flex; gap:12px; align-items:center; flex-wrap:wrap";
+      bar.innerHTML='<span>We kept what you had already filled in on <b>'+new Date(at).toLocaleDateString("en-GB",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"})+'</b>. Carry on where you left off.</span>';
+      var btn=document.createElement("button");
+      btn.type="button"; btn.textContent="Start over";
+      btn.style.cssText="background:none; border:1px solid rgba(14,73,56,0.3); color:#0E4938; font:inherit; font-size:12px; font-weight:700; padding:5px 12px; cursor:pointer";
+      btn.addEventListener("click",function(){ clear(); location.reload(); });
+      bar.appendChild(btn);
+      form.insertBefore(bar,form.firstChild);
+    }
+    var t; function queue(){ clearTimeout(t); t=setTimeout(save,400); }
+    form.addEventListener("input",queue); form.addEventListener("change",queue);
+    window.__ceDraftClear=clear;
+  })();
   qs.forEach(function(v,k){ if(k==="configure"||k==="lock"||k==="kind") return; setField(k,v); });
   if(configure){
     var bar=document.getElementById("cfgbar"); if(bar) bar.style.display="block";
