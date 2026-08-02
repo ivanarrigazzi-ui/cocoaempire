@@ -166,7 +166,7 @@
     fetch(ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(collect())})
       .then(function(r){ return r.json().catch(function(){return null;}); })
       .then(function(j){
-        if(j&&j.ok){ try{ if(window.parent&&window.parent!==window) window.parent.postMessage({ce:"onb-submitted"},"https://platform.cocoaempire.com"); }catch(_e){} if(window.__ceDraftClear) window.__ceDraftClear(); form.style.display="none"; document.getElementById("thanks").classList.add("on"); showNext(); window.scrollTo({top:0,behavior:"smooth"}); }
+        if(j&&j.ok){ try{ if(window.parent&&window.parent!==window) window.parent.postMessage({ce:"onb-submitted",kind:"quality"},"https://platform.cocoaempire.com"); }catch(_e){} if(window.__ceDraftClear) window.__ceDraftClear(); form.style.display="none"; document.getElementById("thanks").classList.add("on"); showNext(); window.scrollTo({top:0,behavior:"smooth"}); }
         else throw new Error((j&&j.error)||"send-failed");
       })
       .catch(function(){ send.disabled=false; send.textContent="Submit questionnaire"; msg.style.color="#B4232A"; msg.textContent="Sorry, that didn't go through. Please try again, or email quality@cocoaempire.com."; });
