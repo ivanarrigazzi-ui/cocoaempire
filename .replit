@@ -1,0 +1,15 @@
+# Replit configuration for the Cocoa Empire static site.
+# Serves the plain HTML/CSS/image files in this folder.
+
+# Local preview inside Replit (the "Run" button):
+run = "python3 -m http.server 3000"
+
+[[ports]]
+localPort = 3000
+externalPort = 80
+
+# Permanent public URL (Replit "Deploy" -> Static deployment):
+# publishes the files in this folder to a stable *.replit.app address.
+[deployment]
+deploymentTarget = "static"
+publicDir = "."
