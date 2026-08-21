@@ -92,7 +92,7 @@ header.pa-open .pa-panel{opacity:1;visibility:visible;transform:translateY(0)}
 .hero-slide img{width:100%;height:100%;object-fit:cover;animation:heroZoom 8s ease-out forwards}
 @keyframes heroZoom{from{transform:scale(1.09)}to{transform:scale(1)}}
 .hero-bg::after{content:"";position:absolute;inset:0;z-index:3;background:linear-gradient(105deg,rgba(9,40,31,.9) 0%,rgba(9,40,31,.62) 42%,rgba(9,40,31,.22) 78%,rgba(9,40,31,.35) 100%)}
-.hero .wrap{position:relative;z-index:2;width:100%;padding-top:100px;padding-bottom:80px}
+.hero .wrap{position:relative;z-index:2;width:100%;padding-top:100px;padding-bottom:150px}
 .hero .eyebrow{margin-bottom:26px}
 .hero h1{font-size:clamp(44px,7vw,92px);font-weight:900;letter-spacing:-.03em}
 .hero h1 .l2{color:rgba(255,255,255,.62)}
@@ -108,7 +108,9 @@ header.pa-open .pa-panel{opacity:1;visibility:visible;transform:translateY(0)}
 .mq-track{display:flex;gap:0;white-space:nowrap;width:max-content;animation:mq 42s linear infinite}
 .mq-track span{font-size:13px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;padding:0 30px;display:inline-flex;align-items:center;gap:30px;color:rgba(255,255,255,.82)}
 .mq-track span::after{content:"";width:5px;height:5px;border-radius:50%;background:var(--emerald)}
-@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+/* De IZQUIERDA A DERECHA (Iván, 21-ago-2026). La cinta arranca corrida media
+   vuelta y vuelve al cero, que es la misma imagen: el bucle no da el salto. */
+@keyframes mq{from{transform:translateX(-50%)}to{transform:translateX(0)}}
 
 /* ── SOCIOS INSTITUCIONALES ─────────────────────────────────────────────────
    Va entre lo que hacemos y el "hablemos": ahí es donde el lector ya ha entendido el
@@ -120,6 +122,17 @@ header.pa-open .pa-panel{opacity:1;visibility:visible;transform:translateY(0)}
    La cinta se desliza sola y se para al pasar el ratón; en móvil se arrastra con el dedo.
    Duplicada a propósito: es lo que hace que el bucle no dé un salto al volver. */
 .partners{background:var(--deep);color:#fff;padding:44px 0 48px;overflow:hidden}
+/* EN LA PORTADA: una banda translúcida pegada al borde de abajo, sobre la foto. No lleva
+   fondo sólido —taparía el paisaje— sino un velo oscuro con desenfoque, que es lo que
+   deja leer cinco logotipos blancos sobre cualquier fotograma del pase. */
+.hero-partners{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:16px 0 18px;
+  background:linear-gradient(to top,rgba(8,26,20,.62),rgba(8,26,20,.30));
+  -webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);
+  border-top:1px solid rgba(255,255,255,.13)}
+.hero-partners .pt-h{font-size:10.5px;letter-spacing:.22em;margin-bottom:14px;color:rgba(255,255,255,.6)}
+.hero-partners .pt-track{gap:64px;animation-duration:44s}
+.hero-partners .pt-track img{height:36px;opacity:.82}
+.hero-partners .pt-track img:hover{opacity:1}
 .partners .pt-h{text-align:center;font-size:12px;font-weight:600;letter-spacing:.2em;
   text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:30px}
 .pt-mask{position:relative;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
@@ -282,6 +295,14 @@ section.blk{padding:84px 0}
 @keyframes nudgep{50%{box-shadow:0 10px 26px rgba(14,88,69,.35),0 0 0 9px rgba(31,129,98,.18)}}
 /* En estrecho el tracker se apila (igual que la sala real) para que no se corte */
 @media (max-width:620px){
+  /* En el móvil la banda de socios se estrecha: la portada tiene que seguir siendo el
+     titular, no una fila de logotipos. */
+  .hero .wrap{padding-bottom:118px}
+  .hero-partners{padding:11px 0 12px}
+  .hero-partners .pt-h{font-size:9px;letter-spacing:.16em;margin-bottom:9px}
+  .hero-partners .pt-track{gap:42px}
+  .hero-partners .pt-track img{height:26px}
+
   .mh-stats{display:flex;width:100%}
   .mh-stat{flex:1}
   .mock-band{flex-wrap:wrap}
@@ -457,15 +478,30 @@ footer{background:var(--deep);color:rgba(255,255,255,.7);padding:48px 0 24px}
       <a class="btn btn-primary" data-ce-chat href="https://wa.me/5491176203696" target="_blank" rel="noopener">Contact us</a>
     </div>
   </div>
+
+  <!-- SOCIOS: banca, auditoría y asesoría. Van EN LA PORTADA, en la primera pantalla
+       (Iván, 21-ago-2026: "cuando tengo la página sin hacer scroll down no veo nada").
+       Quién nos banca y quién nos audita contesta la pregunta de si somos de fiar antes
+       de que el lector tenga que decidir si sigue bajando. -->
+  <div class="partners hero-partners" id="partners" aria-label="Banking, audit and advisory partners">
+    <p class="pt-h">Banking, audit and advisory partners</p>
+    <div class="pt-mask">
+    <div class="pt-track">
+      <img src="assets/partner-stanbic.png?v=3" alt="Stanbic Bank" />
+      <img src="assets/partner-barclays.png?v=3" alt="Barclays" />
+      <img src="assets/partner-monex.png?v=3" alt="Monex" />
+      <img src="assets/partner-grant-thornton.png?v=3" alt="Grant Thornton" />
+      <img src="assets/partner-tds.png?v=3" alt="TDS &amp; Co Certified Public Accountants" />
+      <img src="assets/partner-stanbic.png?v=3" alt="" aria-hidden="true" />
+      <img src="assets/partner-barclays.png?v=3" alt="" aria-hidden="true" />
+      <img src="assets/partner-monex.png?v=3" alt="" aria-hidden="true" />
+      <img src="assets/partner-grant-thornton.png?v=3" alt="" aria-hidden="true" />
+      <img src="assets/partner-tds.png?v=3" alt="" aria-hidden="true" />
+    </div>
+  </div>
+  </div>
 </section>
 
-<!-- MARQUEE -->
-<div class="marquee" aria-hidden="true">
-  <div class="mq-track">
-    <span>EUDR Compliant</span><span>Organic Certified</span><span>Fairtrade</span><span>Full Traceability</span><span>Quality Controlled</span><span>Origin Controlled</span><span>Direct from Uganda</span>
-    <span>EUDR Compliant</span><span>Organic Certified</span><span>Fairtrade</span><span>Full Traceability</span><span>Quality Controlled</span><span>Origin Controlled</span><span>Direct from Uganda</span>
-  </div>
-</div>
 
 <!-- PLATFORM -->
 <section class="blk plat" id="platform">
@@ -529,6 +565,14 @@ footer{background:var(--deep);color:rgba(255,255,255,.7);padding:48px 0 24px}
   </div>
 </section>
 
+<!-- MARQUEE -->
+<div class="marquee" aria-hidden="true">
+  <div class="mq-track">
+    <span>EUDR Compliant</span><span>Organic Certified</span><span>Fairtrade</span><span>Full Traceability</span><span>Quality Controlled</span><span>Origin Controlled</span><span>Direct from Uganda</span>
+    <span>EUDR Compliant</span><span>Organic Certified</span><span>Fairtrade</span><span>Full Traceability</span><span>Quality Controlled</span><span>Origin Controlled</span><span>Direct from Uganda</span>
+  </div>
+</div>
+
 <!-- WHAT WE DO -->
 <section class="blk" id="do">
 <div class="caro" id="caro">
@@ -568,24 +612,6 @@ footer{background:var(--deep);color:rgba(255,255,255,.7);padding:48px 0 24px}
 
 
 
-<!-- SOCIOS: banca, auditoría y asesoría -->
-<section class="partners" id="partners" aria-label="Banking, audit and advisory partners">
-  <p class="pt-h">Banking, audit and advisory partners</p>
-  <div class="pt-mask">
-    <div class="pt-track">
-      <img src="assets/partner-stanbic.png?v=3" alt="Stanbic Bank" />
-      <img src="assets/partner-barclays.png?v=3" alt="Barclays" />
-      <img src="assets/partner-monex.png?v=3" alt="Monex" />
-      <img src="assets/partner-grant-thornton.png?v=3" alt="Grant Thornton" />
-      <img src="assets/partner-tds.png?v=3" alt="TDS &amp; Co Certified Public Accountants" />
-      <img src="assets/partner-stanbic.png?v=3" alt="" aria-hidden="true" />
-      <img src="assets/partner-barclays.png?v=3" alt="" aria-hidden="true" />
-      <img src="assets/partner-monex.png?v=3" alt="" aria-hidden="true" />
-      <img src="assets/partner-grant-thornton.png?v=3" alt="" aria-hidden="true" />
-      <img src="assets/partner-tds.png?v=3" alt="" aria-hidden="true" />
-    </div>
-  </div>
-</section>
 
 <!-- FINAL CTA -->
 <section class="final" id="contact">
