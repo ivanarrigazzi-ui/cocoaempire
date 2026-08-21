@@ -126,16 +126,12 @@ header.pa-open .pa-panel{opacity:1;visibility:visible;transform:translateY(0)}
   mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
 .pt-track{display:flex;align-items:center;gap:76px;width:max-content;animation:ptmove 38s linear infinite}
 .partners:hover .pt-track{animation-play-state:paused}
-.pt-track img{height:30px;width:auto;flex:none;filter:brightness(0) invert(1);opacity:.72;
+.pt-track img{height:34px;width:auto;flex:none;filter:brightness(0) invert(1);opacity:.72;
   transition:opacity .25s ease}
-/* ÓPTICAMENTE IGUALES, NO MATEMÁTICAMENTE IGUALES. A la misma altura, una marca compacta
-   —TDS, que lleva su rótulo debajo— se lee diminuta al lado de un logotipo largo como
-   Grant Thornton. Se ajusta uno a uno hasta que pesan lo mismo en la línea; es lo que
-   hace que cinco marcas ajenas parezcan una sola fila y no un collage. */
-.pt-track img[alt*="TDS"]{height:44px}
-.pt-track img[alt*="Grant"]{height:26px}
-.pt-track img[alt*="Stanbic"]{height:32px}
-.pt-track img[alt*="Barclays"]{height:26px}
+/* TODOS A LA MISMA ALTURA, cada uno con su anchura proporcional (Iván, 21-ago-2026:
+   "quiero que todos estén con el mismo tamaño proporcional"). Y con su logotipo COMPLETO:
+   el de Barclays llevaba solo la palabra, sin el águila, y el de Grant Thornton sin su
+   símbolo — ahora van los dos enteros. */
 .pt-track img:hover{opacity:1}
 @keyframes ptmove{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion:reduce){.pt-track{animation:none;justify-content:center;flex-wrap:wrap;gap:44px}}
