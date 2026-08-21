@@ -110,6 +110,36 @@ header.pa-open .pa-panel{opacity:1;visibility:visible;transform:translateY(0)}
 .mq-track span::after{content:"";width:5px;height:5px;border-radius:50%;background:var(--emerald)}
 @keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
+/* ── SOCIOS INSTITUCIONALES ─────────────────────────────────────────────────
+   Va entre lo que hacemos y el "hablemos": ahí es donde el lector ya ha entendido el
+   negocio y está decidiendo si somos de fiar, y la respuesta es con quién trabajamos.
+   Los logotipos van EN BLANCO sobre el verde de la casa. No hacen falta versiones
+   blancas de cada marca: brightness(0) invert(1) deja cualquier logotipo —a color, con
+   degradados, en PNG o JPG— en blanco puro, y así cinco marcas con cinco paletas
+   distintas se leen como una sola línea.
+   La cinta se desliza sola y se para al pasar el ratón; en móvil se arrastra con el dedo.
+   Duplicada a propósito: es lo que hace que el bucle no dé un salto al volver. */
+.partners{background:var(--deep);color:#fff;padding:44px 0 48px;overflow:hidden}
+.partners .pt-h{text-align:center;font-size:12px;font-weight:600;letter-spacing:.2em;
+  text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:30px}
+.pt-mask{position:relative;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.pt-track{display:flex;align-items:center;gap:76px;width:max-content;animation:ptmove 38s linear infinite}
+.partners:hover .pt-track{animation-play-state:paused}
+.pt-track img{height:30px;width:auto;flex:none;filter:brightness(0) invert(1);opacity:.72;
+  transition:opacity .25s ease}
+/* ÓPTICAMENTE IGUALES, NO MATEMÁTICAMENTE IGUALES. A la misma altura, una marca compacta
+   —TDS, que lleva su rótulo debajo— se lee diminuta al lado de un logotipo largo como
+   Grant Thornton. Se ajusta uno a uno hasta que pesan lo mismo en la línea; es lo que
+   hace que cinco marcas ajenas parezcan una sola fila y no un collage. */
+.pt-track img[alt*="TDS"]{height:44px}
+.pt-track img[alt*="Grant"]{height:26px}
+.pt-track img[alt*="Stanbic"]{height:32px}
+.pt-track img[alt*="Barclays"]{height:26px}
+.pt-track img:hover{opacity:1}
+@keyframes ptmove{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.pt-track{animation:none;justify-content:center;flex-wrap:wrap;gap:44px}}
+
 /* sections */
 section.blk{padding:84px 0}
 .sec-head{max-width:820px}
@@ -541,6 +571,25 @@ footer{background:var(--deep);color:rgba(255,255,255,.7);padding:48px 0 24px}
   </section>
 
 
+
+<!-- SOCIOS: banca, auditoría y asesoría -->
+<section class="partners" id="partners" aria-label="Banking, audit and advisory partners">
+  <p class="pt-h">Banking, audit and advisory partners</p>
+  <div class="pt-mask">
+    <div class="pt-track">
+      <img src="assets/partner-stanbic.png" alt="Stanbic Bank" />
+      <img src="assets/partner-barclays.png" alt="Barclays" />
+      <img src="assets/partner-monex.png" alt="Monex" />
+      <img src="assets/partner-grant-thornton.png" alt="Grant Thornton" />
+      <img src="assets/partner-tds.png" alt="TDS &amp; Co Certified Public Accountants" />
+      <img src="assets/partner-stanbic.png" alt="" aria-hidden="true" />
+      <img src="assets/partner-barclays.png" alt="" aria-hidden="true" />
+      <img src="assets/partner-monex.png" alt="" aria-hidden="true" />
+      <img src="assets/partner-grant-thornton.png" alt="" aria-hidden="true" />
+      <img src="assets/partner-tds.png" alt="" aria-hidden="true" />
+    </div>
+  </div>
+</section>
 
 <!-- FINAL CTA -->
 <section class="final" id="contact">
