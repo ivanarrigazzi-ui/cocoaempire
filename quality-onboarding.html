@@ -357,7 +357,21 @@
       bar.appendChild(btn);
       form.insertBefore(bar,form.firstChild);
     }
-    var t; function queue(){ clearTimeout(t); t=setTimeout(save,400); }
+    /* EL BORRADOR TAMBIÉN AL SERVIDOR, si se entró por enlace de sala (Bohnkaf,
+       22-ago-2026: "it would be helpful if Kezia could have access to the partly
+       completed questionnaire"). Guardado en el navegador seguía valiendo —es instantáneo
+       y funciona sin red— pero encierra el borrador en un solo ordenador. Con token, cada
+       pausa de 2,5 s se sube también, y cualquiera que abra el MISMO enlace lo encuentra.
+       Silencioso a propósito: si el envío falla, el borrador local ya está a salvo. */
+    var st; function push(){
+      if(!tok) return;
+      clearTimeout(st);
+      st=setTimeout(function(){
+        var d=collect(); d._draft=1; d._ce=tok; d.kind="quality";
+        try{ fetch(ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(d)}).catch(function(){}); }catch(e){}
+      },2500);
+    }
+    var t; function queue(){ clearTimeout(t); t=setTimeout(save,400); push(); }
     form.addEventListener("input",queue); form.addEventListener("change",queue);
     window.__ceDraftClear=clear;
   })();
