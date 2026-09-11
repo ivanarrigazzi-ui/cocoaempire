@@ -98,6 +98,10 @@ header.pa-open .pa-panel{opacity:1;visibility:visible;transform:translateY(0)}
 .hero h1 .l2{color:rgba(255,255,255,.62)}
 .hero p.sub{font-size:clamp(16px,1.5vw,20px);max-width:520px;margin:28px 0 38px;color:rgba(255,255,255,.9);font-weight:400;line-height:1.55}
 .hero .cta{display:flex;gap:14px;flex-wrap:wrap}
+.ft-mark{position:absolute;z-index:3;top:128px;right:40px;display:block;line-height:0;
+  filter:drop-shadow(0 10px 24px rgba(0,0,0,.45));transition:transform .2s ease}
+.ft-mark:hover{transform:translateY(-2px)}
+.ft-mark img{display:block;width:72px;height:72px}
 .scrollind{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:10px;color:rgba(255,255,255,.6);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase}
 .scrollind .mouse{width:24px;height:38px;border:1.5px solid rgba(255,255,255,.5);border-radius:14px;position:relative}
 .scrollind .mouse::after{content:"";position:absolute;top:7px;left:50%;transform:translateX(-50%);width:3px;height:7px;border-radius:2px;background:#fff;animation:sd 1.6s infinite}
@@ -385,6 +389,7 @@ footer{background:var(--deep);color:rgba(255,255,255,.7);padding:48px 0 24px}
 
 @media(max-width:960px){
   .wrap{padding:0 24px}
+  .ft-mark{top:104px;right:24px}
   nav.main{display:none}
   .pa-inner{grid-template-columns:1fr;gap:24px}
   .pa-grid{grid-template-columns:1fr}
@@ -399,6 +404,13 @@ footer{background:var(--deep);color:rgba(255,255,255,.7);padding:48px 0 24px}
   .f-brand{grid-column:1/-1}
 }
 @media(max-width:560px){
+  /* En móvil el sello encoge y sube. ARRIBA y no abajo a la derecha: ahí se le echa
+     encima el botón flotante de WhatsApp, y dos cosas en la misma esquina se leen como un
+     estorbo, no como un sello. Va en ESTE bloque y no en el de 620 px porque el de 960
+     está en medio del fichero y le pisaba la posición. */
+  .ft-mark{top:92px;right:16px}
+  .ft-mark img{width:54px;height:54px}
+
   .do-grid{grid-template-columns:1fr}
   .met-grid{grid-template-columns:1fr}
   .met:nth-child(2n){border-right:none}
@@ -478,6 +490,16 @@ footer{background:var(--deep);color:rgba(255,255,255,.7);padding:48px 0 24px}
       <a class="btn btn-primary" data-ce-chat href="https://wa.me/5491176203696" target="_blank" rel="noopener">Contact us</a>
     </div>
   </div>
+
+  <!-- FAIRTRADE. El sello y nada más (Iván, 11-sep-2026: "que pongas el sello/logo en
+       la web, eso es lo que quiero; no me gusta el remarco blanco"). Va en la PRIMERA
+       PANTALLA, arriba a la derecha: el degradado del hero abre justo ahí —.22 de
+       opacidad contra .9 en el lado del titular—, así que es la zona clara de la foto.
+       La marca ya trae su propio fondo negro: no necesita caja, y ponérsela la convertía
+       en una pegatina. -->
+  <a class="ft-mark" href="#contact" aria-label="Fairtrade certified">
+    <img src="assets/fairtrade.svg" alt="FAIRTRADE Mark" width="72" height="72" />
+  </a>
 
   <!-- SOCIOS: banca, auditoría y asesoría. Van EN LA PORTADA, en la primera pantalla
        (Iván, 21-ago-2026: "cuando tengo la página sin hacer scroll down no veo nada").
