@@ -494,9 +494,6 @@ footer{background:var(--deep);color:rgba(255,255,255,.7);padding:48px 0 24px}
     </div>
   </div>
 
-  <!-- FAIRTRADE: sello RETIRADO el 12-oct-2026. La Permission to Trade de FLOCERT (FLO ID 51564)
-       no autoriza el sello; hace falta aprobación previa por escrito de Fairtrade International
-       (criterio FLOCERT 1.2.0.01). Solicitada a FLOCERT el 12-oct; se repone al recibirla. -->
 
   <!-- SOCIOS: banca, auditoría y asesoría. Van EN LA PORTADA, en la primera pantalla
        (Iván, 21-ago-2026: "cuando tengo la página sin hacer scroll down no veo nada").
@@ -589,8 +586,8 @@ footer{background:var(--deep);color:rgba(255,255,255,.7);padding:48px 0 24px}
 <!-- MARQUEE -->
 <div class="marquee" aria-hidden="true">
   <div class="mq-track">
-    <span>EUDR Compliant</span><span>Organic-certified supply (EU)</span><span>Full Traceability</span><span>Quality Controlled</span><span>Origin Controlled</span><span>Direct from Uganda</span>
-    <span>EUDR Compliant</span><span>Organic-certified supply (EU)</span><span>Full Traceability</span><span>Quality Controlled</span><span>Origin Controlled</span><span>Direct from Uganda</span>
+    <span>EUDR Compliant</span><span>Full Traceability</span><span>Quality Controlled</span><span>Origin Controlled</span><span>Direct from Uganda</span>
+    <span>EUDR Compliant</span><span>Full Traceability</span><span>Quality Controlled</span><span>Origin Controlled</span><span>Direct from Uganda</span>
   </div>
 </div>
 
@@ -750,7 +747,7 @@ document.querySelectorAll('.scard .mrow').forEach(function(r){r.addEventListener
 // footer typewriter (right-aligned, expands & retracts)
 (function(){var el=document.getElementById('faType');if(!el)return;
  if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches){el.innerHTML=pre+'FARMERS';return;}
- var words=['FARMERS','UGANDA','COCOA','TRACEABILITY','ORIGIN','FAIR TRADE'],w=0;
+ var words=['FARMERS','UGANDA','COCOA','TRACEABILITY','ORIGIN'],w=0;
  var pre='WE <span class="fa-heart"><svg viewBox="0 0 32 29" xmlns="http://www.w3.org/2000/svg"><path d="M16 28.3C6.6 21.4 0 15.9 0 9.6 0 4.6 3.9.8 8.7.8c2.9 0 5.6 1.4 7.3 3.6C17.7 2.2 20.4.8 23.3.8 28.1.8 32 4.6 32 9.6c0 6.3-6.6 11.8-16 18.7z"/></svg></span> ';
  function render(n){el.innerHTML=pre+words[w].slice(0,n);}
  function type(){var word=words[w],n=0;render(0);
