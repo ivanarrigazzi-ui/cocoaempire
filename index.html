@@ -359,7 +359,7 @@ section.blk{padding:84px 0}
 .f-cert .fc-txt{display:flex;flex-direction:column;line-height:1.35;font-size:13px;color:rgba(255,255,255,.85)}
 .f-cert .fc-txt span{font-size:11.5px;color:rgba(255,255,255,.55)}
 footer{background:var(--deep);color:rgba(255,255,255,.7);padding:48px 0 24px}
-.f-top{display:grid;grid-template-columns:1.8fr 1fr 1fr 1.2fr;gap:32px;padding-bottom:14px}
+.f-top{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px;padding-bottom:26px}
 .f-anim{position:relative;height:80px;display:flex;align-items:center;justify-content:flex-end;overflow:hidden;border-bottom:1px solid rgba(255,255,255,.12)}
 .fa-type{white-space:nowrap;font-size:clamp(28px,5vw,60px);font-weight:900;letter-spacing:-.02em;line-height:1;text-transform:uppercase;color:rgba(255,255,255,.16)}
 .fa-type .fa-heart{display:inline-block;width:.86em;height:.86em;vertical-align:-.08em}.fa-type .fa-heart svg{width:100%;height:100%;display:block;fill:#7ED9A6}
@@ -371,11 +371,14 @@ footer{background:var(--deep);color:rgba(255,255,255,.7);padding:48px 0 24px}
 .f-col h5{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.45);font-weight:700;margin-bottom:12px}
 .f-col a{display:block;font-size:13.5px;padding:4px 0;color:rgba(255,255,255,.78);transition:color .2s}
 .f-col a:hover{color:#fff}
-.f-qr{display:block;width:76px;height:76px;background:#fff;padding:5px;border-radius:3px;margin:6px 0 8px}
-.f-addr{margin-top:20px;padding-top:20px;display:flex;flex-direction:column;gap:12px;position:relative}.f-addr::before{content:"";position:absolute;top:0;left:0;width:44px;height:2px;background:rgba(255,255,255,.85)}
-.f-addr div{font-size:12px;line-height:1.5;color:rgba(255,255,255,.7);max-width:290px}
-.f-addr b{display:block;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#fff;font-weight:800;margin-bottom:3px}
-.f-addr a.f-gps{display:inline-block;margin-top:5px;color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:2px;transition:color .2s}
+.f-wc{display:flex!important;align-items:center;gap:12px;margin:6px 0 4px}
+.f-wc span{display:flex;flex-direction:column;line-height:1.3}
+.f-wc small{font-size:11px;color:rgba(255,255,255,.5)}
+.f-qr{display:block;flex:none;width:76px;height:76px;background:#fff;padding:5px;border-radius:3px}
+.f-addr{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px;padding:24px 0 26px;border-top:1px solid rgba(255,255,255,.12)}
+.f-addr div{font-size:12px;line-height:1.55;color:rgba(255,255,255,.7)}
+.f-addr b{display:block;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#fff;font-weight:800;margin-bottom:6px}
+.f-addr a.f-gps{display:inline-block;margin-top:6px;color:rgba(255,255,255,.92);text-decoration:underline;text-underline-offset:2px;transition:color .2s}
 .f-addr a.f-gps:hover{color:#fff}
 .tagline{color:rgba(255,255,255,.6);font-size:12px;font-weight:300;letter-spacing:.14em;font-style:italic}
 .tagline b{font-weight:300;font-style:normal;text-transform:uppercase;color:#fff}
@@ -411,6 +414,7 @@ footer{background:var(--deep);color:rgba(255,255,255,.7);padding:48px 0 24px}
   .do-row{grid-template-columns:1fr;gap:34px;margin-top:44px}
   .f-top{grid-template-columns:1fr 1fr;gap:32px}
   .f-brand{grid-column:1/-1}
+  .f-addr{grid-template-columns:1fr 1fr;gap:24px 28px}
 }
 @media(max-width:560px){
   /* En móvil el sello encoge y sube. ARRIBA y no abajo a la derecha: ahí se le echa
@@ -421,6 +425,7 @@ footer{background:var(--deep);color:rgba(255,255,255,.7);padding:48px 0 24px}
   .ft-mark img{width:54px;height:54px}
 
   .do-grid{grid-template-columns:1fr}
+  .f-addr{grid-template-columns:1fr}
   .met-grid{grid-template-columns:1fr}
   .met:nth-child(2n){border-right:none}
   header .bar{padding:0 24px;height:70px}
@@ -510,6 +515,7 @@ footer{background:var(--deep);color:rgba(255,255,255,.7);padding:48px 0 24px}
     <div class="pt-mask">
     <div class="pt-track">
       <img src="assets/partner-stanbic.png?v=3" alt="Stanbic Bank" />
+      <img src="assets/partner-icbc.png?v=3" alt="ICBC — Industrial and Commercial Bank of China" />
       <img src="assets/partner-barclays.png?v=3" alt="Barclays" />
       <img src="assets/partner-monex.png?v=3" alt="Monex" />
       <img src="assets/partner-stonex.png?v=3" alt="StoneX" />
@@ -517,6 +523,7 @@ footer{background:var(--deep);color:rgba(255,255,255,.7);padding:48px 0 24px}
       <img src="assets/partner-grant-thornton.png?v=3" alt="Grant Thornton" />
       <img src="assets/partner-tds.png?v=3" alt="TDS &amp; Co Certified Public Accountants" />
       <img src="assets/partner-stanbic.png?v=3" alt="" aria-hidden="true" />
+      <img src="assets/partner-icbc.png?v=3" alt="" aria-hidden="true" />
       <img src="assets/partner-barclays.png?v=3" alt="" aria-hidden="true" />
       <img src="assets/partner-monex.png?v=3" alt="" aria-hidden="true" />
       <img src="assets/partner-stonex.png?v=3" alt="" aria-hidden="true" />
@@ -659,15 +666,16 @@ footer{background:var(--deep);color:rgba(255,255,255,.7);padding:48px 0 24px}
         <img class="flogo" src="assets/logo-horizontal-green.png" alt="Cocoa Empire" />
         <div class="phrase">Control the origin.<br />Own the supply.</div>
         <p>Cocoa Empire operates an institutional cocoa sourcing and supply platform from Uganda, connecting origin operations with international markets.</p>
-        <div class="f-addr">
-          <div><b>Office</b>Plot 2 Kimera Road, Ntinda, Village 1,<br />Nakawa Division, Kampala,<br />Central Region, Uganda<br />P.O. Box 212195, Kampala GPO<br /><a class="f-gps" href="https://www.google.com/maps/search/?api=1&amp;query=0.3539625,32.6122511" target="_blank" rel="noopener">GPS: 0.3539625, 32.6122511</a></div>
-          <div><b>Export warehouse</b>Block 236, Plot 2882,<br />Bweyogere-Kazinga, Kira, Wakiso,<br />Uganda<br /><a class="f-gps" href="https://www.google.com/maps/search/?api=1&amp;query=0.353373,32.676780" target="_blank" rel="noopener">GPS: 0.353373, 32.676780</a></div>
-          <div><b>Operations</b>Plot 131, Block 66, Bundikaremba Estate,<br />Fort Portal–Bundibugyo Road,<br />Bundikakemba 1 Cell, Simbya Ward, Buganikere Town Council,<br />Bwamba County, Bundibugyo District,<br />Western Region, Uganda — Postal Code 50010<br /><a class="f-gps" href="https://www.google.com/maps/search/?api=1&amp;query=0.670286,30.015650" target="_blank" rel="noopener">GPS: 0.670286, 30.015650</a></div>
-        </div>
       </div>
       <div class="f-col"><h5>Company</h5><a href="#do">About</a><a href="#do">Operations</a><a href="#platform">Origin</a></div>
       <div class="f-col"><h5>Platform</h5><a href="https://platform.cocoaempire.com/?role=customer" target="_blank" rel="noopener">Client Portal</a><a href="https://platform.cocoaempire.com/?role=team" target="_blank" rel="noopener">Team Platform</a><a href="https://platform.cocoaempire.com/?role=team" target="_blank" rel="noopener">Deal Desk</a></div>
-      <div class="f-col"><h5>Contact</h5><a href="/cdn-cgi/l/email-protection#563e333a3a39163539353937333b263f24337835393b"><span class="__cf_email__" data-cfemail="80e8e5ececefc0e3efe3efe1e5edf0e9f2e5aee3efed">[email&#160;protected]</span></a><a href="https://wa.me/3197010281250" target="_blank" rel="noopener">+31 970 1028 1250</a><a href="https://u.wechat.com/kA8yI9jN_5I8VNw-3TcByLw?s=0" target="_blank" rel="noopener">WeChat</a><img class="f-qr" src="assets/qr-wechat.svg" alt="WeChat QR code" width="76" height="76"><a href="https://www.linkedin.com/company/cocoaempire/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn" style="margin-top:2px"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="display:block;opacity:.85"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a></div>
+      <div class="f-col"><h5>Contact</h5><a href="/cdn-cgi/l/email-protection#563e333a3a39163539353937333b263f24337835393b"><span class="__cf_email__" data-cfemail="80e8e5ececefc0e3efe3efe1e5edf0e9f2e5aee3efed">[email&#160;protected]</span></a><a href="https://wa.me/3197010281250" target="_blank" rel="noopener">+31 970 1028 1250</a><a class="f-wc" href="https://u.wechat.com/kA8yI9jN_5I8VNw-3TcByLw?s=0" target="_blank" rel="noopener"><img class="f-qr" src="assets/qr-wechat.svg" alt="WeChat QR code" width="76" height="76"><span>WeChat<small>Scan to connect</small></span></a><a href="https://www.linkedin.com/company/cocoaempire/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn" style="margin-top:2px"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="display:block;opacity:.85"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a></div>
+    </div>
+    <div class="f-addr">
+          <div><b>Head office</b>Plot 2 Kimera Road, Ntinda, Village 1,<br />Nakawa Division, Kampala,<br />Central Region, Uganda<br />P.O. Box 212195, Kampala GPO<br /><a class="f-gps" href="https://www.google.com/maps/search/?api=1&amp;query=0.3539625,32.6122511" target="_blank" rel="noopener">GPS: 0.3539625, 32.6122511</a></div>
+          <div><b>Export warehouse</b>Block 236, Plot 2882,<br />Bweyogere-Kazinga, Kira, Wakiso,<br />Uganda<br /><a class="f-gps" href="https://www.google.com/maps/search/?api=1&amp;query=0.353373,32.676780" target="_blank" rel="noopener">GPS: 0.353373, 32.676780</a></div>
+          <div><b>Operations</b>Plot 131, Block 66, Bundikaremba Estate,<br />Fort Portal–Bundibugyo Road,<br />Bundikakemba 1 Cell, Simbya Ward, Buganikere Town Council,<br />Bwamba County, Bundibugyo District,<br />Western Region, Uganda — Postal Code 50010<br /><a class="f-gps" href="https://www.google.com/maps/search/?api=1&amp;query=0.670286,30.015650" target="_blank" rel="noopener">GPS: 0.670286, 30.015650</a></div>
+          <div><b>China office</b>Room 813, Building D2,<br />Hongqiao World Center,<br />Zhuguang Road, Qingpu District,<br />Shanghai, China<br /><a class="f-gps" href="https://www.google.com/maps/search/?api=1&amp;query=Hongqiao+World+Center+Zhuguang+Road+Qingpu+Shanghai" target="_blank" rel="noopener">View on map</a></div>
     </div>
     <div class="f-anim" aria-hidden="true"><span class="fa-type" id="faType"></span><span class="fa-caret"></span></div>
     <div class="f-cert">
