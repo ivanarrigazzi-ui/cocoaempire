@@ -359,7 +359,15 @@ section.blk{padding:84px 0}
 .f-cert .fc-txt{display:flex;flex-direction:column;line-height:1.35;font-size:13px;color:rgba(255,255,255,.85)}
 .f-cert .fc-txt span{font-size:11.5px;color:rgba(255,255,255,.55)}
 footer{background:var(--deep);color:rgba(255,255,255,.7);padding:48px 0 24px}
-.f-top{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px;padding-bottom:26px}
+.f-top{display:grid;grid-template-columns:1.4fr .8fr 1.3fr;gap:48px;padding-bottom:26px}
+.f-cta{display:inline-flex;align-items:center;gap:8px;margin-top:18px;background:#7FD1AE;color:var(--deep);font-weight:700;font-size:13px;padding:10px 15px;border-radius:3px;transition:background .15s}
+.f-cta:hover{background:#9FE0C3}
+.f-col a.f-pa{display:inline-flex;align-items:center;gap:7px;margin-top:10px;color:#fff;font-weight:600}
+.f-rows{border-top:1px solid rgba(255,255,255,.14)}
+.f-col a.f-r{display:grid;grid-template-columns:18px 1fr 14px;gap:12px;align-items:center;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.14);color:rgba(255,255,255,.85)}
+.f-r small{display:block;font-size:11px;color:rgba(255,255,255,.5);line-height:1.3}
+.f-r .f-ic,.f-r .f-ar{color:#7FD1AE;display:flex}.f-r .f-ar{transition:transform .15s}
+.f-col a.f-r:hover{color:#fff}.f-r:hover .f-ar{transform:translate(2px,-2px)}
 .f-anim{position:relative;height:80px;display:flex;align-items:center;justify-content:flex-end;overflow:hidden;border-bottom:1px solid rgba(255,255,255,.12)}
 .fa-type{white-space:nowrap;font-size:clamp(28px,5vw,60px);font-weight:900;letter-spacing:-.02em;line-height:1;text-transform:uppercase;color:rgba(255,255,255,.16)}
 .fa-type .fa-heart{display:inline-block;width:.86em;height:.86em;vertical-align:-.08em}.fa-type .fa-heart svg{width:100%;height:100%;display:block;fill:#7ED9A6}
@@ -432,6 +440,7 @@ footer{background:var(--deep);color:rgba(255,255,255,.7);padding:48px 0 24px}
 
   .do-grid{grid-template-columns:1fr}
   .f-addr{grid-template-columns:1fr;gap:20px}
+  .f-top{grid-template-columns:1fr}
   .met-grid{grid-template-columns:1fr}
   .met:nth-child(2n){border-right:none}
   header .bar{padding:0 24px;height:70px}
@@ -672,10 +681,10 @@ footer{background:var(--deep);color:rgba(255,255,255,.7);padding:48px 0 24px}
         <img class="flogo" src="assets/logo-horizontal-green.png" alt="Cocoa Empire" />
         <div class="phrase">Control the origin.<br />Own the supply.</div>
         <p>Cocoa Empire operates an institutional cocoa sourcing and supply platform from Uganda, connecting origin operations with international markets.</p>
+        <a class="f-cta" href="mailto:hello@cocoaempire.com?subject=Offer%20request">Request an offer <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a>
       </div>
-      <div class="f-col"><h5>Company</h5><a href="#do">About</a><a href="#do">Operations</a><a href="#platform">Origin</a></div>
-      <div class="f-col"><h5>Platform</h5><a href="https://platform.cocoaempire.com/?role=customer" target="_blank" rel="noopener">Client Portal</a><a href="https://platform.cocoaempire.com/?role=team" target="_blank" rel="noopener">Team Platform</a><a href="https://platform.cocoaempire.com/?role=team" target="_blank" rel="noopener">Deal Desk</a></div>
-      <div class="f-col"><h5>Contact</h5><a href="/cdn-cgi/l/email-protection#563e333a3a39163539353937333b263f24337835393b"><span class="__cf_email__" data-cfemail="80e8e5ececefc0e3efe3efe1e5edf0e9f2e5aee3efed">[email&#160;protected]</span></a><a href="https://wa.me/3197010281250" target="_blank" rel="noopener">+31 970 1028 1250</a><a class="f-wc" href="https://u.wechat.com/kA8yI9jN_5I8VNw-3TcByLw?s=0" target="_blank" rel="noopener"><img class="f-qr" src="assets/qr-wechat.svg" alt="WeChat QR code" width="76" height="76"><span>WeChat<small>Scan to connect</small></span></a><a href="https://www.linkedin.com/company/cocoaempire/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn" style="margin-top:2px"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="display:block;opacity:.85"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a></div>
+      <div class="f-col"><h5>Company</h5><a href="#do">About</a><a href="#do">Operations</a><a href="#platform">Origin</a><a class="f-pa" href="https://platform.cocoaempire.com/" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg> Private access</a></div>
+      <div class="f-col f-contact"><h5>Contact</h5><div class="f-rows"><a class="f-r" href="mailto:hello@cocoaempire.com"><span class="f-ic"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><span>hello@cocoaempire.com<small>Email</small></span><span class="f-ar"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></span></a><a class="f-r" href="https://wa.me/3197010281250" target="_blank" rel="noopener"><span class="f-ic"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 12a8 8 0 0 1-11.8 7L4 20l1.1-4A8 8 0 1 1 20 12z"/></svg></span><span>+31 970 1028 1250<small>WhatsApp</small></span><span class="f-ar"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></span></a><a class="f-r" href="https://u.wechat.com/kA8yI9jN_5I8VNw-3TcByLw?s=0" target="_blank" rel="noopener"><span class="f-ic"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 4C5 4 2 6.7 2 10c0 1.9 1 3.5 2.6 4.6L4 17l2.8-1.4c.7.2 1.4.3 2.2.3"/><path d="M15 9c3.9 0 7 2.5 7 5.6 0 1.6-.9 3.1-2.3 4.1L20 21l-2.6-1.2c-.7.2-1.5.3-2.4.3-3.9 0-7-2.5-7-5.6S11.1 9 15 9z"/></svg></span><span>WeChat<small>Scan or tap to connect</small></span><span class="f-ar"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></span></a><a class="f-r" href="https://www.linkedin.com/company/cocoaempire/" target="_blank" rel="noopener"><span class="f-ic"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></span><span>LinkedIn<small>Cocoa Empire</small></span><span class="f-ar"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></span></a></div></div>
     </div>
     <div class="f-addr">
       <div class="fa-c"><h5>Uganda</h5>
