@@ -375,11 +375,15 @@ footer{background:var(--deep);color:rgba(255,255,255,.7);padding:48px 0 24px}
 .f-wc span{display:flex;flex-direction:column;line-height:1.3}
 .f-wc small{font-size:11px;color:rgba(255,255,255,.5)}
 .f-qr{display:block;flex:none;width:76px;height:76px;background:#fff;padding:5px;border-radius:3px}
-.f-addr{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px;padding:20px 0 22px;border-top:1px solid rgba(255,255,255,.12)}
+.f-addr{display:grid;grid-template-columns:repeat(2,minmax(0,330px));gap:56px;padding:20px 0 22px;border-top:1px solid rgba(255,255,255,.12)}
 .f-addr h5{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.45);font-weight:700;margin-bottom:10px}
 .f-addr .fa-it{font-size:12px;line-height:1.45;color:rgba(255,255,255,.62);margin-bottom:8px}
 .f-addr .fa-it:last-child{margin-bottom:0}
 .f-addr .fa-it b{display:block;font-size:12px;font-weight:600;color:rgba(255,255,255,.9)}
+.f-addr .fa-c h5+.fa-row{border-top:1px solid rgba(255,255,255,.14)}
+.f-addr a.fa-row{display:grid;grid-template-columns:1fr 16px;gap:14px;align-items:center;margin:0;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.14);color:rgba(255,255,255,.62);text-decoration:none;transition:color .15s}
+.f-addr a.fa-row .fa-ar{color:#7FD1AE;transition:transform .15s}
+.f-addr a.fa-row:hover{color:#fff}.f-addr a.fa-row:hover .fa-ar{transform:translate(2px,-2px)}
 .f-addr a.f-gps{display:flex;align-items:center;gap:5px;width:max-content;margin-top:3px;font-size:11.5px;font-weight:600;color:#7FD1AE;text-decoration:none;white-space:nowrap}
 .f-addr a.f-gps:hover{color:#fff}
 .tagline{color:rgba(255,255,255,.6);font-size:12px;font-weight:300;letter-spacing:.14em;font-style:italic}
@@ -427,7 +431,7 @@ footer{background:var(--deep);color:rgba(255,255,255,.7);padding:48px 0 24px}
   .ft-mark img{width:54px;height:54px}
 
   .do-grid{grid-template-columns:1fr}
-  .f-addr{grid-template-columns:1fr 1fr;gap:20px}
+  .f-addr{grid-template-columns:1fr;gap:20px}
   .met-grid{grid-template-columns:1fr}
   .met:nth-child(2n){border-right:none}
   header .bar{padding:0 24px;height:70px}
@@ -675,12 +679,12 @@ footer{background:var(--deep);color:rgba(255,255,255,.7);padding:48px 0 24px}
     </div>
     <div class="f-addr">
       <div class="fa-c"><h5>Uganda</h5>
-        <div class="fa-it"><b>Head office</b>Plot 2 Kimera Road, Ntinda, Kampala<a class="f-gps" href="https://www.google.com/maps/search/?api=1&amp;query=0.3539625,32.6122511" target="_blank" rel="noopener"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>View on map</a></div>
-        <div class="fa-it"><b>Export warehouse</b>Block 236, Plot 2882, Kira, Wakiso<a class="f-gps" href="https://www.google.com/maps/search/?api=1&amp;query=0.353373,32.676780" target="_blank" rel="noopener"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>View on map</a></div>
-        <div class="fa-it"><b>Operations</b>Plot 131, Block 66, Bundibugyo<a class="f-gps" href="https://www.google.com/maps/search/?api=1&amp;query=0.670286,30.015650" target="_blank" rel="noopener"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>View on map</a></div>
+        <a class="fa-it fa-row" href="https://www.google.com/maps/search/?api=1&amp;query=0.3539625,32.6122511" target="_blank" rel="noopener"><span><b>Head office</b>Plot 2 Kimera Road, Ntinda, Kampala</span><span class="fa-ar"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></span></a>
+        <a class="fa-it fa-row" href="https://www.google.com/maps/search/?api=1&amp;query=0.353373,32.676780" target="_blank" rel="noopener"><span><b>Export warehouse</b>Block 236, Plot 2882, Kira, Wakiso</span><span class="fa-ar"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></span></a>
+        <a class="fa-it fa-row" href="https://www.google.com/maps/search/?api=1&amp;query=0.670286,30.015650" target="_blank" rel="noopener"><span><b>Operations</b>Plot 131, Block 66, Bundibugyo</span><span class="fa-ar"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></span></a>
       </div>
       <div class="fa-c"><h5>China</h5>
-        <div class="fa-it"><b>Office</b>Room 813, Building D2,<br>Hongqiao World Center, Qingpu, Shanghai<a class="f-gps" href="https://www.google.com/maps/search/?api=1&amp;query=Hongqiao+World+Center+Zhuguang+Road+Qingpu+Shanghai" target="_blank" rel="noopener"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>View on map</a></div>
+        <a class="fa-it fa-row" href="https://www.google.com/maps/search/?api=1&amp;query=Hongqiao+World+Center+Zhuguang+Road+Qingpu+Shanghai" target="_blank" rel="noopener"><span><b>Office</b>Room 813, Building D2,<br>Hongqiao World Center, Qingpu, Shanghai</span><span class="fa-ar"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></span></a>
       </div>
     </div>
     <div class="f-anim" aria-hidden="true"><span class="fa-type" id="faType"></span><span class="fa-caret"></span></div>
