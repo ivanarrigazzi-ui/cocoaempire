@@ -471,6 +471,9 @@ footer{background:var(--deep);color:rgba(255,255,255,.7);padding:48px 0 24px}
 .hero-bg{background:#0b2a21 url(assets/video/cocoa-origin-poster.jpg) center/cover no-repeat}
 @media (max-width:700px){.hero-bg{background-image:url(assets/video/cocoa-origin-poster-m.jpg)}}
 .hero .cta.film-acts{align-items:center;gap:22px;margin-top:30px}
+/* 19-nov-2026: texto del hero como estaba en la sección del vídeo (más pequeño, abajo, cerca de la banda) */
+.hero{align-items:flex-end}.hero .wrap{padding-top:120px;padding-bottom:205px}.hero h1{font-size:clamp(40px,6vw,84px);line-height:1}
+@media (max-width:700px){.hero .wrap{padding-bottom:150px}}
 .film::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(9,40,31,.10) 0%,rgba(9,40,31,.18) 45%,rgba(9,40,31,.82) 100%),linear-gradient(90deg,rgba(9,40,31,.55) 0%,rgba(9,40,31,0) 60%)}
 .film .wrap{position:relative;z-index:2;width:100%}
 .film h2{color:#fff;font-size:clamp(40px,6vw,84px);font-weight:900;letter-spacing:-.03em;line-height:1;margin:0}
