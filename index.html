@@ -463,19 +463,44 @@ footer{background:var(--deep);color:rgba(255,255,255,.7);padding:48px 0 24px}
   .rv{opacity:1;transform:none}
 }
 
-/* 19-nov-2026: una sola banda en el hero (sellos, cristal, fija) + socios en sección propia por función */
-.hero-creds{position:absolute;left:0;right:0;bottom:0;z-index:2;background:rgba(255,255,255,.08);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid rgba(255,255,255,.18);padding:20px 0}
-.hc-in{max-width:1160px;margin:0 auto;padding:0 24px}.hc-row{display:grid;grid-template-columns:repeat(4,1fr)}.hc-row .cr+.cr{border-left:1px solid rgba(255,255,255,.18);padding-left:28px}
-.cr{display:flex;align-items:center;gap:14px}.cr .mk{flex:none}.cr .mk.flag{width:30px;height:20px;border-radius:2px}.cr .mk.sgs{height:20px;width:auto}.cr .mk.kol{height:22px;width:auto}
-.cr .tx b{display:block;font-size:14px;font-weight:600;color:#fff}.cr .tx small{display:block;font-size:12px;margin-top:3px;color:rgba(255,255,255,.66)}
+/* 19-nov-2026: una sola banda en el hero (sellos, cristal) + socios en sección propia por función.
+   Ordenador: 4 sellos fijos. Tablet/móvil (<=900px): carrusel continuo de una línea (Iván: «en responsive tiene que ser un carrusel»). */
+.hero-creds{position:absolute;left:0;right:0;bottom:0;z-index:2;background:rgba(255,255,255,.08);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid rgba(255,255,255,.18);padding:20px 0;overflow:hidden}
+.hc-in{max-width:1160px;margin:0 auto;padding:0 24px}.hc-row{display:grid;grid-template-columns:repeat(4,1fr)}.hc-row .hci+.hci{border-left:1px solid rgba(255,255,255,.18);padding-left:28px}
+.hci{display:flex;align-items:center;gap:14px}.hci.dup{display:none}.hci .mk{flex:none}.hci .mk.flag{width:30px;height:20px;border-radius:2px}.hci .mk.sgs{height:20px;width:auto}.hci .mk.kol{height:22px;width:auto}
+.hci .tx b{display:block;font-size:14px;font-weight:600;color:#fff;white-space:nowrap}.hci .tx small{display:block;font-size:12px;margin-top:3px;color:rgba(255,255,255,.66);white-space:nowrap}
 .hero .wrap{padding-bottom:190px}
+@keyframes hcmove{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (max-width:900px){
+ .hero-creds{padding:15px 0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+ .hc-in{max-width:none;padding:0}
+ .hc-row{display:flex;width:max-content;animation:hcmove 30s linear infinite}
+ .hci,.hci.dup{display:flex;flex:none;padding:0 26px;gap:11px}
+ .hc-row .hci+.hci{padding-left:26px}
+ .hci .tx b{font-size:13px}.hci .tx small{font-size:11px;margin-top:2px}
+ .hci .mk.flag{width:26px;height:17px}.hci .mk.sgs{height:17px}.hci .mk.kol{height:18px}
+ .hero .wrap{padding-bottom:132px!important}
+}
+@media (max-width:900px) and (prefers-reduced-motion:reduce){.hc-row{animation:none;overflow-x:auto}}
 .pg{background:#F6F4EF;padding:80px 0;border-top:1px solid #ECEAE4}.pg-h{font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#1F6E54;margin:0 0 10px}.pg-t{font-size:30px;font-weight:800;letter-spacing:-.02em;color:#13241F;margin:0 0 40px}
 .pg-g{display:grid;grid-template-columns:1.3fr 1fr .8fr 1fr;border-top:1px solid #DCD8CE}.pg-c{padding:22px 26px 6px 0}.pg-c+.pg-c{padding-left:26px;border-left:1px solid #DCD8CE}.pg-c span{display:block;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#6B7A75;margin-bottom:22px}
 .pg-l{display:flex;flex-wrap:wrap;gap:22px 30px;align-items:center}.pg-l img{height:24px;width:auto;filter:brightness(0);opacity:.62}.pg-l img.pt-tall{height:34px}
-@media (max-width:900px){.hc-row{grid-template-columns:1fr 1fr;gap:16px 0}.hc-row .cr:nth-child(3){border-left:none;padding-left:0}.hero .wrap{padding-bottom:230px}
- .pg-g{grid-template-columns:1fr 1fr}.pg-c:nth-child(3){border-left:none;padding-left:0}.pg-c{padding-bottom:24px}}
-@media (max-width:520px){.hero-creds{padding:14px 0}.cr .tx small{display:none!important}.hc-row{gap:14px 0}.hero .wrap{padding-bottom:175px!important}.hc-row .cr+.cr{padding-left:14px}.cr{gap:10px}.cr .tx b{font-size:12.5px}.cr .tx small{font-size:10.5px}.cr .mk.flag{width:24px;height:16px}.cr .mk.sgs{height:15px}.cr .mk.kol{height:16px}
- .pg{padding:60px 0}.pg-t{font-size:24px}.pg-g{grid-template-columns:1fr}.pg-c,.pg-c+.pg-c{border-left:none;padding-left:0;border-bottom:1px solid #DCD8CE}}
+@media (max-width:900px){.pg-g{grid-template-columns:1fr 1fr}.pg-c:nth-child(3){border-left:none;padding-left:0}.pg-c:nth-child(n+3){border-top:1px solid #DCD8CE}.pg-c{padding-bottom:26px}}
+@media (max-width:560px){.pg{padding:56px 0}.pg-t{font-size:24px;margin-bottom:28px}
+ .pg-g{grid-template-columns:1fr}.pg-c,.pg-c+.pg-c{border-left:none;padding:20px 0 22px;border-top:none;border-bottom:1px solid #DCD8CE}
+ .pg-c span{font-size:11px;margin-bottom:16px}.pg-l{gap:18px 26px}.pg-l img{height:21px}.pg-l img.pt-tall{height:30px}}
+/* sin icono de play nativo sobre el vídeo de fondo (iOS/Android): el único play es el botón rojo */
+.hero-video::-webkit-media-controls,.hero-video::-webkit-media-controls-start-playback-button,.hero-video::-webkit-media-controls-overlay-play-button,.hero-video::-webkit-media-controls-panel{display:none!important;-webkit-appearance:none;opacity:0!important}
+.hero-video{pointer-events:none}
+/* pulido móvil (19-nov-2026) */
+.wa-float{transition:bottom .35s ease,transform .2s}
+.wa-float.up{bottom:100px!important}
+@media (max-width:560px){
+ .wa-float{width:52px;height:52px;right:16px;bottom:16px}.wa-float svg{width:28px;height:28px}.wa-float.up{bottom:84px!important}
+ .slide .cap .t{font-size:13.2vw;line-height:.86}.slide .cap .k{font-size:10.5px;letter-spacing:.12em;max-width:86%}
+ .fa-type{font-size:26px}.f-anim{height:64px}
+ .reg-sep{display:none}
+}
 </style>
 <style>
 /* ── FILM (sección del vídeo, 19-nov-2026) ── */
@@ -487,7 +512,7 @@ footer{background:var(--deep);color:rgba(255,255,255,.7);padding:48px 0 24px}
 .hero .cta.film-acts{align-items:center;gap:22px;margin-top:30px}
 /* 19-nov-2026: texto del hero como estaba en la sección del vídeo (más pequeño, abajo, cerca de la banda) */
 .hero{align-items:flex-end}.hero .wrap{padding-top:120px;padding-bottom:205px}.hero h1{font-size:clamp(40px,6vw,84px);line-height:1}
-@media (max-width:700px){.hero .wrap{padding-bottom:150px}}
+
 .film::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(9,40,31,.10) 0%,rgba(9,40,31,.18) 45%,rgba(9,40,31,.82) 100%),linear-gradient(90deg,rgba(9,40,31,.55) 0%,rgba(9,40,31,0) 60%)}
 .film .wrap{position:relative;z-index:2;width:100%}
 .film h2{color:#fff;font-size:clamp(40px,6vw,84px);font-weight:900;letter-spacing:-.03em;line-height:1;margin:0}
@@ -570,7 +595,7 @@ footer{background:var(--deep);color:rgba(255,255,255,.7);padding:48px 0 24px}
 <section class="hero" id="top">
   <div class="hero-bg" id="heroBg">
     <!-- 19-nov-2026: vídeo propio (grabación Bundibugyo, 5-ago) en lugar de las fotos. Fuente según pantalla en el JS de abajo. -->
-    <video class="hero-video" id="filmBg" autoplay muted loop playsinline preload="auto" poster="assets/video/cocoa-origin-poster.jpg" aria-hidden="true"></video>
+    <video class="hero-video" id="filmBg" autoplay muted loop playsinline webkit-playsinline disablepictureinpicture disableremoteplayback preload="auto" poster="assets/video/cocoa-origin-poster.jpg" aria-hidden="true"></video>
   </div>
   <div class="wrap">
     <span class="eyebrow light">Origin-controlled cocoa · Uganda</span>
@@ -588,7 +613,7 @@ footer{background:var(--deep);color:rgba(255,255,255,.7);padding:48px 0 24px}
        Quién nos banca y quién nos audita contesta la pregunta de si somos de fiar antes
        de que el lector tenga que decidir si sigue bajando. -->
   <!-- Sellos en la franja de cristal del hero (opción A, Iván 19-nov-2026). Orgánico y Fairtrade NO hasta certificado / OK de artwork@fairtrade.net -->
-  <div class="hero-creds"><div class="hc-in"><div class="hc-row"><div class="cr"><svg class="mk flag" viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#003399"/><circle cx="21.00" cy="10.00" r=".9" fill="#FFCC00"/><circle cx="20.20" cy="13.00" r=".9" fill="#FFCC00"/><circle cx="18.00" cy="15.20" r=".9" fill="#FFCC00"/><circle cx="15.00" cy="16.00" r=".9" fill="#FFCC00"/><circle cx="12.00" cy="15.20" r=".9" fill="#FFCC00"/><circle cx="9.80" cy="13.00" r=".9" fill="#FFCC00"/><circle cx="9.00" cy="10.00" r=".9" fill="#FFCC00"/><circle cx="9.80" cy="7.00" r=".9" fill="#FFCC00"/><circle cx="12.00" cy="4.80" r=".9" fill="#FFCC00"/><circle cx="15.00" cy="4.00" r=".9" fill="#FFCC00"/><circle cx="18.00" cy="4.80" r=".9" fill="#FFCC00"/><circle cx="20.20" cy="7.00" r=".9" fill="#FFCC00"/></svg><div class="tx"><b>EUDR compliant</b><small>Every plot mapped and screened</small></div></div><div class="cr"><img class="mk sgs" src="assets/marks/sgs-white.png" alt="SGS"><div class="tx"><b>Every lot analysed</b><small>Sampled at our warehouse by SGS</small></div></div><div class="cr"><img class="mk kol" src="assets/marks/koltiva-white.png" alt="Koltiva"><div class="tx"><b>Every farm geolocated</b><small>Traced with Koltiva</small></div></div><div class="cr"><svg class="mk flag" viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#000"/><rect y="3.33" width="30" height="3.33" fill="#FCDC04"/><rect y="6.66" width="30" height="3.34" fill="#D90000"/><rect y="13.33" width="30" height="3.33" fill="#FCDC04"/><rect y="16.66" width="30" height="3.34" fill="#D90000"/><circle cx="15" cy="10" r="3.4" fill="#fff"/></svg><div class="tx"><b>Direct from Uganda</b><small>Bundibugyo, Rwenzori</small></div></div></div></div></div>
+  <div class="hero-creds"><div class="hc-in"><div class="hc-row"><div class="hci"><svg class="mk flag" viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#003399"/><circle cx="21.00" cy="10.00" r=".9" fill="#FFCC00"/><circle cx="20.20" cy="13.00" r=".9" fill="#FFCC00"/><circle cx="18.00" cy="15.20" r=".9" fill="#FFCC00"/><circle cx="15.00" cy="16.00" r=".9" fill="#FFCC00"/><circle cx="12.00" cy="15.20" r=".9" fill="#FFCC00"/><circle cx="9.80" cy="13.00" r=".9" fill="#FFCC00"/><circle cx="9.00" cy="10.00" r=".9" fill="#FFCC00"/><circle cx="9.80" cy="7.00" r=".9" fill="#FFCC00"/><circle cx="12.00" cy="4.80" r=".9" fill="#FFCC00"/><circle cx="15.00" cy="4.00" r=".9" fill="#FFCC00"/><circle cx="18.00" cy="4.80" r=".9" fill="#FFCC00"/><circle cx="20.20" cy="7.00" r=".9" fill="#FFCC00"/></svg><div class="tx"><b>EUDR compliant</b><small>Every plot mapped and screened</small></div></div><div class="hci"><img class="mk sgs" src="assets/marks/sgs-white.png" alt="SGS"><div class="tx"><b>Every lot analysed</b><small>Sampled at our warehouse by SGS</small></div></div><div class="hci"><img class="mk kol" src="assets/marks/koltiva-white.png" alt="Koltiva"><div class="tx"><b>Every farm geolocated</b><small>Traced with Koltiva</small></div></div><div class="hci"><svg class="mk flag" viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#000"/><rect y="3.33" width="30" height="3.33" fill="#FCDC04"/><rect y="6.66" width="30" height="3.34" fill="#D90000"/><rect y="13.33" width="30" height="3.33" fill="#FCDC04"/><rect y="16.66" width="30" height="3.34" fill="#D90000"/><circle cx="15" cy="10" r="3.4" fill="#fff"/></svg><div class="tx"><b>Direct from Uganda</b><small>Bundibugyo, Rwenzori</small></div></div><div class="hci dup" aria-hidden="true"><svg class="mk flag" viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#003399"/><circle cx="21.00" cy="10.00" r=".9" fill="#FFCC00"/><circle cx="20.20" cy="13.00" r=".9" fill="#FFCC00"/><circle cx="18.00" cy="15.20" r=".9" fill="#FFCC00"/><circle cx="15.00" cy="16.00" r=".9" fill="#FFCC00"/><circle cx="12.00" cy="15.20" r=".9" fill="#FFCC00"/><circle cx="9.80" cy="13.00" r=".9" fill="#FFCC00"/><circle cx="9.00" cy="10.00" r=".9" fill="#FFCC00"/><circle cx="9.80" cy="7.00" r=".9" fill="#FFCC00"/><circle cx="12.00" cy="4.80" r=".9" fill="#FFCC00"/><circle cx="15.00" cy="4.00" r=".9" fill="#FFCC00"/><circle cx="18.00" cy="4.80" r=".9" fill="#FFCC00"/><circle cx="20.20" cy="7.00" r=".9" fill="#FFCC00"/></svg><div class="tx"><b>EUDR compliant</b><small>Every plot mapped and screened</small></div></div><div class="hci dup" aria-hidden="true"><img class="mk sgs" src="assets/marks/sgs-white.png" alt="SGS"><div class="tx"><b>Every lot analysed</b><small>Sampled at our warehouse by SGS</small></div></div><div class="hci dup" aria-hidden="true"><img class="mk kol" src="assets/marks/koltiva-white.png" alt="Koltiva"><div class="tx"><b>Every farm geolocated</b><small>Traced with Koltiva</small></div></div><div class="hci dup" aria-hidden="true"><svg class="mk flag" viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#000"/><rect y="3.33" width="30" height="3.33" fill="#FCDC04"/><rect y="6.66" width="30" height="3.34" fill="#D90000"/><rect y="13.33" width="30" height="3.33" fill="#FCDC04"/><rect y="16.66" width="30" height="3.34" fill="#D90000"/><circle cx="15" cy="10" r="3.4" fill="#fff"/></svg><div class="tx"><b>Direct from Uganda</b><small>Bundibugyo, Rwenzori</small></div></div></div></div></div>
   </section>
 
 
@@ -790,7 +815,7 @@ document.querySelectorAll('.scard .mrow').forEach(function(r){r.addEventListener
  var src='assets/video/cocoa-origin-'+(big?'1080':'720')+'.mp4';
  v.poster='assets/video/cocoa-origin-poster'+(big?'':'-m')+'.jpg';
  var red=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
- function load(){if(v.src)return;v.src=src;if(!red){var p=v.play();if(p&&p.catch)p.catch(function(){});}}
+ function load(){if(v.src)return;v.muted=true;v.defaultMuted=true;v.setAttribute("muted","");v.controls=false;v.src=src;if(!red){var p=v.play();if(p&&p.catch)p.catch(function(){});}}
  load();
  var m=document.getElementById('filmModal'),f=document.getElementById('filmVid');
  function close(){m.classList.remove('on');f.pause();document.body.style.overflow='';}
@@ -799,5 +824,6 @@ document.querySelectorAll('.scard .mrow').forEach(function(r){r.addEventListener
  m.addEventListener('click',function(e){if(e.target===m)close();});
  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&m.classList.contains('on'))close();});
 })();</script>
+<script>(function(){var s=document.querySelector('.hero-creds'),w=document.querySelector('.wa-float');if(!s||!w||!('IntersectionObserver' in window))return;new IntersectionObserver(function(e){w.classList.toggle('up',e[0].isIntersecting)},{threshold:0.01}).observe(s)})();</script>
 </body>
 </html>
