@@ -794,7 +794,7 @@ document.querySelectorAll('.scard .mrow').forEach(function(r){r.addEventListener
  load();
  var m=document.getElementById('filmModal'),f=document.getElementById('filmVid');
  function close(){m.classList.remove('on');f.pause();document.body.style.overflow='';}
- document.getElementById('filmOpen').addEventListener('click',function(){if(!f.src)f.src='assets/video/cocoa-empire-film.mp4?v=5';m.classList.add('on');document.body.style.overflow='hidden';f.currentTime=0;var p=f.play();if(p&&p.catch)p.catch(function(){});});
+ document.getElementById('filmOpen').addEventListener('click',function(){if(!f.src)f.src='assets/video/cocoa-empire-film.mp4?v=6';m.classList.add('on');document.body.style.overflow='hidden';f.currentTime=0;var p=f.play();if(p&&p.catch)p.catch(function(){});});
  document.getElementById('filmClose').addEventListener('click',close);
  m.addEventListener('click',function(e){if(e.target===m)close();});
  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&m.classList.contains('on'))close();});
