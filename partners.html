@@ -548,62 +548,57 @@ footer{background:var(--deep);color:rgba(255,255,255,.7);padding:48px 0 24px}
 </style>
 <style>
 /* ── OUR PARTNERS (20-nov-2026, opción 2 elegida por Iván): cabecera verde + bloques por función ── */
-.pp-hero{position:relative;background:#0B3F31;color:#fff;padding:200px 0 0;overflow:hidden}
+.pp-hero{position:relative;background:#0B3F31;color:#fff;padding:150px 0 0;overflow:hidden}
 .pp-hero:before{content:"";position:absolute;inset:0;background:radial-gradient(900px 480px at 88% 10%,rgba(46,160,120,.38),transparent 65%),radial-gradient(700px 400px at 0% 110%,rgba(181,138,75,.22),transparent 60%)}
 .pp-hero:after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:64px 64px;mask-image:linear-gradient(90deg,transparent,#000 70%);-webkit-mask-image:linear-gradient(90deg,transparent,#000 70%)}
 .pp-hero .wrap{position:relative;z-index:1}.pp-ht{max-width:900px}
-.pp-hero h1{font-size:clamp(40px,6vw,76px);line-height:1.02;font-weight:800;letter-spacing:-.03em}
+.pp-hero h1{font-size:clamp(32px,4.2vw,54px);line-height:1.02;font-weight:800;letter-spacing:-.03em}
 .pp-hero h1 span{color:#8FD3B4}
-.pp-hero p{font-size:18px;line-height:1.6;color:rgba(255,255,255,.74);margin-top:22px;max-width:560px}
-.pp-hs{display:grid;grid-template-columns:repeat(4,1fr);margin-top:56px;border-top:1px solid rgba(255,255,255,.2)}
-.pp-hs div{padding:26px 26px 30px}.pp-hs div:first-child{padding-left:0}.pp-hs div+div{border-left:1px solid rgba(255,255,255,.16)}
-.pp-hs b{display:block;font-size:44px;font-weight:800;letter-spacing:-.02em;line-height:1}
-.pp-hs span{display:block;font-size:12.5px;color:rgba(255,255,255,.66);margin-top:8px;line-height:1.4}
-.pp{background:#fff;padding:30px 0 40px}
-.pp-gr{display:grid;grid-template-columns:260px 1fr;padding:44px 0 50px;border-bottom:1px solid #E4E8E5}
+.pp-hero p{font-size:15.5px;line-height:1.6;color:rgba(255,255,255,.72);margin-top:16px;max-width:520px}
+.pp-hs{display:grid;grid-template-columns:repeat(3,1fr);max-width:720px;margin-top:38px;border-top:1px solid rgba(255,255,255,.2)}
+.pp-hs div{padding:18px 22px 22px}.pp-hs div:first-child{padding-left:0}.pp-hs div+div{border-left:1px solid rgba(255,255,255,.16)}
+.pp-hs b{display:block;font-size:30px;font-weight:800;letter-spacing:-.02em;line-height:1}
+.pp-hs span{display:block;font-size:12px;color:rgba(255,255,255,.66);margin-top:8px;line-height:1.4}
+.pp{background:#fff;padding:14px 0 24px}
+.pp-gr{display:grid;grid-template-columns:220px 1fr;padding:30px 0 32px;border-bottom:1px solid #E4E8E5}
 .pp-gr:last-child{border-bottom:none}
-.pp-gh span{display:block;font-size:12px;font-weight:600;letter-spacing:.14em;color:#8A928D;margin-bottom:10px}
-.pp-gh h2{font-size:22px;font-weight:800;letter-spacing:-.015em;line-height:1.2;padding-right:24px}
-.pp-items{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
-.pp-lw{height:60px;display:flex;align-items:center;margin-bottom:20px}
-.pp-lw img{height:calc(var(--lh,32) * 1px);width:auto;max-width:100%;transition:transform .25s ease}
+.pp-gh span{display:block;font-size:11px;font-weight:600;letter-spacing:.14em;color:#8A928D;margin-bottom:10px}
+.pp-gh h2{font-size:17px;font-weight:800;letter-spacing:-.015em;line-height:1.2;padding-right:24px}
+.pp-items{display:grid;grid-template-columns:repeat(3,1fr);gap:36px}
+.pp-lw{height:44px;display:flex;align-items:center;margin-bottom:14px}
+.pp-lw img{height:calc(var(--lh,32) * .8px);width:auto;max-width:100%;transition:transform .25s ease}
 .pp-lw{cursor:pointer;position:relative;width:max-content;max-width:100%}
 .pp-lw:after{content:"";position:absolute;left:0;right:0;bottom:-8px;height:2px;background:var(--deep);transform:scaleX(0);transform-origin:left;transition:transform .3s ease}
 .pp-it:hover .pp-lw img{transform:translateY(-2px) scale(1.04)}.pp-it:hover .pp-lw:after{transform:scaleX(1)}
-.pp-url{display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-size:12.5px;font-weight:600;color:#8A928D;transition:color .2s}
+.pp-url{display:inline-flex;align-items:center;gap:6px;margin-top:10px;font-size:12px;font-weight:600;color:#8A928D;transition:color .2s}
 .pp-url svg{transition:transform .2s}
 .pp-it:hover .pp-url{color:var(--deep)}.pp-it:hover .pp-url svg{transform:translate(2px,-2px)}
-.pp-it h3{font-size:16px;font-weight:700;letter-spacing:-.01em}
-.pp-it p{font-size:14.5px;line-height:1.6;color:#5A625E;margin-top:8px}
-/* pie de páginas secundarias (20-nov-2026, «pie 2» elegido por Iván) */
-.f2c{background:linear-gradient(120deg,#0B3F31,#14614A);color:#fff;padding:80px 0}
-.f2c .wrap{display:flex;justify-content:space-between;align-items:center;gap:40px}
-.f2c h2{font-size:56px;font-weight:800;letter-spacing:-.03em;line-height:1}.f2c h2 span{color:#8FD3B4}
-.f2c p{color:rgba(255,255,255,.7);margin-top:14px;font-size:17px}
-.f2c-b{display:flex;gap:12px;flex-shrink:0}
-.f2c-b a{height:54px;padding:0 26px;display:inline-flex;align-items:center;gap:9px;border-radius:4px;font-weight:600;font-size:15px;transition:background .2s,color .2s,border-color .2s}
-.f2c-b a.w{background:#fff;color:#0E5845}.f2c-b a.w:hover{background:#8FD3B4}
-.f2c-b a.o{border:1.5px solid rgba(255,255,255,.5);color:#fff}.f2c-b a.o:hover{border-color:#fff;background:rgba(255,255,255,.08)}
-.f2{background:#061F18;color:rgba(255,255,255,.55);font-size:13px}
-.f2 .wrap{display:flex;justify-content:space-between;align-items:center;gap:30px;min-height:76px;padding-right:110px}
-.f2-logo img{height:26px;filter:brightness(0) invert(1);display:block}
-.f2-nav{display:flex;gap:24px}.f2 a{color:rgba(255,255,255,.75)}.f2 a:hover{color:#8FD3B4}
-.f2-l{display:inline-flex;gap:16px;margin-left:18px}.f2-l a{color:rgba(255,255,255,.55)}
+.pp-it h3{font-size:14.5px;font-weight:700;letter-spacing:-.01em}
+.pp-it p{font-size:13.5px;line-height:1.55;color:#5A625E;margin-top:6px}
+/* pie fino de páginas secundarias (20-nov-2026, v3) */
+.f3{background:#0B3F31;color:rgba(255,255,255,.5);font-size:12.5px;padding:34px 0 20px}
+.f3-top{display:flex;align-items:center;justify-content:space-between;gap:30px;padding-bottom:22px;border-bottom:1px solid rgba(255,255,255,.1)}
+.f3-logo img{height:24px;display:block;filter:brightness(0) invert(1);opacity:.92}
+.f3-nav{display:flex;gap:28px}.f3-nav a{font-size:13px;color:rgba(255,255,255,.72);transition:color .2s}
+.f3-c{display:flex;gap:24px}.f3-c a{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#fff;transition:color .2s}
+.f3-c a svg{opacity:.6;transition:transform .2s}.f3-c a:hover svg{transform:translate(2px,-2px)}
+.f3 a:hover{color:#8FD3B4}
+.f3-bot{display:flex;justify-content:space-between;gap:20px;padding-top:16px;padding-right:80px;letter-spacing:.01em}
+.f3-l{display:flex;gap:18px}.f3-l a{color:rgba(255,255,255,.5)}
 /* menú «2»: cristal con línea fina sobre el verde */
 header:not(.solid){border-bottom:1px solid rgba(255,255,255,.2);background:rgba(8,40,31,.25);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
 @media (max-width:900px){
- .pp-hero{padding:140px 0 0}.pp-hs{grid-template-columns:1fr 1fr;margin-top:40px}.pp-hs div{padding:22px 18px 24px}.pp-hs div:nth-child(odd){padding-left:0;border-left:none}.pp-hs div:nth-child(n+3){border-top:1px solid rgba(255,255,255,.16)}
- .f2c .wrap{flex-direction:column;align-items:flex-start}.f2c h2{font-size:44px}
- .f2 .wrap{flex-wrap:wrap;padding-top:26px;padding-bottom:26px;padding-right:80px;gap:16px 26px}.f2-r{width:100%}
- .pp-gr{grid-template-columns:1fr;gap:26px;padding:36px 0 40px}
+ .pp-hero{padding:120px 0 0}
+ .f3-top{flex-wrap:wrap}.f3-nav{order:3;width:100%;gap:20px;flex-wrap:wrap}
+ .f3-bot{flex-direction:column;gap:8px;padding-right:70px}
+ .pp-gr{grid-template-columns:1fr;gap:18px;padding:26px 0 28px}
  .pp-items{grid-template-columns:1fr 1fr;gap:34px 30px}
 }
 @media (max-width:560px){
- .pp-hero{padding:124px 0 0}.pp-hero h1{font-size:38px}.pp-hero p{font-size:16px}
- .pp-hs b{font-size:34px}.pp-hs span{font-size:12px}
- .f2c{padding:60px 0}.f2c h2{font-size:38px}.f2c-b{width:100%}.f2c-b a{flex:1;justify-content:center;padding:0 14px}
- .f2-nav{flex-wrap:wrap;gap:14px 20px}.f2-l{display:flex;margin:8px 0 0}
- .pp-items{grid-template-columns:1fr;gap:34px}
+ .pp-hero{padding:110px 0 0}.pp-hero h1{font-size:32px}.pp-hero p{font-size:15px}
+ .pp-hs b{font-size:26px}.pp-hs span{font-size:11px}.pp-hs div{padding:14px 10px 18px}.pp-hs div:first-child{padding-left:0}
+ .f3-c{width:100%;justify-content:space-between}
+ .pp-items{grid-template-columns:1fr;gap:28px}
  .pp-lw{height:auto;margin-bottom:14px}
 }
 nav.main a[aria-current]{color:#fff;position:relative}nav.main a[aria-current]:after{content:"";position:absolute;left:0;right:0;bottom:-30px;height:2px;background:#8FD3B4}
@@ -661,19 +656,18 @@ header.solid nav.main a[aria-current]{color:var(--deep)}
 <section class="pp-hero"><div class="wrap">
   <div class="pp-ht"><h1>The institutions behind <span>every shipment.</span></h1>
   <p>Banking, hedging, warehousing and audit: the partners that finance, protect, store and verify our cocoa from Uganda to the world.</p></div>
-  <div class="pp-hs"><div><b>8</b><span>partner institutions</span></div><div><b>4</b><span>functions: banking, hedging, warehousing, audit</span></div><div><b>3</b><span>continents: Africa, Asia, Europe</span></div><div><b>1847</b><span>our oldest partner, C. Steinweg</span></div></div>
+  <div class="pp-hs"><div><b>8</b><span>partner institutions</span></div><div><b>4</b><span>functions: banking, hedging, warehousing, audit</span></div><div><b>3</b><span>continents: Africa, Asia, Europe</span></div></div>
 </div></section>
 <section class="pp"><div class="wrap"><div class="pp-gr"><div class="pp-gh"><span>01</span><h2>Banking &amp; trade finance</h2></div><div class="pp-items"><div class="pp-it"><a class="pp-lw" href="https://www.stanbicbank.co.ug" target="_blank" rel="noopener" aria-label="Stanbic Bank website (opens in a new tab)"><img style="--lh:30.8" src="assets/partner-stanbic.png?v=3" alt="Stanbic Bank" loading="lazy" /></a><h3>Our main bank in Uganda.</h3><p>Holds our operating accounts and finances our shipments through its trade-finance desk. Uganda’s largest bank, part of Standard Bank Group.</p><a class="pp-url" href="https://www.stanbicbank.co.ug" target="_blank" rel="noopener">stanbicbank.co.ug<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a></div><div class="pp-it"><a class="pp-lw" href="https://www.icbc.com.cn" target="_blank" rel="noopener" aria-label="ICBC website (opens in a new tab)"><img style="--lh:37.9" src="assets/partner-icbc.png?v=3" alt="ICBC" loading="lazy" /></a><h3>Our bank in China.</h3><p>Handles our banking in China, where our Shanghai office works with buyers. The largest bank in the world by total assets.</p><a class="pp-url" href="https://www.icbc.com.cn" target="_blank" rel="noopener">icbc.com.cn<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a></div><div class="pp-it"><a class="pp-lw" href="https://home.barclays" target="_blank" rel="noopener" aria-label="Barclays website (opens in a new tab)"><img style="--lh:27.0" src="assets/partner-barclays.png?v=3" alt="Barclays" loading="lazy" /></a><h3>Our bank in London.</h3><p>Holds our account in London for payments to and from Europe and the United Kingdom. Founded in London in 1690.</p><a class="pp-url" href="https://home.barclays" target="_blank" rel="noopener">home.barclays<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a></div></div></div><div class="pp-gr"><div class="pp-gh"><span>02</span><h2>Hedging &amp; foreign exchange</h2></div><div class="pp-items"><div class="pp-it"><a class="pp-lw" href="https://www.stonex.com" target="_blank" rel="noopener" aria-label="StoneX website (opens in a new tab)"><img style="--lh:30.7" src="assets/partner-stonex.png?v=3" alt="StoneX" loading="lazy" /></a><h3>Our hedging partner.</h3><p>Gives us access to ICE cocoa futures to fix the price of our contracts. Listed on Nasdaq, serving 54,000+ commercial clients.</p><a class="pp-url" href="https://www.stonex.com" target="_blank" rel="noopener">stonex.com<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a></div><div class="pp-it"><a class="pp-lw" href="https://monexglobal.com/uk" target="_blank" rel="noopener" aria-label="Monex website (opens in a new tab)"><img style="--lh:31.2" src="assets/partner-monex.png?v=3" alt="Monex" loading="lazy" /></a><h3>Our foreign-exchange partner.</h3><p>Converts our currencies and sends our international payments. Part of Mexico’s Monex group, USD 198 bn of FX traded in 2025.</p><a class="pp-url" href="https://monexglobal.com/uk" target="_blank" rel="noopener">monexglobal.com<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a></div></div></div><div class="pp-gr"><div class="pp-gh"><span>03</span><h2>Warehousing</h2></div><div class="pp-items"><div class="pp-it"><a class="pp-lw" href="https://www.steinweg.com" target="_blank" rel="noopener" aria-label="C. Steinweg Group website (opens in a new tab)"><img style="--lh:39.7" src="assets/partner-steinweg.png?v=3" alt="C. Steinweg Group" loading="lazy" /></a><h3>Our export warehouse.</h3><p>Our cocoa is stored, sampled and loaded for export at Steinweg’s warehouse in Kampala. Founded in Rotterdam in 1847.</p><a class="pp-url" href="https://www.steinweg.com" target="_blank" rel="noopener">steinweg.com<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a></div></div></div><div class="pp-gr"><div class="pp-gh"><span>04</span><h2>Audit &amp; accounting</h2></div><div class="pp-items"><div class="pp-it"><a class="pp-lw" href="https://www.grantthornton.global" target="_blank" rel="noopener" aria-label="Grant Thornton website (opens in a new tab)"><img style="--lh:28.3" src="assets/partner-grant-thornton.png?v=3" alt="Grant Thornton" loading="lazy" /></a><h3>Our auditors.</h3><p>Audits our financial statements. One of the world’s leading audit and advisory networks: 80,000 people in 150+ markets.</p><a class="pp-url" href="https://www.grantthornton.global" target="_blank" rel="noopener">grantthornton.global<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a></div><div class="pp-it"><a class="pp-lw" href="https://tds.co.ug" target="_blank" rel="noopener" aria-label="TDS &amp; Co website (opens in a new tab)"><img style="--lh:45.2" src="assets/partner-tds.png?v=3" alt="TDS &amp; Co" loading="lazy" /></a><h3>Our local accountants.</h3><p>Certified Public Accountants in Kampala. Keep our books and tax filings in line with Ugandan accounting and tax law.</p><a class="pp-url" href="https://tds.co.ug" target="_blank" rel="noopener">tds.co.ug<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a></div></div></div></div></section>
 </main>
 
-<section class="f2c"><div class="wrap">
-  <div><h2>Let’s talk <span>cocoa.</span></h2><p>Offers, samples and shipment schedules from our team in Kampala.</p></div>
-  <div class="f2c-b"><a class="w" href="/#contact">Request an offer <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a><a class="o" data-ce-chat href="https://wa.me/5491176203696" target="_blank" rel="noopener">WhatsApp</a></div>
-</div></section>
-<footer class="f2"><div class="wrap">
-  <a class="f2-logo" href="/"><img src="assets/logo-horizontal-green.png" alt="Cocoa Empire" /></a>
-  <nav class="f2-nav"><a href="/#do">Company</a><a href="/#caro">Supply</a><a href="/partners">Our Partners</a><a href="/#contact">Contact</a></nav>
-  <span class="f2-r">© 2026 Cocoa Empire Uganda Limited · Reg. Nº 80034469703707 <span class="f2-l"><a href="legal.html">Legal</a><a href="privacy.html">Privacy</a><a href="disclosures.html">Disclosures</a></span></span>
+<footer class="f3"><div class="wrap">
+  <div class="f3-top">
+    <a class="f3-logo" href="/"><img src="assets/logo-horizontal-green.png" alt="Cocoa Empire" /></a>
+    <nav class="f3-nav"><a href="/#do">Company</a><a href="/#caro">Supply</a><a href="/partners">Our Partners</a><a href="/#contact">Contact</a></nav>
+    <div class="f3-c"><a href="mailto:hello@cocoaempire.com">hello@cocoaempire.com <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a><a data-ce-chat href="https://wa.me/5491176203696" target="_blank" rel="noopener">WhatsApp <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a></div>
+  </div>
+  <div class="f3-bot"><span>© 2026 Cocoa Empire Uganda Limited · Reg. Nº 80034469703707 · Kampala · Shanghai</span><span class="f3-l"><a href="legal.html">Legal</a><a href="privacy.html">Privacy</a><a href="disclosures.html">Disclosures</a></span></div>
 </div></footer>
 
 <a class="wa-float" data-ce-chat href="https://wa.me/5491176203696" target="_blank" rel="noopener" aria-label="Chat with us">
