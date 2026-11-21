@@ -626,23 +626,25 @@ nav.main a[aria-current]{color:#fff;position:relative}nav.main a[aria-current]:a
 .pc p{margin-bottom:22px}.pc-f{margin-top:auto;padding-top:14px;border-top:1px solid #EEF1EF;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;row-gap:8px}
 .pc-f span{white-space:nowrap;font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:#8A928D}
 .pc-f button{background:none;border:0;padding:0;cursor:pointer;display:inline-flex;align-items:center;gap:8px;color:#0E5845;font:700 13.5px Inter,sans-serif;white-space:nowrap}.pc-f button:hover svg{transform:translateX(3px)}.pc-f svg{transition:transform .2s}
-.pm{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;padding:16px}.pm[hidden]{display:none}
-.pm-bg{position:absolute;inset:0;background:rgba(9,32,25,.6)}
-.pm-box{position:relative;background:#fff;width:min(820px,100%);max-height:calc(100vh - 32px);overflow:auto;display:grid;grid-template-columns:280px 1fr}
-.pm-l{background:#0B3F31;color:#fff;padding:32px 28px}.pm-l h3{font-size:24px;font-weight:800;margin-top:10px;line-height:1.15}.pm-l p{font-size:13px;line-height:1.6;opacity:.75;margin-top:10px}
-.pm-r{padding:30px 32px;position:relative}.pm-x{position:absolute;right:12px;top:8px;background:none;border:0;font-size:26px;color:#8A928D;cursor:pointer}
-.pm-fs{display:grid;grid-template-columns:1fr 1fr;gap:14px}.pm-fs label{display:flex;flex-direction:column;gap:6px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#5A625E}.pm-fs .w2{grid-column:span 2}
-.pm-fs input{height:44px;border:1px solid #D5DBD7;padding:0 12px;font:400 14px Inter,sans-serif;color:#171918;border-radius:0}.pm-fs input:focus{outline:2px solid #8FD3B4;border-color:#1F8162}
-.pm-fs input.bad{border-color:#A6392C}.pm-hp{position:absolute;left:-9999px;width:1px;height:1px}
-.pm-dh{margin-top:18px;font-size:11px;font-weight:700;letter-spacing:.1em;color:#5A625E;text-transform:uppercase}
-.pm-docs{display:grid;grid-template-columns:1fr 1fr;column-gap:20px}.pm-docs label{display:flex;align-items:center;gap:10px;font-size:13.5px;padding:8px 0;border-bottom:1px solid #EEF1EF;cursor:pointer}.pm-docs input{accent-color:#0E5845;width:16px;height:16px}
-.pm-ft{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-top:20px}.pm-ft small{font-size:11.5px;color:#8A928D}.pm-ft a{color:inherit;text-decoration:underline}
-.pm-send{background:#0E5845;color:#fff;border:0;font:700 13px Inter,sans-serif;padding:13px 22px;cursor:pointer}.pm-send[disabled]{opacity:.6}
-.pm-msg{font-size:12.5px;color:#A6392C;margin-top:10px;min-height:1em}
-.pm-ok{padding:40px 32px;display:flex;flex-direction:column;gap:12px;align-items:flex-start}.pm-ok h3{font-size:24px;font-weight:800}.pm-ok p{font-size:14px;color:#5A625E;line-height:1.6}
-.pm-box.done .pm-r{display:none}.pm-ok[hidden]{display:none}
+.pm{position:fixed;inset:0;z-index:2147483000}.pm[hidden]{display:none}
+.pm-bg{position:absolute;inset:0;background:rgba(9,32,25,.55);opacity:0;transition:opacity .3s}
+.pm-box{position:absolute;top:0;right:0;bottom:0;width:380px;max-width:100%;background:#fff;border-left:3px solid #0E5845;overflow:auto;transform:translateX(100%);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.pm.open .pm-bg{opacity:1}.pm.open .pm-box{transform:none}
+.pm-x{position:absolute;right:14px;top:12px;background:none;border:0;font-size:22px;line-height:1;color:#8A928D;cursor:pointer}
+.pm-r,.pm-ok{padding:34px 30px}
+.pm-k{font-size:10px;letter-spacing:.16em;font-weight:700;color:#1F8162;text-transform:uppercase}
+.pm-box h3{font-size:18px;font-weight:700;margin-top:6px}.pm-s{font-size:12.5px;color:#6B736F;line-height:1.5;margin:4px 0 18px}
+.pm-fs label{display:flex;flex-direction:column;gap:4px;font-size:10px;letter-spacing:.1em;font-weight:600;color:#6B736F;text-transform:uppercase;margin-bottom:10px}
+.pm-fs input{height:36px;border:1px solid #D9DEDB;padding:0 10px;font:400 13px Inter,sans-serif;color:#171918;border-radius:0}.pm-fs input:focus{outline:2px solid #8FD3B4;border-color:#1F8162}.pm-fs input.bad{border-color:#A6392C}
+.pm-hp{position:absolute;left:-9999px;width:1px;height:1px}
+.pm-dh{font-size:10px;letter-spacing:.1em;font-weight:600;color:#6B736F;text-transform:uppercase;margin:8px 0 4px}
+.pm-docs label{display:flex;gap:9px;align-items:center;font-size:12.5px;padding:4px 0;cursor:pointer}.pm-docs input{accent-color:#0E5845;margin:0;width:14px;height:14px}
+.pm-send{width:100%;display:flex;justify-content:center;gap:6px;align-items:center;background:#0E5845;color:#fff;border:0;font:600 12.5px Inter,sans-serif;padding:12px;margin-top:18px;cursor:pointer}.pm-send[disabled]{opacity:.6}
+.pm-msg{font-size:12px;color:#A6392C;margin-top:8px;min-height:1em}.pm-pp{display:block;font-size:10.5px;color:#8A928D}.pm-pp a{color:inherit;text-decoration:underline}
+.pm-ok{display:flex;flex-direction:column;gap:8px;align-items:flex-start;justify-content:center;min-height:100%}.pm-ok[hidden]{display:none}.pm-ok p{font-size:13px;color:#5A625E;line-height:1.6}
+.pm-box.done .pm-r{display:none}
 @media(max-width:1180px){.pf-g{grid-template-columns:1fr 1fr}}
-@media(max-width:640px){.pf-hero{padding:120px 0 40px}.pf-g{grid-template-columns:1fr}.pm-box{grid-template-columns:1fr}.pm-l{padding:22px 22px}.pm-r{padding:22px}.pm-fs{grid-template-columns:1fr}.pm-fs .w2{grid-column:auto}.pm-docs{grid-template-columns:1fr}.pm-ft{flex-direction:column;align-items:stretch}}
+@media(max-width:640px){.pf-hero{padding:120px 0 40px}.pf-g{grid-template-columns:1fr}.pm-box{width:100%;border-left:0}.pm-r,.pm-ok{padding:28px 20px}}
 </style></head>
 <body>
 
@@ -695,17 +697,17 @@ nav.main a[aria-current]{color:#fff;position:relative}nav.main a[aria-current]:a
 <section class="pf-hero"><div class="wrap"><span class="pf-k">Proof</span><h1>Certified, licensed<br>and <span>traceable</span>.</h1><p>Download our licences and certificates. Tell us who you are and we send you the files.</p></div></section>
 <section class="pf-sec"><div class="wrap pf-g"><article class="pc"><div class="pc-ic"><img src="assets/fairtrade-mark-arrow.png" alt="FAIRTRADE Mark" /></div><h3>Fairtrade certificate</h3><small>FLOCERT · FLO ID 51564</small><p>Fairtrade certified cocoa beans</p><div class="pc-f"><span>Current</span><button type="button" data-doc="Fairtrade certificate">Request download <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div></article><article class="pc"><div class="pc-ic"><img src="assets/eu-organic-logo.svg" alt="EU organic logo" /></div><h3>EU Organic certificate</h3><small>Control Union · Regulation (EU) 2018/848</small><p>Organic cocoa for the European Union</p><div class="pc-f"><span>Current</span><button type="button" data-doc="EU Organic certificate">Request download <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div></article><article class="pc"><div class="pc-ic"><img src="assets/usda-organic-seal.svg" alt="USDA Organic seal" /></div><h3>USDA Organic certificate</h3><small>Control Union · NOP</small><p>Organic cocoa for the United States</p><div class="pc-f"><span>Current</span><button type="button" data-doc="USDA Organic certificate">Request download <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div></article><article class="pc"><div class="pc-ic"><img src="assets/flag-eu.svg" alt="Flag of the European Union" /></div><h3>EUDR due diligence</h3><small>Regulation (EU) 2023/1115</small><p>Plot-level geolocation, deforestation-free</p><div class="pc-f"><span>Per shipment</span><button type="button" data-doc="EUDR due diligence">Request download <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div></article><article class="pc"><div class="pc-ic"><img src="assets/ursb-logo.png" alt="Uganda Registration Services Bureau" /></div><h3>Certificate of Incorporation</h3><small>Uganda Registration Services Bureau</small><p>Cocoa Empire Uganda Limited</p><div class="pc-f"><span>Reg. 80034469703707</span><button type="button" data-doc="Certificate of Incorporation">Request download <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div></article><article class="pc"><div class="pc-ic"><img src="assets/flag-uganda.svg" alt="Flag of Uganda" /></div><h3>Export Permit</h3><small>Ministry of Trade, Industry &amp; Cooperatives, Uganda</small><p>Licensed to export up to 10,000 t of cocoa beans</p><div class="pc-f"><span>Valid to Sep 2027</span><button type="button" data-doc="Export Permit">Request download <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div></article></div></section>
 </main>
-<div class="pm" id="pm" hidden><div class="pm-bg" data-close></div><div class="pm-box" role="dialog" aria-modal="true" aria-labelledby="pmT">
-<div class="pm-l"><span class="pf-k">Request documents</span><h3 id="pmT">Tell us who you are</h3><p>We send the selected files to your business email. Your details go only to our trade team.</p></div>
-<form class="pm-r" id="pmF" novalidate><button type="button" class="pm-x" data-close aria-label="Close">×</button>
-<div class="pm-fs"><label>Full name<input name="name" required autocomplete="name" /></label><label>Company<input name="company" required autocomplete="organization" /></label><label>Position<input name="position" required autocomplete="organization-title" /></label><label>Business email<input name="email" type="email" required autocomplete="email" /></label><label class="w2">Country<input name="country" autocomplete="country-name" /></label></div>
+<div class="pm" id="pm" hidden><div class="pm-bg" data-close></div><aside class="pm-box" role="dialog" aria-modal="true" aria-labelledby="pmT">
+<button type="button" class="pm-x" data-close aria-label="Close">×</button>
+<form class="pm-r" id="pmF" novalidate><span class="pm-k">Request documents</span><h3 id="pmT">Tell us who you are</h3><p class="pm-s">We send the selected files to your business email.</p>
+<div class="pm-fs"><label>Full name<input name="name" autocomplete="name" /></label><label>Company<input name="company" autocomplete="organization" /></label><label>Position<input name="position" autocomplete="organization-title" /></label><label>Business email<input name="email" type="email" autocomplete="email" /></label><label>Country<input name="country" autocomplete="country-name" /></label></div>
 <input name="website" class="pm-hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
 <div class="pm-dh">Documents</div><div class="pm-docs"><label><input type="checkbox" name="docs" value="Fairtrade certificate" /><span>Fairtrade certificate</span></label><label><input type="checkbox" name="docs" value="EU Organic certificate" /><span>EU Organic certificate</span></label><label><input type="checkbox" name="docs" value="USDA Organic certificate" /><span>USDA Organic certificate</span></label><label><input type="checkbox" name="docs" value="EUDR due diligence" /><span>EUDR due diligence</span></label><label><input type="checkbox" name="docs" value="Certificate of Incorporation" /><span>Certificate of Incorporation</span></label><label><input type="checkbox" name="docs" value="Export Permit" /><span>Export Permit</span></label></div>
-<div class="pm-ft"><small>By sending you accept our <a href="/privacy">Privacy Policy</a>.</small><button type="submit" class="pm-send">Send request →</button></div>
-<p class="pm-msg" id="pmM" role="status"></p></form>
-<div class="pm-ok" id="pmOk" hidden><span class="pf-k">Request received</span><h3>Thank you.</h3><p>Our trade team will review your request and send the documents to your email.</p><button type="button" class="pm-send" data-close>Close</button></div>
-</div></div>
-
+<button type="submit" class="pm-send">Send request <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+<p class="pm-msg" id="pmM" role="status"></p>
+<small class="pm-pp">By sending you accept our <a href="/privacy">Privacy Policy</a>.</small></form>
+<div class="pm-ok" id="pmOk" hidden><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#1F8162" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M7.5 12.5l3 3 6-6.5"/></svg><span class="pm-k">Request received</span><h3>Thank you.</h3><p>Our trade team will review your request and send the documents to your email.</p></div>
+</aside></div>
 
 <footer>
   <div class="wrap">
@@ -836,9 +838,9 @@ document.querySelectorAll('.scard .mrow').forEach(function(r){r.addEventListener
 <script>(function(){var c=document.querySelector('.do-chain');if(!c||!('IntersectionObserver' in window))return;var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;io.disconnect();[].forEach.call(c.querySelectorAll('.chain-step'),function(st,i){setTimeout(function(){st.classList.add('play');setTimeout(function(){st.classList.remove('play')},1400)},i*350)})})},{threshold:.5});io.observe(c)})();</script>
 <script src="https://platform.cocoaempire.com/widget.js" defer></script>
 <script>
-(function(){var m=document.getElementById('pm'),f=document.getElementById('pmF'),box=m.querySelector('.pm-box'),ok=document.getElementById('pmOk'),msg=document.getElementById('pmM');
-function open(doc){box.classList.remove('done');ok.hidden=true;msg.textContent='';f.querySelectorAll('input[name=docs]').forEach(function(c){c.checked=c.value===doc});m.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){f.name.focus()},50)}
-function close(){m.hidden=true;document.body.style.overflow=''}
+(function(){var m=document.getElementById('pm'),f=document.getElementById('pmF'),box=m.querySelector('.pm-box'),ok=document.getElementById('pmOk'),msg=document.getElementById('pmM'),t;
+function open(doc){clearTimeout(t);box.classList.remove('done');ok.hidden=true;msg.textContent='';f.querySelectorAll('input[name=docs]').forEach(function(c){c.checked=c.value===doc});m.hidden=false;void m.offsetWidth;m.classList.add('open');document.body.style.overflow='hidden';setTimeout(function(){f.name.focus({preventScroll:true})},350)}
+function close(){clearTimeout(t);m.classList.remove('open');document.body.style.overflow='';setTimeout(function(){m.hidden=true},350)}
 document.querySelectorAll('.pc-f button').forEach(function(b){b.addEventListener('click',function(){open(b.dataset.doc)})});
 m.querySelectorAll('[data-close]').forEach(function(b){b.addEventListener('click',close)});
 document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!m.hidden)close()});
@@ -846,10 +848,10 @@ f.addEventListener('submit',function(e){e.preventDefault();msg.textContent='';va
 var docs=[].slice.call(f.querySelectorAll('input[name=docs]:checked')).map(function(c){return c.value});
 if(bad){msg.textContent='Please complete your name, company, position and a valid email.';return}
 if(!docs.length){msg.textContent='Please select at least one document.';return}
-var btn=f.querySelector('.pm-send');btn.disabled=true;btn.textContent='Sending…';
+var btn=f.querySelector('.pm-send'),lbl=btn.innerHTML;btn.disabled=true;btn.textContent='Sending…';
 fetch('https://platform.cocoaempire.com/api/doc-request',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:f.name.value,company:f.company.value,position:f.position.value,email:f.email.value,country:f.country.value,website:f.website.value,docs:docs})})
-.then(function(r){return r.json().then(function(j){if(!r.ok||!j.ok)throw 0})}).then(function(){box.classList.add('done');ok.hidden=false;f.reset()})
-.catch(function(){msg.textContent='Something went wrong. Please write to hello@cocoaempire.com.'}).then(function(){btn.disabled=false;btn.textContent='Send request →'})});
+.then(function(r){return r.json().then(function(j){if(!r.ok||!j.ok)throw 0})}).then(function(){box.classList.add('done');ok.hidden=false;f.reset();t=setTimeout(close,3000)})
+.catch(function(){msg.textContent='Something went wrong. Please write to hello@cocoaempire.com.'}).then(function(){btn.disabled=false;btn.innerHTML=lbl})});
 })();
 </script></body>
 </html>
