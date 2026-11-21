@@ -615,7 +615,7 @@ a.sp-c:hover .u{color:#0E5845}
 @media (max-width:560px){.sp-g,.sp-g4{grid-template-columns:1fr}.sp-h{flex-wrap:wrap;gap:6px}.sp-hs b{font-size:24px}.sp-hs div{padding:12px 10px 2px}}
 nav.main a[aria-current]{color:#fff;position:relative}nav.main a[aria-current]:after{content:"";position:absolute;left:0;right:0;bottom:-30px;height:2px;background:#8FD3B4}
 </style>
-<style id="fmap">#do.blk{padding:0}#do .caro{margin-top:0}#do .slide::after{background:linear-gradient(to top,#0B3F31 0%,rgba(11,63,49,.85) 18%,rgba(9,32,25,.2) 55%,rgba(9,32,25,0) 100%)}#do .caro-dots{bottom:34px}.fm::before{content:"";position:absolute;left:0;right:0;top:0;height:160px;z-index:1;background:linear-gradient(#0B3F31,rgba(11,63,49,0));pointer-events:none}
+<style id="fmap">#do.blk{padding:0}#do .caro{margin-top:0}#do .slide::after{background:linear-gradient(to top,#0B3F31 0%,rgba(11,63,49,.85) 18%,rgba(9,32,25,.2) 55%,rgba(9,32,25,0) 100%)}#do .caro-dots{bottom:34px}
 .fm{position:relative;overflow:hidden;background:#0B3F31;color:#fff;height:clamp(560px,46vw,760px)}
 .fmap{position:absolute;inset:0}.fmap::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,63,49,.85) 0%,rgba(11,63,49,.4) 40%,rgba(11,63,49,0) 60%);pointer-events:none}
 .fmin{position:absolute;top:50%;left:50%;width:max(100%,calc(clamp(560px,46vw,760px)*2.1687));aspect-ratio:1440/664;transform:translate(-50%,-50%)}
@@ -627,6 +627,22 @@ nav.main a[aria-current]{color:#fff;position:relative}nav.main a[aria-current]:a
 .fmst div{border-left:2px solid var(--c);padding-left:14px}.fmst b{font-size:30px;font-weight:800;display:block;line-height:1.2}.fmst span{font-size:12px;color:rgba(255,255,255,.8);line-height:1.6}
 .fm-cr{position:absolute;left:14px;bottom:8px;font-size:9px;color:rgba(255,255,255,.45);z-index:2}
 @media(max-width:760px){.fm{height:auto;padding:40px 0 34px;display:flex;flex-direction:column}.fmtx{order:0}.fmap{order:1}.fmst{order:2}.fm-cr{order:3}.fmtx,.fmst{position:static}.fmap{position:relative;height:380px;margin:22px 0 24px}.fmap::after{display:none}.fmin{width:auto;height:100%;transform:translate(-74%,-50%)}.fmst{flex-wrap:wrap;gap:18px 26px}.fmst b{font-size:24px}.fm h2{font-size:28px}.fm-cr{position:static;display:block;padding:18px 16px 0}}
+</style><style id="sv1css">
+.sv1{position:relative;height:100vh;min-height:640px;max-height:900px;color:#fff;overflow:hidden;background:#0B3F31}
+.sv1-bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.4s ease}
+.sv1-bg img.on{opacity:1}
+.sv1::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,#F6F7F5 0%,rgba(246,247,245,0) 18%),linear-gradient(90deg,rgba(11,63,49,.92) 0%,rgba(11,63,49,.6) 45%,rgba(11,63,49,.15) 100%)}
+.sv1-tx{position:relative;z-index:2;padding-top:200px}
+.sv1 h1{font-size:clamp(34px,4vw,56px);line-height:1.02;font-weight:800;letter-spacing:-.03em}.sv1 h1 span{color:#8FD3B4}
+.sv1 p{font-size:15px;line-height:1.6;color:rgba(255,255,255,.8);max-width:540px;margin-top:14px}
+.sv1-st{display:flex;margin-top:28px}.sv1-st div{padding:12px 26px 4px;border-left:1px solid rgba(255,255,255,.2)}.sv1-st div:first-child{padding-left:0;border-left:0}
+.sv1-st b{display:block;font-size:30px;font-weight:800;letter-spacing:-.02em}.sv1-st span{font-size:11.5px;color:rgba(255,255,255,.72)}
+.sv1-band{background:#F6F7F5;padding:30px 0 70px}
+.sv1-stg{display:grid;grid-template-columns:repeat(4,1fr)}
+.sv1-stg button{background:none;border:0;border-top:1px solid #E4E8E5;padding:18px 0 0;text-align:left;font:inherit;font-size:12px;letter-spacing:.14em;font-weight:700;text-transform:uppercase;color:#8A928D;cursor:pointer;transition:color .3s}
+.sv1-stg button.on{color:#171918;border-top:2px solid #1F8162;padding-top:17px}
+.sv1-stg button:hover{color:#171918}
+@media(max-width:760px){.sv1{height:auto;min-height:0;max-height:none;padding-bottom:120px}.sv1-tx{padding-top:130px}.sv1-st div{padding:10px 14px 2px}.sv1-st b{font-size:22px}.sv1-st span{font-size:10.5px}.sv1-band{padding:18px 0 40px}.sv1-stg{grid-template-columns:1fr 1fr;row-gap:14px}.sv1-stg button{font-size:11px}}
 </style></head>
 <body>
 
@@ -675,21 +691,15 @@ nav.main a[aria-current]{color:#fff;position:relative}nav.main a[aria-current]:a
 </header>
 
 <main id="main">
-<section class="sp-hero"><div class="wrap">
-  <div><h1>We <span>control</span> more<br>than the transaction.</h1><p>From farmer registration in Bundibugyo to inspection, warehousing in Kampala and export, Cocoa Empire manages every critical stage of the cocoa supply chain, from the farm to the ship.</p></div>
-  <div class="sp-hs"><div><b>6,000+</b><span>farmers we work with</span></div><div><b>5</b><span>farmer organisations</span></div><div><b>1,000s</b><span>tonnes a year export capacity</span></div></div>
-</div></section>
-<!-- WHAT WE DO -->
-<section class="blk" id="do">
-<div class="caro" id="caro">
-    <div class="slide on"><img src="assets/ce-harvest.jpg" alt="Farmer harvesting cocoa at origin" /><div class="cap"><div class="k">Structured farmer &amp; supplier networks across Uganda</div><div class="t">Source</div></div></div>
-    <div class="slide"><img src="assets/ce-control.jpg" alt="Quality control of fresh cocoa pods" /><div class="cap"><div class="k">Inspection, grading &amp; quality management at origin</div><div class="t">Control</div></div></div>
-    
-    <div class="slide"><img src="assets/ce-drying.jpg" alt="Sun-drying cocoa beans at origin" /><div class="cap"><div class="k">Sun-dried, consolidated &amp; inspected stock in Kampala</div><div class="t">Warehouse</div></div></div>
-    <div class="slide"><img src="assets/gallery-12.jpg" alt="Cocoa bags stowed in a lined container for export" /><div class="cap"><div class="k">EXW Kampala · FOB Mombasa · CFR / CIF to Europe, Asia &amp; any market</div><div class="t">Export</div></div></div>
+<section class="sv1" id="sv1">
+  <div class="sv1-bg"><img class="on" src="assets/ce-harvest.jpg" alt="Farmer harvesting cocoa at origin" /><img class="" src="assets/ce-control.jpg" alt="Quality control of fresh cocoa pods" /><img class="" src="assets/ce-drying.jpg" alt="Sun-drying cocoa beans at origin" /><img class="" src="assets/gallery-12.jpg" alt="Cocoa bags stowed in a lined container for export" /></div>
+  <div class="wrap sv1-tx">
+    <h1>We <span>control</span> more<br>than the transaction.</h1>
+    <p>From farmer registration in Bundibugyo to inspection, warehousing in Kampala and export, Cocoa Empire manages every critical stage of the cocoa supply chain.</p>
+    <div class="sv1-st"><div><b>6,000+</b><span>farmers we work with</span></div><div><b>5</b><span>farmer organisations</span></div><div><b>1,000s</b><span>tonnes a year export capacity</span></div></div>
   </div>
-  </section>
-
+</section>
+<div class="sv1-band"><div class="wrap sv1-stg" role="tablist" aria-label="Supply chain stages"><button type="button" class="on" data-i="0">01 · Source</button><button type="button" class="" data-i="1">02 · Control</button><button type="button" class="" data-i="2">03 · Warehouse</button><button type="button" class="" data-i="3">04 · Export</button></div></div>
 <section class="fm" aria-label="Map of our farmer associations">
   <div class="fmap"><div class="fmin"><img src="assets/supply-relief.jpg" alt="" loading="lazy" /><img src="assets/supply-farms.svg" alt="Map of Bundibugyo District with every registered farm of our two associations" loading="lazy" /></div></div>
   <div class="wrap fmtx"><span class="fm-k">Every farm, on the map</span><h2>Our farmer associations</h2><p>Bundibugyo District, on the western slopes of the Rwenzori, along the border with DR Congo. Every dot is a registered, geolocated farm.</p></div>
@@ -826,5 +836,10 @@ document.querySelectorAll('.scard .mrow').forEach(function(r){r.addEventListener
 </script>
 <script>(function(){var c=document.querySelector('.do-chain');if(!c||!('IntersectionObserver' in window))return;var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;io.disconnect();[].forEach.call(c.querySelectorAll('.chain-step'),function(st,i){setTimeout(function(){st.classList.add('play');setTimeout(function(){st.classList.remove('play')},1400)},i*350)})})},{threshold:.5});io.observe(c)})();</script>
 <script src="https://platform.cocoaempire.com/widget.js" defer></script>
-</body>
+<script>
+(function(){var r=document.getElementById('sv1');if(!r)return;var im=r.querySelectorAll('.sv1-bg img'),bt=document.querySelectorAll('.sv1-stg button'),i=0,t;
+function go(n){im[i].classList.remove('on');bt[i].classList.remove('on');i=n;im[i].classList.add('on');bt[i].classList.add('on')}
+function run(){clearInterval(t);t=setInterval(function(){go((i+1)%im.length)},6000)}
+bt.forEach(function(b){b.addEventListener('click',function(){go(+b.dataset.i);run()})});run()})();
+</script></body>
 </html>
