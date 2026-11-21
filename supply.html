@@ -615,7 +615,19 @@ a.sp-c:hover .u{color:#0E5845}
 @media (max-width:560px){.sp-g,.sp-g4{grid-template-columns:1fr}.sp-h{flex-wrap:wrap;gap:6px}.sp-hs b{font-size:24px}.sp-hs div{padding:12px 10px 2px}}
 nav.main a[aria-current]{color:#fff;position:relative}nav.main a[aria-current]:after{content:"";position:absolute;left:0;right:0;bottom:-30px;height:2px;background:#8FD3B4}
 </style>
-</head>
+<style id="fmap">#do.blk{padding:0}#do .caro{margin-top:0}
+.fm{position:relative;overflow:hidden;background:#0B3F31;color:#fff;height:clamp(560px,46vw,760px)}
+.fmap{position:absolute;inset:0}.fmap::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,63,49,.85) 0%,rgba(11,63,49,.4) 40%,rgba(11,63,49,0) 60%);pointer-events:none}
+.fmin{position:absolute;top:50%;left:50%;width:max(100%,calc(clamp(560px,46vw,760px)*2.1687));aspect-ratio:1440/664;transform:translate(-50%,-50%)}
+.fmin img{position:absolute;inset:0;width:100%;height:100%;display:block}
+.fmtx{position:absolute;left:0;right:0;top:46px;z-index:2}.fmst{position:absolute;left:0;right:0;bottom:44px;z-index:2;display:flex;gap:46px}
+.fm-k{font-size:10.5px;letter-spacing:.16em;font-weight:700;color:#8FD3B4;text-transform:uppercase}
+.fm h2{font-size:34px;font-weight:800;letter-spacing:-.02em;margin-top:8px;color:#fff}
+.fm p{font-size:14px;line-height:1.6;color:rgba(255,255,255,.75);max-width:420px;margin-top:10px}
+.fmst div{border-left:2px solid var(--c);padding-left:14px}.fmst b{font-size:30px;font-weight:800;display:block;line-height:1.2}.fmst span{font-size:12px;color:rgba(255,255,255,.8);line-height:1.6}
+.fm-cr{position:absolute;left:14px;bottom:8px;font-size:9px;color:rgba(255,255,255,.45);z-index:2}
+@media(max-width:760px){.fm{height:auto;padding:40px 0 34px;display:flex;flex-direction:column}.fmtx{order:0}.fmap{order:1}.fmst{order:2}.fm-cr{order:3}.fmtx,.fmst{position:static}.fmap{position:relative;height:380px;margin:22px 0 24px}.fmap::after{display:none}.fmin{width:auto;height:100%;transform:translate(-74%,-50%)}.fmst{flex-wrap:wrap;gap:18px 26px}.fmst b{font-size:24px}.fm h2{font-size:28px}.fm-cr{position:static;display:block;padding:18px 16px 0}}
+</style></head>
 <body>
 
 <header id="hdr">
@@ -664,55 +676,26 @@ nav.main a[aria-current]{color:#fff;position:relative}nav.main a[aria-current]:a
 
 <main id="main">
 <section class="sp-hero"><div class="wrap">
-  <div><h1>Cocoa sourced and controlled <span>at origin.</span></h1>
-  <p>Bundibugyo, western Uganda. Our farmer associations, our collection center and our export warehouse in Kampala: every stage from the farm to the ship.</p></div>
+  <div><h1>We <span>control</span> more<br>than the transaction.</h1><p>From farmer registration in Bundibugyo to inspection, warehousing in Kampala and export, Cocoa Empire manages every critical stage of the cocoa supply chain, from the farm to the ship.</p></div>
   <div class="sp-hs"><div><b>6,000+</b><span>farmers we work with</span></div><div><b>5</b><span>farmer organisations</span></div><div><b>1,000s</b><span>tonnes a year export capacity</span></div></div>
 </div></section>
 <!-- WHAT WE DO -->
 <section class="blk" id="do">
 <div class="caro" id="caro">
     <div class="slide on"><img src="assets/ce-harvest.jpg" alt="Farmer harvesting cocoa at origin" /><div class="cap"><div class="k">Structured farmer &amp; supplier networks across Uganda</div><div class="t">Source</div></div></div>
-    <div class="slide"><img src="assets/ce-control.jpg" alt="Quality control of fresh cocoa pods" /><div class="cap"><div class="k">Inspection, documentation &amp; quality management at origin</div><div class="t">Control</div></div></div>
-    <div class="slide"><img src="assets/ce-fresh.jpg" alt="Extracting fresh cocoa beans at origin" /><div class="cap"><div class="k">Digital records, supply visibility &amp; client-level reporting</div><div class="t">Trace</div></div></div>
-    <div class="slide"><img src="assets/ce-drying.jpg" alt="Sun-drying cocoa beans at origin" /><div class="cap"><div class="k">Sun-dried, consolidated &amp; inspected stock at origin</div><div class="t">Warehouse</div></div></div>
-  </div>
-  <div class="wrap">
-    <div class="do-row rv">
-      <div class="do-tx">
-        <span class="eyebrow">What Cocoa Empire does</span>
-        <h2>We <span class="hl">control</span> more<br />than the transaction.</h2>
-        <p>From farmer registration and field operations to inspection, warehousing and export, Cocoa Empire manages the critical stages of the cocoa supply chain.</p>
-      </div>
-      <div class="do-chain" aria-label="The stages Cocoa Empire controls">
-        <div class="chain-step">
-          <span class="cs-ic"><span class="ms" aria-hidden="true">eco</span></span>
-          <div><b>Source</b><small>Structured farmer &amp; supplier networks across Uganda.</small></div>
-        </div>
-        <div class="chain-step">
-          <span class="cs-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="bd" d="M21.85 12.00 L21.76 12.51 L21.52 13.00 L21.15 13.45 L20.72 13.85 L20.28 14.22 L19.91 14.57 L19.63 14.93 L19.46 15.32 L19.41 15.77 L19.43 16.29 L19.47 16.85 L19.49 17.44 L19.44 18.02 L19.27 18.54 L18.97 18.97 L18.54 19.27 L18.02 19.44 L17.44 19.49 L16.85 19.47 L16.29 19.43 L15.77 19.41 L15.32 19.46 L14.93 19.63 L14.57 19.91 L14.22 20.28 L13.85 20.72 L13.45 21.15 L13.00 21.52 L12.51 21.76 L12.00 21.85 L11.49 21.76 L11.00 21.52 L10.55 21.15 L10.15 20.72 L9.78 20.28 L9.43 19.91 L9.07 19.63 L8.68 19.46 L8.23 19.41 L7.71 19.43 L7.15 19.47 L6.56 19.49 L5.98 19.44 L5.46 19.27 L5.03 18.97 L4.73 18.54 L4.56 18.02 L4.51 17.44 L4.53 16.85 L4.57 16.29 L4.59 15.77 L4.54 15.32 L4.37 14.93 L4.09 14.57 L3.72 14.22 L3.28 13.85 L2.85 13.45 L2.48 13.00 L2.24 12.51 L2.15 12.00 L2.24 11.49 L2.48 11.00 L2.85 10.55 L3.28 10.15 L3.72 9.78 L4.09 9.43 L4.37 9.07 L4.54 8.68 L4.59 8.23 L4.57 7.71 L4.53 7.15 L4.51 6.56 L4.56 5.98 L4.73 5.46 L5.03 5.03 L5.46 4.73 L5.98 4.56 L6.56 4.51 L7.15 4.53 L7.71 4.57 L8.23 4.59 L8.68 4.54 L9.07 4.37 L9.43 4.09 L9.78 3.72 L10.15 3.28 L10.55 2.85 L11.00 2.48 L11.49 2.24 L12.00 2.15 L12.51 2.24 L13.00 2.48 L13.45 2.85 L13.85 3.28 L14.22 3.72 L14.57 4.09 L14.93 4.37 L15.32 4.54 L15.77 4.59 L16.29 4.57 L16.85 4.53 L17.44 4.51 L18.02 4.56 L18.54 4.73 L18.97 5.03 L19.27 5.46 L19.44 5.98 L19.49 6.56 L19.47 7.15 L19.43 7.71 L19.41 8.23 L19.46 8.68 L19.63 9.07 L19.91 9.43 L20.28 9.78 L20.72 10.15 L21.15 10.55 L21.52 11.00 L21.76 11.49Z"/><path class="ck" d="M8.4 12.2l2.4 2.4 4.9-5"/></svg></span>
-          <div><b>Control</b><small>Inspection, grading &amp; quality management at origin.</small></div>
-        </div>
-        <div class="chain-step">
-          <span class="cs-ic"><span class="ms" aria-hidden="true">warehouse</span></span>
-          <div><b>Warehouse</b><small>Sun-dried, consolidated &amp; inspected stock in Kampala.</small></div>
-        </div>
-        <div class="chain-step">
-          <span class="cs-ic"><span class="ms" aria-hidden="true">directions_boat</span></span>
-          <div><b>Export</b><small>EXW Kampala, FOB Mombasa, or CFR / CIF to Europe, Asia &amp; any market.</small><div class="cs-terms"><span>EXW</span><span>FOB</span><span>CFR</span><span>CIF</span></div></div>
-        </div>
-      </div>
-    </div>
+    <div class="slide"><img src="assets/ce-control.jpg" alt="Quality control of fresh cocoa pods" /><div class="cap"><div class="k">Inspection, grading &amp; quality management at origin</div><div class="t">Control</div></div></div>
+    
+    <div class="slide"><img src="assets/ce-drying.jpg" alt="Sun-drying cocoa beans at origin" /><div class="cap"><div class="k">Sun-dried, consolidated &amp; inspected stock in Kampala</div><div class="t">Warehouse</div></div></div>
+    <div class="slide"><img src="assets/gallery-07.jpg" alt="Loading a container for export in Kampala" /><div class="cap"><div class="k">EXW Kampala · FOB Mombasa · CFR / CIF to Europe, Asia &amp; any market</div><div class="t">Export</div></div></div>
   </div>
   </section>
 
-<section class="sp-sec" style="padding-top:0"><div class="wrap">
-  <div class="sp-h"><h2>Our farmer associations</h2><span>Bundibugyo · Rwenzori</span></div>
-  <div class="sp-g">
-    <div><small>Association 01</small><h3>Bundibugyo Town Council Cocoa Farmers Association</h3><p>Smallholder farms on the slopes of the Rwenzori, registered and geolocated plot by plot.</p><div class="n"><span><b>1,124</b><i>farmers</i></span><span><b>1,439</b><i>hectares</i></span></div></div>
-    <div><small>Association 02</small><h3>Bundikakemba 1 Cocoa Farmers Association</h3><p>Smallholder farms supplying our collection center in Bundibugyo, registered and geolocated plot by plot.</p><div class="n"><span><b>1,360</b><i>farmers</i></span><span><b>1,343</b><i>hectares</i></span></div></div>
-    <div><small>Collection center</small><h3>Bundibugyo, western Uganda</h3><p>Cocoa is received, weighed and recorded at our collection center before it travels to our export warehouse in Kampala.</p><div class="n"><span><b>2,463</b><i>farms with GPS</i></span></div></div>
-  </div>
-</div></section>
+<section class="fm" aria-label="Map of our farmer associations">
+  <div class="fmap"><div class="fmin"><img src="assets/supply-relief.jpg" alt="" loading="lazy" /><img src="assets/supply-farms.svg" alt="Map of Bundibugyo District with every registered farm of our two associations" loading="lazy" /></div></div>
+  <div class="wrap fmtx"><span class="fm-k">Every farm, on the map</span><h2>Our farmer associations</h2><p>Bundibugyo District, on the western slopes of the Rwenzori, along the border with DR Congo. Every dot is a registered, geolocated farm.</p></div>
+  <div class="wrap fmst"><div style="--c:#8FD3B4"><b>1,124</b><span>farmers · 1,439 ha<br>Bundibugyo Town Council</span></div><div style="--c:#E3B873"><b>1,360</b><span>farmers · 1,343 ha<br>Bundikakemba 1</span></div><div style="--c:#fff"><b>2,463</b><span>farms with GPS<br>Collection center, Bundibugyo</span></div></div>
+  <small class="fm-cr">Relief: Mapzen Terrain Tiles · Boundaries © OpenStreetMap contributors</small>
+</section>
 </main>
 
 <footer>
