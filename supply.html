@@ -632,7 +632,7 @@ nav.main a[aria-current]{color:#fff;position:relative}nav.main a[aria-current]:a
 .sv1-bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.4s ease}
 .sv1-bg img.on{opacity:1}
 .sv1::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,#F6F7F5 0%,rgba(246,247,245,0) 18%),linear-gradient(90deg,rgba(11,63,49,.92) 0%,rgba(11,63,49,.6) 45%,rgba(11,63,49,.15) 100%)}
-.sv1-tx{position:relative;z-index:2;padding-top:190px}.sv1-st{transition:opacity .45s ease}.sv1-st.fade{opacity:0}.sv1-st div{max-width:230px}
+.sv1-tx{position:relative;z-index:2;padding-top:190px}.sv1-st{transition:opacity .45s ease}.sv1-st.fade{opacity:0}.sv1-st div{max-width:230px}.sv1-st b{white-space:nowrap}
 .sv1 h1{font-size:clamp(34px,4vw,56px);line-height:1.02;font-weight:800;letter-spacing:-.03em}.sv1 h1 span{color:#8FD3B4}
 .sv1 p{font-size:15px;line-height:1.6;color:rgba(255,255,255,.8);max-width:540px;margin-top:14px}
 .sv1-st{display:flex;margin-top:28px}.sv1-st div{padding:12px 26px 4px;border-left:1px solid rgba(255,255,255,.2)}.sv1-st div:first-child{padding-left:0;border-left:0}
@@ -838,7 +838,7 @@ document.querySelectorAll('.scard .mrow').forEach(function(r){r.addEventListener
 <script src="https://platform.cocoaempire.com/widget.js" defer></script>
 <script>
 (function(){var r=document.getElementById('sv1');if(!r)return;var im=r.querySelectorAll('.sv1-bg img'),bt=document.querySelectorAll('.sv1-stg button'),i=0,t;
-var D=[[["6,000+", "farmers we work with"], ["5", "farmer organisations"], ["1,000s", "tonnes a year export capacity"]], [["2,463", "farms geolocated by GPS"], ["100%", "of lots inspected by SGS"], ["3", "certifications: Fairtrade, EU &amp; USDA organic"]], [["2", "sites: Bundibugyo collection center &amp; Kampala export warehouse"], ["370 km", "from the farms to Kampala"], ["100%", "of bags weighed, sampled &amp; recorded"]], [["3", "markets: Europe, Asia &amp; the United States"], ["4", "Incoterms: EXW, FOB, CFR &amp; CIF"], ["1,150 km", "from Kampala to the port of Mombasa"]]],st=r.querySelector('.sv1-st');function go(n){im[i].classList.remove('on');bt[i].classList.remove('on');i=n;im[i].classList.add('on');bt[i].classList.add('on');st.classList.add('fade');setTimeout(function(){st.innerHTML=D[i].map(function(x){return '<div><b>'+x[0]+'</b><span>'+x[1]+'</span></div>'}).join('');st.classList.remove('fade')},450)}
+var D=[[["6,000+", "farmers we work with"], ["5", "farmer organisations"], ["1,000s", "tonnes a year export capacity"]], [["2,463", "farms geolocated"], ["100%", "of lots inspected by SGS"], ["3", "Fairtrade &amp; organic certifications"]], [["2", "sites in Bundibugyo &amp; Kampala"], ["370 km", "from farm to Kampala"], ["100%", "of bags weighed &amp; sampled"]], [["3", "markets: EU, Asia &amp; US"], ["4", "Incoterms offered"], ["1,150 km", "Kampala to Mombasa port"]]],st=r.querySelector('.sv1-st');function go(n){im[i].classList.remove('on');bt[i].classList.remove('on');i=n;im[i].classList.add('on');bt[i].classList.add('on');st.classList.add('fade');setTimeout(function(){st.innerHTML=D[i].map(function(x){return '<div><b>'+x[0]+'</b><span>'+x[1]+'</span></div>'}).join('');st.classList.remove('fade')},450)}
 function run(){clearInterval(t);t=setInterval(function(){go((i+1)%im.length)},6000)}
 bt.forEach(function(b){b.addEventListener('click',function(){go(+b.dataset.i);run()})});run()})();
 </script></body>
