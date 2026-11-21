@@ -569,6 +569,14 @@ footer{background:var(--deep);color:rgba(255,255,255,.7);padding:48px 0 24px}
 footer{padding:40px 0 20px}
 @media (max-width:900px){.f-top{grid-template-columns:1fr;gap:30px}.f-brand .f-contact{max-width:none}}
 @media (max-width:560px){.f-top .f-addr{grid-template-columns:1fr;gap:22px}.f-cert h5{width:100%;margin-bottom:2px}.f-cert .fc-txt{flex:1 1 calc(100% - 50px)}}
+
+/* 21-nov-2026 · menú al bajar: idea 2 «cristal oscuro» (Iván), en todas las páginas */
+header.solid{background:rgba(8,40,31,.72)!important;backdrop-filter:blur(18px) saturate(1.3)!important;-webkit-backdrop-filter:blur(18px) saturate(1.3)!important;border-color:rgba(143,211,180,.35)!important}
+header.solid .logo{filter:brightness(0) invert(1)!important}
+header.solid nav.main a{color:rgba(255,255,255,.78)!important}
+header.solid nav.main a[aria-current],header.solid nav.main a:hover{color:#fff!important}
+header.solid .pa-btn{border-color:rgba(255,255,255,.55)!important;color:#fff!important}
+header.solid nav.main a[aria-current]:after{background:#8FD3B4!important}
 </style>
 </head>
 <body>
