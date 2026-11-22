@@ -656,7 +656,28 @@ nav.main a[aria-current]{color:#fff;position:relative}nav.main a[aria-current]:a
 .pc-f span{letter-spacing:.06em!important}.pc-f{flex-wrap:nowrap!important}
 @media(min-width:1181px){.pc:nth-child(3n+1){padding-left:0!important}.pc:nth-child(3n){padding-right:0!important}.pc:not(:nth-child(3n)){border-right:1px solid #E4E8E5!important}.pc:nth-child(-n+3){border-bottom:1px solid #E4E8E5!important}}
 @media(min-width:641px) and (max-width:1180px){.pc:nth-child(odd){border-right:1px solid #E4E8E5!important;padding-left:0!important}.pc:nth-child(even){padding-right:0!important}.pc:nth-child(-n+4){border-bottom:1px solid #E4E8E5!important}}
-@media(max-width:640px){.pc{padding:22px 0!important}.pc:not(:last-child){border-bottom:1px solid #E4E8E5!important}}</style></head>
+@media(max-width:640px){.pc{padding:22px 0!important}.pc:not(:last-child){border-bottom:1px solid #E4E8E5!important}}</style><style id="pac">/* Private Access · opción C (Iván, 22-nov-2026): banda verde que sigue a la cabecera,
+   tres columnas con filete blanco fino, y abajo para quién es + «Sign in». Sin tarjetas ni sombras. */
+.pa-panel{background:#0E4938;border:0;box-shadow:none}
+.pa-inner{padding:38px 40px 42px;gap:48px}
+.pa-lead .eyebrow{color:rgba(255,255,255,.55)}
+.pa-lead h4{color:#fff}
+.pa-lead p{color:rgba(255,255,255,.72);max-width:250px}
+.pa-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));background:none;border-radius:0;box-shadow:none;overflow:visible}
+.pa-item{display:flex;flex-direction:column;align-items:stretch;gap:0;padding:4px 28px 0;border-left:1px solid rgba(255,255,255,.18);background:none!important;color:#fff;transition:none}
+.pa-item + .pa-item{border-top:0}
+.pa-ic,.pa-item:hover .pa-ic{width:auto;height:auto;border-radius:0;background:none;color:#9FD3B9;justify-content:flex-start}
+.pa-tx{display:block;flex:1}
+.pa-tx b,.pa-item:hover .pa-tx b{display:block;margin-top:16px;font-size:17px;color:#fff}
+.pa-tx b .arw{display:none}
+.pa-tx span,.pa-item:hover .pa-tx span{margin-top:6px;font-size:13.5px;line-height:1.5;color:rgba(255,255,255,.72)}
+.pa-ft{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:22px;padding-top:14px;border-top:1px solid rgba(255,255,255,.18)}
+.pa-ft small{white-space:nowrap;font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.pa-go{display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:600;color:#fff;white-space:nowrap}
+.pa-go svg{transition:transform .2s}
+.pa-item:hover .pa-go{color:#9FD3B9}.pa-item:hover .pa-go svg{transform:translateX(3px)}
+@media(max-width:960px){.pa-inner{padding:26px 24px 28px}.pa-grid{grid-template-columns:1fr}.pa-item{border-left:0;padding:16px 0 0;border-top:1px solid rgba(255,255,255,.18)!important}.pa-item:first-child{border-top:0!important;padding-top:0}.pa-tx b{margin-top:10px}.pa-ft{margin-top:14px;padding:10px 0 4px;border-top:0}}
+</style></head>
 <body>
 
 <header id="hdr">
@@ -684,20 +705,23 @@ nav.main a[aria-current]{color:#fff;position:relative}nav.main a[aria-current]:a
       <div class="pa-lead">
         <span class="eyebrow">Private Access</span>
         <h4>The Cocoa Empire operating gateway.</h4>
-        <p>Secure environments for clients and internal teams.</p>
+        <p>Secure environments for clients, our team and financing partners. Access by invitation only.</p>
       </div>
       <div class="pa-grid">
         <a class="pa-item" href="https://platform.cocoaempire.com/?role=customer" target="_blank" rel="noopener">
-          <span class="pa-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18M8 21h8"/></svg></span>
-          <span class="pa-tx"><b>Client Portal <span class="arw">→</span></b><span>Supply visibility, orders and documents.</span></span>
+          <span class="pa-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18M8 21h8"/></svg></span>
+          <span class="pa-tx"><b>Client Portal</b><span>Supply visibility, orders and documents.</span></span>
+          <span class="pa-ft"><small>Clients</small><span class="pa-go">Sign in <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
         </a>
         <a class="pa-item" href="https://platform.cocoaempire.com/?role=team" target="_blank" rel="noopener">
-          <span class="pa-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="18" cy="9" r="2.4"/></svg></span>
-          <span class="pa-tx"><b>Team Platform <span class="arw">→</span></b><span>Deals, quality and logistics operations.</span></span>
+          <span class="pa-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="18" cy="9" r="2.4"/></svg></span>
+          <span class="pa-tx"><b>Team Platform</b><span>Deals, quality and logistics operations.</span></span>
+          <span class="pa-ft"><small>Our team</small><span class="pa-go">Sign in <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
         </a>
-        <a class="pa-item" href="https://platform.cocoaempire.com/?role=team" target="_blank" rel="noopener">
-          <span class="pa-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 4-6"/></svg></span>
-          <span class="pa-tx"><b>Deal Desk <span class="arw">→</span></b><span>Live and past cycles under NDA.</span></span>
+        <a class="pa-item" href="https://platform.cocoaempire.com/dataroom" target="_blank" rel="noopener">
+          <span class="pa-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 7.5A1.5 1.5 0 0 1 5.5 6H10l2 2h6.5A1.5 1.5 0 0 1 20 9.5v8a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 17.5z"/><rect x="9.5" y="12" width="5" height="4" rx=".6"/><path d="M10.6 12v-1a1.4 1.4 0 0 1 2.8 0v1"/></svg></span>
+          <span class="pa-tx"><b>Data Room</b><span>Company documents for financing partners, under NDA.</span></span>
+          <span class="pa-ft"><small>Financiers</small><span class="pa-go">Sign in <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
         </a>
       </div>
     </div>
