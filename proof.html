@@ -889,5 +889,58 @@ fetch('https://platform.cocoaempire.com/api/doc-request',{method:'POST',headers:
 .then(function(r){return r.json().then(function(j){if(!r.ok||!j.ok)throw 0})}).then(function(){box.classList.add('done');ok.hidden=false;f.reset();t=setTimeout(close,3000)})
 .catch(function(){msg.textContent='Something went wrong. Please write to hello@cocoaempire.com.'}).then(function(){btn.disabled=false;btn.innerHTML=lbl})});
 })();
-</script></body>
+</script><!-- MENÚ EN EL MÓVIL (Iván, 23/24-nov-2026: «en el responsive no se ve el menú de la web»).
+     Por debajo de 960 px el menú de arriba se ocultaba y no había nada que lo sustituyera.
+     Ahora sale el botón de tres rayas pegado a los de la cabecera; abre un panel verde con
+     las mismas cinco páginas (la actual marcada) y WhatsApp. En pantallas de menos de
+     520 px el botón de WhatsApp de la cabecera cede su sitio a las rayas y pasa al panel. -->
+<style id="mnav">
+.mnav-b{display:none;height:46px;width:48px;border:1.5px solid rgba(255,255,255,.45);border-left:1px solid rgba(255,255,255,.25);background:none;color:#fff;border-radius:0 4px 4px 0;align-items:center;justify-content:center;cursor:pointer;padding:0;transition:background .2s}
+.mnav-b:hover{background:rgba(255,255,255,.1)}
+.mnav-b i,.mnav-b i:before,.mnav-b i:after{display:block;width:18px;height:1.8px;background:currentColor;border-radius:1px;position:relative}
+.mnav-b i:before,.mnav-b i:after{content:"";position:absolute;left:0}.mnav-b i:before{top:-6px}.mnav-b i:after{top:6px}
+@media(max-width:960px){.mnav-b{display:flex}.hactions .wx{border-radius:0!important}}
+@media(max-width:520px){.mnav-b{height:38px;width:42px}.hactions .wx{display:none!important}.hactions .pa-btn{border-radius:4px 0 0 4px!important}}
+.mnav{position:fixed;inset:0;z-index:9999;background:linear-gradient(180deg,#0E4938 0%,#0B3F31 100%);color:#fff;display:flex;flex-direction:column;padding:22px 24px calc(28px + env(safe-area-inset-bottom));opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity .22s ease,transform .22s ease,visibility 0s .22s;overflow-y:auto}
+.mnav.on{opacity:1;visibility:visible;transform:none;transition:opacity .22s ease,transform .22s ease}
+.mnav-h{display:flex;align-items:center;justify-content:space-between;height:46px}
+.mnav-h img{height:30px;filter:brightness(0) invert(1)}
+.mnav-x{width:42px;height:42px;border-radius:50%;border:1.5px solid rgba(255,255,255,.35);background:none;color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0}
+.mnav-x:focus{outline:0}.mnav-x:focus-visible{box-shadow:0 0 0 3px rgba(143,211,180,.35)}
+.mnav-l{margin-top:34px;display:flex;flex-direction:column}
+.mnav-l a{display:flex;align-items:center;justify-content:space-between;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.14);font-size:24px;font-weight:600;letter-spacing:-.01em;color:#fff;text-decoration:none}
+.mnav-l a:first-child{border-top:1px solid rgba(255,255,255,.14)}
+.mnav-l a svg{opacity:.45;flex:none}
+.mnav-l a[aria-current]{color:#8FD3B4}.mnav-l a[aria-current] svg{opacity:1}
+.mnav-f{margin-top:auto;padding-top:30px;display:flex;flex-direction:column;gap:12px}
+.mnav-f a{display:flex;align-items:center;justify-content:center;gap:10px;height:52px;border-radius:26px;font-size:15px;font-weight:600;text-decoration:none}
+.mnav-f .w{background:#fff;color:#0E4938}.mnav-f .w svg{color:#25A35A}
+.mnav-f .m{border:1.5px solid rgba(255,255,255,.4);color:#fff}
+html.mnav-lock,html.mnav-lock body{overflow:hidden}
+@media(min-width:961px){.mnav{display:none}}
+</style>
+<script id="mnavjs">
+(function(){
+  var nav=document.querySelector('header nav.main'), act=document.querySelector('header .hactions');
+  if(!nav||!act) return;
+  var b=document.createElement('button'); b.type='button'; b.className='mnav-b'; b.setAttribute('aria-label','Menu'); b.setAttribute('aria-expanded','false'); b.innerHTML='<i></i>';
+  act.appendChild(b);
+  var logo=document.querySelector('header .logo'), wx=document.querySelector('header .wx');
+  var arrow='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>';
+  var p=document.createElement('div'); p.className='mnav'; p.setAttribute('role','dialog'); p.setAttribute('aria-modal','true'); p.setAttribute('aria-label','Menu');
+  var links=[].map.call(nav.querySelectorAll('a'),function(a){return '<a href="'+a.getAttribute('href')+'"'+(a.hasAttribute('aria-current')?' aria-current="page"':'')+'>'+a.textContent+arrow+'</a>';}).join('');
+  p.innerHTML='<div class="mnav-h">'+(logo?'<img src="'+logo.getAttribute('src')+'" alt="Cocoa Empire">':'<span></span>')+
+    '<button type="button" class="mnav-x" aria-label="Close"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>'+
+    '<nav class="mnav-l">'+links+'</nav>'+
+    '<div class="mnav-f">'+(wx?'<a class="w" href="'+wx.getAttribute('href')+'" target="_blank" rel="noopener">'+wx.innerHTML+'Chat on WhatsApp</a>':'')+'</div>';
+  document.body.appendChild(p);
+  function set(on){p.classList.toggle('on',on);document.documentElement.classList.toggle('mnav-lock',on);b.setAttribute('aria-expanded',on?'true':'false');if(on){p.querySelector('.mnav-x').focus();}else{b.focus();}}
+  b.addEventListener('click',function(){set(true)});
+  p.querySelector('.mnav-x').addEventListener('click',function(){set(false)});
+  p.addEventListener('click',function(e){if(e.target.closest('.mnav-l a'))set(false)});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&p.classList.contains('on'))set(false)});
+  window.addEventListener('resize',function(){if(window.innerWidth>960&&p.classList.contains('on'))set(false)});
+})();
+</script>
+</body>
 </html>
